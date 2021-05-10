@@ -65,10 +65,15 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="Order.cs" />
     <Compile Include="DataContext.cs" />
+    <Compile Include="Customer.cs" />
     <Compile Include="LoggedInOptions.xaml.cs">
       <DependentUpon>LoggedInOptions.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Magazijn.cs" />
+    <Compile Include="Product.cs" />
+    <Compile Include="ProductsMagazijn.cs" />
     <Compile Include="Role.cs" />
     <Compile Include="User.cs" />
     <Compile Include="UserRole.cs" />

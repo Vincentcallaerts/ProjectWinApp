@@ -18,6 +18,13 @@ namespace ProjectWinApp
         public DbSet<User> User { get; set; }
         public DbSet<Role> Role { get; set; }
         public DbSet<UserRole> UserRole { get; set; }
-    } 
+        public DbSet<Magazijn> Magazijn { get; set; }
+        public DbSet<Product> Product { get; set; }
+        public DbSet<ProductsMagazijn> ProductsMagazijn { get; set; }
+        public DbSet<Customer> Customer { get; set; }
+        public DbSet<Order> Order { get; set; }
+
+
+    }
 }
 

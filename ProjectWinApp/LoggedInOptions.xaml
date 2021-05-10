@@ -7,7 +7,7 @@
         mc:Ignorable="d"
         Title="LoggedInOptions" Height="450" Width="800">
     <DockPanel>
-        <StackPanel DockPanel.Dock="Top" Height="400">
+        <StackPanel DockPanel.Dock="Top" Height="390">
             <Button>DataBeheer</Button>
             <Button>Overzicht</Button>
             <Button>Bestellingen</Button>

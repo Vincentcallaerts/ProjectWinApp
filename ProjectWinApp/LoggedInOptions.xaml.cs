@@ -23,9 +23,17 @@ namespace ProjectWinApp
         public LoggedInOptions(User loggedIn)
         {
             InitializeComponent();
-            LoggedIn = loggedIn;
-            tbInfo.Text = $"Logged in as {loggedIn.FirstName} {loggedIn.LastName} : {loggedIn.RoleId}";
-        }
 
+            LoggedIn = loggedIn;
+            string role = String.Empty;
+
+            using (DataContext data = new DataContext())
+            {
+                var collection = data.Role.Where(r => r.UserId == LoggedIn.UserId).FirstOrDefault();
+                var collection2 = data.UserRole.Where(r => r.UserRoleId == collection.UserRoleId).FirstOrDefault();
+
+                tbInfo.Text = $"Logged in as {loggedIn.FirstName} {loggedIn.LastName} : {collection2.Description}";
+            }          
+        }
     }
 }

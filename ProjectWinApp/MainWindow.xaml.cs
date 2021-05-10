@@ -24,7 +24,7 @@ namespace ProjectWinApp
         public MainWindow()
         {
             InitializeComponent();
-            CreateDbInfo();
+            //CreateDbInfo();
         }
 
         private void LogIn(object sender, RoutedEventArgs e)
@@ -56,6 +56,9 @@ namespace ProjectWinApp
                 data.UserRole.Add(new UserRole() { Description = "Verkoper" });
 
                 data.User.Add(new User() { RoleId = 1, FirstName = "Vincent", LastName = "Callaerts", Email = "Enail@gmail.com", Password = "42069" });
+                data.SaveChanges();
+
+                data.Role.Add(new Role() { UserId = 1, UserRoleId = 1 });
                 data.SaveChanges();
             }
         }

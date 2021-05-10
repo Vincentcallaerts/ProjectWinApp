@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace ProjectWinApp
 {
-    class User
+    public class User
     {
         public int UserId { get; set; }    
         public int RoleId { get; set; }

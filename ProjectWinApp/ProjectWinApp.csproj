@@ -66,9 +66,16 @@
       <SubType>Designer</SubType>
     </ApplicationDefinition>
     <Compile Include="DataContext.cs" />
+    <Compile Include="LoggedInOptions.xaml.cs">
+      <DependentUpon>LoggedInOptions.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Role.cs" />
     <Compile Include="User.cs" />
     <Compile Include="UserRole.cs" />
+    <Page Include="LoggedInOptions.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="MainWindow.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>

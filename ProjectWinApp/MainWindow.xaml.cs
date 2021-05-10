@@ -20,21 +20,25 @@ namespace ProjectWinApp
     /// </summary>
     public partial class MainWindow : Window
     {
+        private User LoginAtempt { get; set; }    
         public MainWindow()
         {
             InitializeComponent();
-            //CreateDbInfo();
+            CreateDbInfo();
         }
 
         private void LogIn(object sender, RoutedEventArgs e)
         {
             using (DataContext data = new DataContext())
             {
-                User loginAtempt = data.User.Where(u => u.Email == tbEmail.Text && u.Password == tbPassword.Text).FirstOrDefault();
+                LoginAtempt = data.User.Where(u => u.Email == tbEmail.Text && u.Password == tbPassword.Text).FirstOrDefault();
 
-                if (loginAtempt != null)
+                if (LoginAtempt != null)
                 {
-                    MessageBox.Show($"Logged In als {loginAtempt.FirstName} {loginAtempt.LastName}");
+                    //MessageBox.Show($"Logged In als {LoginAtempt.FirstName} {LoginAtempt.LastName}");
+                    LoggedInOptions loginSucces = new LoggedInOptions(LoginAtempt);
+                    loginSucces.Show();
+                    this.Close();
                 }
                 else
                 {

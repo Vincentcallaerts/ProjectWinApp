@@ -62,6 +62,16 @@ namespace ProjectWinApp
                 data.SaveChanges();
             }
         }
+
+        private void LogInQuick(object sender, RoutedEventArgs e)
+        {
+            using (DataContext data = new DataContext())
+            {
+                LoginAtempt = data.User.Where(u => u.UserId == 1).FirstOrDefault();
+                LoggedInOptions loginSucces = new LoggedInOptions(LoginAtempt);
+                loginSucces.Show();
+                this.Close();
+            }
+        }
     }
-    
 }

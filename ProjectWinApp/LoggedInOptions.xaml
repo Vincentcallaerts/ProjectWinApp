@@ -16,10 +16,14 @@
 
     <DockPanel>
         <StatusBar DockPanel.Dock="Bottom">
-            <StatusBarItem>
-                <TextBlock VerticalAlignment="Top" x:Name="tbInfo"></TextBlock>
+            <StatusBarItem HorizontalAlignment="Left">
+                <TextBlock x:Name="tbInfo"></TextBlock>
+            </StatusBarItem>
+            <StatusBarItem HorizontalAlignment="Right">
+                <TextBlock  x:Name="tbTime"></TextBlock>
             </StatusBarItem>
         </StatusBar>
+        
         <StackPanel DockPanel.Dock="Top" >
             <Label HorizontalAlignment="Center" Margin="0,10,0,10" BorderBrush="Black" BorderThickness="1">Welkom</Label>
             <Button>DataBeheer</Button>

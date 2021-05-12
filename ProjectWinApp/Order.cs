@@ -20,6 +20,10 @@ namespace ProjectWinApp
         public int CustomerId { get; set; }
         public Customer Customer { get; set; }
 
+        [ForeignKey("Magazijn")]
+        public int MagazijnId { get; set; }
+        public Magazijn Magazijn { get; set; }
+
         public int Amount { get; set; }
 
 

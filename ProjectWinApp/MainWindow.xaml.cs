@@ -24,7 +24,7 @@ namespace ProjectWinApp
         public MainWindow()
         {
             InitializeComponent();
-            CreateDbInfo();
+            //CreateDbInfo();
         }
 
         private void LogIn(object sender, RoutedEventArgs e)

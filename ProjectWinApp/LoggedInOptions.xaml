@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:ProjectWinApp"
         mc:Ignorable="d"
-        Title="LoggedInOptions" Height="450" Width="800">
+        Title="" Height="450" Width="800">
     <Window.Resources>
         <!--A Style that affects all TextBlocks-->
         <Style TargetType="Button">
@@ -15,7 +15,7 @@
     </Window.Resources>
 
     <DockPanel>
-        <StatusBar DockPanel.Dock="Bottom">
+        <StatusBar x:Name="sbInfo" DockPanel.Dock="Bottom">
             <StatusBarItem HorizontalAlignment="Left">
                 <TextBlock x:Name="tbInfo"></TextBlock>
             </StatusBarItem>
@@ -25,10 +25,13 @@
         </StatusBar>
         
         <StackPanel DockPanel.Dock="Top" >
-            <Label HorizontalAlignment="Center" Margin="0,10,0,10" BorderBrush="Black" BorderThickness="1">Welkom</Label>
-            <Button>DataBeheer</Button>
-            <Button>Overzicht</Button>
-            <Button>Bestellingen</Button>
+            <Label x:Name="lbtitle" HorizontalAlignment="Center" Margin="0,10,0,10" BorderBrush="Black" BorderThickness="1">Welkom</Label>
+            <WrapPanel HorizontalAlignment="Center" x:Name="wpButtons" Margin="0,0,0,10">
+                <Button IsEnabled="False">DataBeheer</Button>
+                <Button>Overzicht</Button>
+                <Button>Bestellingen</Button>
+            </WrapPanel>
+            <Frame x:Name="fContent"></Frame>
         </StackPanel>
         
     </DockPanel>

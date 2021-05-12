@@ -37,10 +37,13 @@ namespace ProjectWinApp
 
                 tbInfo.Text = $"Logged in as {loggedIn.FirstName} {loggedIn.LastName} : {collection2.Description}";
             }
+            fContent.Content = new DataManagement();
+
         }
 
         void CompositionTarget_Rendering(object sender, System.EventArgs e)
         {
+            fContent.Height = this.ActualHeight - wpButtons.ActualHeight - lbtitle.ActualHeight - sbInfo.ActualHeight;
             UpdateTime();
         }
         private void UpdateTime()

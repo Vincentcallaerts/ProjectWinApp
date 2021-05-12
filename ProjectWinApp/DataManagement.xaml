@@ -10,8 +10,7 @@
 
     <DockPanel>
         <StackPanel DockPanel.Dock="Left" Width="150" Background="Red">
-            <Label>Controls</Label>
-            <Separator/>
+            <Label BorderBrush="Black" BorderThickness="2" Margin="0,0,0,10">Controls</Label>
             <Button>Button</Button>
             <Button>Button</Button>
             <Button>Button</Button>

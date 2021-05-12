@@ -31,11 +31,9 @@ namespace ProjectWinApp
 
             using (DataContext data = new DataContext())
             {
-                //maak hier join van voor snelheid
-                var collection = data.Role.Where(r => r.UserId == LoggedIn.UserId).FirstOrDefault();
-                var collection2 = data.UserRole.Where(r => r.UserRoleId == collection.UserRoleId).FirstOrDefault();
+                var collection = data.UserRole.FirstOrDefault(u => u.UserRoleId == LoggedIn.UserRoleId);
 
-                tbInfo.Text = $"Logged in as {loggedIn.FirstName} {loggedIn.LastName} : {collection2.Description}";
+                tbInfo.Text = $"Logged in as {LoggedIn.FirstName} {LoggedIn.LastName} : {collection.Description}";
             }
             fContent.Content = new DataManagement();
 
@@ -48,7 +46,7 @@ namespace ProjectWinApp
         }
         private void UpdateTime()
         {
-            tbTime.Text = DateTime.Now.ToString("hh:mm:ss tt");
+            tbTime.Text = DateTime.Now.ToString("HH:mm:ss");
         }
     }
 }

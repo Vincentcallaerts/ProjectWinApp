@@ -77,7 +77,6 @@
     <Compile Include="Magazijn.cs" />
     <Compile Include="Product.cs" />
     <Compile Include="ProductsMagazijn.cs" />
-    <Compile Include="Role.cs" />
     <Compile Include="User.cs" />
     <Compile Include="UserRole.cs" />
     <Page Include="DataManagement.xaml">

@@ -8,13 +8,13 @@
       d:DesignHeight="450" d:DesignWidth="800"
       Title="AddCustomer">
 
-    <StackPanel Background="White">
+    <StackPanel HorizontalAlignment="Center" Background="White">
 
         <Label>Customer Name</Label>
-        <TextBox x:Name="tbfirst"></TextBox>
+        <TextBox x:Name="tbName"></TextBox>
         <Label>Customer Email</Label>
-        <TextBox x:Name="tbemail"></TextBox>
-        <Button x:Name="btnAddCustomer" Click="btnAddCustomer_Click">Add Customer</Button>
+        <TextBox x:Name="tbEmail"></TextBox>
+        <Button x:Name="btnAddCustomer" Click="btnAddCustomer_Click" Margin="0,10,0,0">Add Customer</Button>
         
     </StackPanel>
 </Page>

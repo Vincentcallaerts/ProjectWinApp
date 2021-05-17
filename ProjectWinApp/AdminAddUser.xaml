@@ -8,7 +8,7 @@
       d:DesignWidth="650"
       Title="AdminAddUser">
 
-    <StackPanel Background="White">
+    <StackPanel HorizontalAlignment="Center" Background="White">
         
         <Label>User Role</Label>
         <ComboBox x:Name="cmbRole" SelectedValuePath="Id">

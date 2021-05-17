@@ -16,22 +16,13 @@ using System.Windows.Shapes;
 namespace ProjectWinApp
 {
     /// <summary>
-    /// Interaction logic for AddCustomer.xaml
+    /// Interaction logic for RemoveMagazijn.xaml
     /// </summary>
-    public partial class AddCustomer : Page
+    public partial class RemoveMagazijn : Page
     {
-        public AddCustomer()
+        public RemoveMagazijn()
         {
             InitializeComponent();
-        }
-
-        private void btnAddCustomer_Click(object sender, RoutedEventArgs e)
-        {
-            using (DataContext data = new DataContext())
-            {              
-                data.Customer.Add(new Customer() {Name = tbName.Text, Email = tbEmail.Text});
-                data.SaveChanges();
-            }
         }
     }
 }

@@ -87,6 +87,15 @@
     <Compile Include="Magazijn.cs" />
     <Compile Include="Product.cs" />
     <Compile Include="ProductsMagazijn.cs" />
+    <Compile Include="RemoveCustomer.xaml.cs">
+      <DependentUpon>RemoveCustomer.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="RemoveMagazijn.xaml.cs">
+      <DependentUpon>RemoveMagazijn.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="RemoveUser.xaml.cs">
+      <DependentUpon>RemoveUser.xaml</DependentUpon>
+    </Compile>
     <Compile Include="User.cs" />
     <Compile Include="UserRole.cs" />
     <Page Include="AddCustomer.xaml">
@@ -121,6 +130,18 @@
       <DependentUpon>MainWindow.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
+    <Page Include="RemoveCustomer.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="RemoveMagazijn.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="RemoveUser.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Properties\AssemblyInfo.cs">

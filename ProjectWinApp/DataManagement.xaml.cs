@@ -36,5 +36,31 @@ namespace ProjectWinApp
         {
             adminDataBeheer.Content = new AdminAddUser();
         }
+
+        private void btnAddCustomer_Click(object sender, RoutedEventArgs e)
+        {
+            adminDataBeheer.Content = new AddCustomer();
+        }
+
+        private void btnAddMagazijn_Click(object sender, RoutedEventArgs e)
+        {
+            adminDataBeheer.Content = new AddMagazijn();
+        }
+
+        private void btnRemoveUser_Click(object sender, RoutedEventArgs e)
+        {
+            adminDataBeheer.Content = new RemoveUser();
+        }
+
+        private void btnRemoveCustomer_Click(object sender, RoutedEventArgs e)
+        {
+            adminDataBeheer.Content = new RemoveCustomer();
+
+        }
+
+        private void btnRemoveMagazijn_Click(object sender, RoutedEventArgs e)
+        {
+            adminDataBeheer.Content = new RemoveMagazijn();
+        }
     }
 }

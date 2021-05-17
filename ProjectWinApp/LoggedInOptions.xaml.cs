@@ -49,10 +49,7 @@ namespace ProjectWinApp
                 var collection = data.UserRole.FirstOrDefault(u => u.UserRoleId == LoggedIn.UserRoleId);
 
                 tbInfo.Text = $"Logged in as {LoggedIn.FirstName} {LoggedIn.LastName} : {collection.Description}";
-                if (collection.Description == "Administrator")
-                {
-                    btnBestellingen.Visibility = Visibility.Collapsed;
-                }
+                
             }
         }
 
@@ -63,7 +60,6 @@ namespace ProjectWinApp
             {
                 case 1:
                     btnDataBeheer.IsEnabled = false;
-
                     fContent.Content = new DataManagement();
                     break;
                 case 2:

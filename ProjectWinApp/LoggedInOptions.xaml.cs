@@ -23,19 +23,13 @@ namespace ProjectWinApp
         public DateTime Time { get; set; }
         public LoggedInOptions(User loggedIn)
         {
-            InitializeComponent();
-            UpdateTime();
-            CompositionTarget.Rendering += CompositionTarget_Rendering;
-
             LoggedIn = loggedIn;
 
-            using (DataContext data = new DataContext())
-            {
-                var collection = data.UserRole.FirstOrDefault(u => u.UserRoleId == LoggedIn.UserRoleId);
-
-                tbInfo.Text = $"Logged in as {LoggedIn.FirstName} {LoggedIn.LastName} : {collection.Description}";
-            }
-            fContent.Content = new DataManagement();
+            InitializeComponent();
+            SetInfo();
+            UpdateTime();
+            
+            CompositionTarget.Rendering += CompositionTarget_Rendering;
 
         }
 
@@ -47,6 +41,36 @@ namespace ProjectWinApp
         private void UpdateTime()
         {
             tbTime.Text = DateTime.Now.ToString("HH:mm:ss");
+        }
+        private void SetInfo()
+        {
+            using (DataContext data = new DataContext())
+            {
+                var collection = data.UserRole.FirstOrDefault(u => u.UserRoleId == LoggedIn.UserRoleId);
+
+                tbInfo.Text = $"Logged in as {LoggedIn.FirstName} {LoggedIn.LastName} : {collection.Description}";
+                if (collection.Description == "Administrator")
+                {
+                    btnBestellingen.Visibility = Visibility.Collapsed;
+                }
+            }
+        }
+
+        private void btnDataBeheer_Click(object sender, RoutedEventArgs e)
+        {
+
+            switch (LoggedIn.UserRoleId)
+            {
+                case 1:
+                    btnDataBeheer.IsEnabled = false;
+
+                    fContent.Content = new DataManagement();
+                    break;
+                case 2:
+                    break;
+                case 3:
+                    break;
+            }
         }
     }
 }

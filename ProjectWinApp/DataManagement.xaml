@@ -9,17 +9,14 @@
       Title="DataManagement">
 
     <DockPanel>
-        <StackPanel DockPanel.Dock="Left" Width="150" Background="Red">
+        <StackPanel DockPanel.Dock="Left" Width="150" Background="AliceBlue">
             <Label BorderBrush="Black" BorderThickness="2" Margin="0,0,0,10">Controls</Label>
-            <Button>Button</Button>
-            <Button>Button</Button>
-            <Button>Button</Button>
-            <Button>Button</Button>
-            <Button>Button</Button>
+            <Button x:Name="btnAddUser" Click="btnAddUser_Click">Add User</Button>
+            <Button x:Name="btnAddCustomer" Click="btnAddCustomer_Click">Add Customer</Button>
+            <Button x:Name="btnAddMagazijn" Click="btnAddMagazijn_Click">Add Magazijn</Button>
+            <Button x:Name="btnBlank" Click="btnBlank_Click">Empty</Button>
         </StackPanel>
-        <StackPanel DockPanel.Dock="Right" Width="650" Background="White">
-            
-        </StackPanel>
+        <Frame x:Name="adminDataBeheer" DockPanel.Dock="Right" Width="650" Background="White"></Frame>
         
     </DockPanel>
 </Page>

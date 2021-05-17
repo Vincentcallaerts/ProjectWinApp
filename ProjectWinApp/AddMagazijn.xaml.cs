@@ -16,25 +16,13 @@ using System.Windows.Shapes;
 namespace ProjectWinApp
 {
     /// <summary>
-    /// Interaction logic for DataManagement.xaml
+    /// Interaction logic for AddMagazijn.xaml
     /// </summary>
-    public partial class DataManagement : Page
+    public partial class AddMagazijn : Page
     {
-
-        public DataManagement()
+        public AddMagazijn()
         {
             InitializeComponent();
-
-        }
-
-        private void btnBlank_Click(object sender, RoutedEventArgs e)
-        {
-            adminDataBeheer.Content = null;
-        }
-
-        private void btnAddUser_Click(object sender, RoutedEventArgs e)
-        {
-            adminDataBeheer.Content = new AdminAddUser();
         }
     }
 }

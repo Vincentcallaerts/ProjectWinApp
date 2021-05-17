@@ -1,0 +1,35 @@
+﻿<Page x:Class="ProjectWinApp.AdminAddUser"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:ProjectWinApp"
+      mc:Ignorable="d" 
+      d:DesignWidth="650"
+      Title="AdminAddUser">
+
+    <StackPanel Background="White">
+        
+        <Label>User Role</Label>
+        <ComboBox x:Name="cmbRole" SelectedValuePath="Id">
+            <ComboBox.ItemTemplate>
+                <DataTemplate>
+                    <StackPanel Orientation="Horizontal">
+                        <Label Content="{Binding Content}"></Label>
+                    </StackPanel>
+                </DataTemplate>
+            </ComboBox.ItemTemplate>
+        </ComboBox>
+        
+        <Label>User First Name</Label>
+        <TextBox x:Name="tbfirst"></TextBox>
+        <Label>User Last Name</Label>
+        <TextBox x:Name="tblast"></TextBox>
+        <Label>User Password</Label>
+        <TextBox x:Name="tbpassword"></TextBox>
+        <Label>User Email</Label>
+        <TextBox x:Name="tbemail"></TextBox>
+
+        <Button x:Name="btnAddUser" Click="btnAddUser_Click">Add User</Button>
+    </StackPanel>
+</Page>

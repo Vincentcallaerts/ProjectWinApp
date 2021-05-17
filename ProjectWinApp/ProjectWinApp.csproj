@@ -65,6 +65,16 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="AddCustomer.xaml.cs">
+      <DependentUpon>AddCustomer.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="AddMagazijn.xaml.cs">
+      <DependentUpon>AddMagazijn.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="AdminAddUser.xaml.cs">
+      <DependentUpon>AdminAddUser.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="ComboBoxIndexContent.cs" />
     <Compile Include="DataManagement.xaml.cs">
       <DependentUpon>DataManagement.xaml</DependentUpon>
     </Compile>
@@ -79,6 +89,18 @@
     <Compile Include="ProductsMagazijn.cs" />
     <Compile Include="User.cs" />
     <Compile Include="UserRole.cs" />
+    <Page Include="AddCustomer.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="AddMagazijn.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="AdminAddUser.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="DataManagement.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>

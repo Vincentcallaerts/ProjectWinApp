@@ -16,25 +16,13 @@ using System.Windows.Shapes;
 namespace ProjectWinApp
 {
     /// <summary>
-    /// Interaction logic for DataManagement.xaml
+    /// Interaction logic for AddCustomer.xaml
     /// </summary>
-    public partial class DataManagement : Page
+    public partial class AddCustomer : Page
     {
-
-        public DataManagement()
+        public AddCustomer()
         {
             InitializeComponent();
-
-        }
-
-        private void btnBlank_Click(object sender, RoutedEventArgs e)
-        {
-            adminDataBeheer.Content = null;
-        }
-
-        private void btnAddUser_Click(object sender, RoutedEventArgs e)
-        {
-            adminDataBeheer.Content = new AdminAddUser();
         }
     }
 }

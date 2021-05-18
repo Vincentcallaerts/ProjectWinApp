@@ -20,7 +20,9 @@ namespace ProjectWinApp
     /// </summary>
     public partial class MainWindow : Window
     {
-        private User LoginAtempt { get; set; }    
+        private User LoginAtempt { get; set; }
+        private Encryptor md5 = new Encryptor();
+
         public MainWindow()
         {
             InitializeComponent();
@@ -29,9 +31,10 @@ namespace ProjectWinApp
 
         private void LogIn(object sender, RoutedEventArgs e)
         {
+            string encryptedPassword = md5.CreateMD5(tbPassword.Text);
             using (DataContext data = new DataContext())
             {
-                LoginAtempt = data.User.Where(u => u.Email == tbEmail.Text && u.Password == tbPassword.Text).FirstOrDefault();
+                LoginAtempt = data.User.Where(u => u.Email == tbEmail.Text && u.Password == encryptedPassword).FirstOrDefault();
 
                 if (LoginAtempt != null)
                 {
@@ -55,7 +58,8 @@ namespace ProjectWinApp
                 data.UserRole.Add(new UserRole() { UserRoleId = 2, Description = "Magazijnier" });
                 data.UserRole.Add(new UserRole() { UserRoleId = 3, Description = "Verkoper" });
 
-                data.User.Add(new User() { UserRoleId = 1, FirstName = "Vincent", LastName = "Callaerts", Email = "Enail@gmail.com", Password = "42069" });
+                data.User.Add(new User() { UserRoleId = 1, FirstName = "Vincent", LastName = "Callaerts", Email = "Enail@gmail.com", Password = md5.CreateMD5("42069") });
+
                 data.User.Add(new User() { UserRoleId = 2, FirstName = "Vincent", LastName = "Callaerts", Email = "Vincent@gmail.com", Password = "42069" });
                 data.User.Add(new User() { UserRoleId = 2, FirstName = "Wincent", LastName = "Callaerts", Email = "WWincent@gmail.com", Password = "42069" });
                 data.User.Add(new User() { UserRoleId = 2, FirstName = "Vincent", LastName = "Callaerts", Email = "Vincent@gmail.com", Password = "42069" });

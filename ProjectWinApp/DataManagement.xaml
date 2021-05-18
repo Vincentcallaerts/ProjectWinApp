@@ -20,7 +20,7 @@
 
             <Button x:Name="btnBlank" Click="btnBlank_Click">Empty</Button>
         </StackPanel>
-        <Frame x:Name="adminDataBeheer" DockPanel.Dock="Right" Width="650" Background="White"></Frame>
+        <Frame x:Name="adminDataBeheer" DockPanel.Dock="Right" Width="650" Background="White" NavigationUIVisibility="Hidden"></Frame>
         
     </DockPanel>
 </Page>

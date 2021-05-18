@@ -21,7 +21,7 @@ namespace ProjectWinApp
     public partial class AdminAddUser : Page
     {
         public List<ComboBoxIndexContent> Roles { get; set; }
-
+        private Encryptor md5 = new Encryptor();
 
         public AdminAddUser()
         {
@@ -41,10 +41,11 @@ namespace ProjectWinApp
             }
             else
             {
+                string encryptedPassword = md5.CreateMD5(tbpassword.Text);
                 using (DataContext data = new DataContext())
                 {                   
                     //vergeet encritption niet te added later
-                    data.User.Add(new User() { UserRoleId = Convert.ToInt32(cmbRole.SelectedValue), FirstName = tbfirst.Text, LastName = tblast.Text, Email = tbemail.Text, Password = tbpassword.Text});
+                    data.User.Add(new User() { UserRoleId = Convert.ToInt32(cmbRole.SelectedValue), FirstName = tbfirst.Text, LastName = tblast.Text, Email = tbemail.Text, Password = encryptedPassword});
                     data.SaveChanges();
                 }
 

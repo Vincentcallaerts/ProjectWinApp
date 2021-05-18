@@ -56,17 +56,26 @@ namespace ProjectWinApp
         private void btnDataBeheer_Click(object sender, RoutedEventArgs e)
         {
 
-            switch (LoggedIn.UserRoleId)
-            {
-                case 1:
-                    btnDataBeheer.IsEnabled = false;
-                    fContent.Content = new DataManagement();
-                    break;
-                case 2:
-                    break;
-                case 3:
-                    break;
-            }
+            fContent.Content = new DataManagement();
+            btnDataBeheer.IsEnabled = false;
+            btnBestellingen.IsEnabled = true;
+            btnOverzicht.IsEnabled = true;
+        }
+
+        private void btnOverzicht_Click(object sender, RoutedEventArgs e)
+        {
+            fContent.Content = new Overvieuw();
+            btnDataBeheer.IsEnabled = true;
+            btnBestellingen.IsEnabled = true;
+            btnOverzicht.IsEnabled = false;
+        }
+
+        private void btnBestellingen_Click(object sender, RoutedEventArgs e)
+        {
+            fContent.Content = new Orders();
+            btnDataBeheer.IsEnabled = true;
+            btnBestellingen.IsEnabled = false;
+            btnOverzicht.IsEnabled = true;
         }
     }
 }

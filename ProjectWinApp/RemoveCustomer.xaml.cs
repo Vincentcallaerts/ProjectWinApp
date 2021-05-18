@@ -20,9 +20,39 @@ namespace ProjectWinApp
     /// </summary>
     public partial class RemoveCustomer : Page
     {
+        public List<ComboBoxIndexContent> Customers { get; set; }
         public RemoveCustomer()
         {
+            Customers = new List<ComboBoxIndexContent>();
             InitializeComponent();
+            FillRoles();
+
+        }
+
+        private void btnRemoveCustomer_Click(object sender, RoutedEventArgs e)
+        {
+            int selectedValue = Convert.ToInt32(lbCustomers.SelectedValue);
+            using (DataContext data = new DataContext())
+            {
+                data.Customer.RemoveRange(data.Customer.Where(c => c.CustomerId == selectedValue));
+                data.SaveChanges();
+            }
+            FillRoles();
+        }
+        private void FillRoles()
+        {
+            lbCustomers.ItemsSource = null;
+            Customers.Clear();
+            using (DataContext data = new DataContext())
+            {
+                var collection = data.Customer.Select(u => u);
+                foreach (var item in collection)
+                {
+                    Customers.Add(new ComboBoxIndexContent(item.CustomerId, item.Name));
+
+                }
+            }
+            lbCustomers.ItemsSource = Customers;
         }
     }
 }

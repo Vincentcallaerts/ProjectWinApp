@@ -24,33 +24,52 @@ namespace ProjectWinApp
 
         public AddMagazijn()
         {
-            Magaziniers = new List<ComboBoxIndexContent>();
-            
-            FillRoles();
             InitializeComponent();
-
-            cmbEigenaar.ItemsSource = Magaziniers;
-            cmbEigenaar.SelectedIndex = 0;
+            FillRoles();           
         }
 
         private void btnAddMagazijn_Click(object sender, RoutedEventArgs e)
         {
+            if (tbAdress.Text == null)
+            {
+                MessageBox.Show("Het textveld is leeg deze moet ingevuld worden");
+            }
+            int selectedValue = Convert.ToInt32(cmbEigenaar.SelectedValue);
             using (DataContext data = new DataContext())
             {
-                data.Magazijn.Add(new Magazijn() { UserId = Convert.ToInt32(cmbEigenaar.SelectedValue), Adress = tbAdress.Text });
-                data.SaveChanges();
+                //check of adress al in database staat
+                var adressAlIngevoert = data.Magazijn.Where(m => m.Adress == tbAdress.Text).FirstOrDefault();
+                if (adressAlIngevoert == null)
+                {
+                    //add magazijn en save
+                    data.Magazijn.Add(new Magazijn() { Adress = tbAdress.Text });
+                    data.SaveChanges();
+                    //haal magazijn op en add de eerste eigenaar
+                    var collection = data.Magazijn.Where(m => m.Adress == tbAdress.Text).FirstOrDefault();
+                    data.OwnersMagazijn.Add(new OwnersMagazijn() { UserId = selectedValue, MagazijnId = collection.MagazijnId });
+                    data.SaveChanges();
+                }
+                else
+                {
+                    MessageBox.Show("Dit adress staat al in onze database.");
+                }
+                
             }
+            tbAdress.Text = string.Empty;
         }
         private void FillRoles()
         {
+            Magaziniers = new List<ComboBoxIndexContent>();
             using (DataContext data = new DataContext())
             {
-                var collection = data.User.Where(u => u.UserRoleId == 2);
+                var collection = data.User.Where(u => u.UserRoleId == 2 || u.UserRoleId == 1);
                 foreach (var item in collection)
                 {
                     Magaziniers.Add(new ComboBoxIndexContent(item.UserId,item.Email));
                 }
             }
+            cmbEigenaar.ItemsSource = Magaziniers;
+            cmbEigenaar.SelectedIndex = 0;
         }
     }
 }

@@ -10,11 +10,6 @@ namespace ProjectWinApp
     class Magazijn
     {
         public int MagazijnId { get; set; }
-
-        [ForeignKey("User")]
-        public int UserId { get; set; }
-        public User User { get; set; }
-
         public string Adress { get; set; }
 
     }

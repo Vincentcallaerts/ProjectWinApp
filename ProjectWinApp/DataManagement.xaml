@@ -14,9 +14,10 @@
             <Button x:Name="btnAddUser" Click="btnAddUser_Click">Add User</Button>
             <Button x:Name="btnAddCustomer" Click="btnAddCustomer_Click">Add Customer</Button>
             <Button x:Name="btnAddMagazijn" Click="btnAddMagazijn_Click">Add Magazijn</Button>
+            <Button x:Name="btnAddManagerMagazijn" Click="btnAddManagerMagazijn_Click">Add Manager Magazijn</Button>
             <Button x:Name="btnRemoveUser" Click="btnRemoveUser_Click">Remove User</Button>
-            <Button x:Name="btnRemoveCustomer" Click="btnRemoveCustomer_Click" IsEnabled="False">Remove Customer</Button>
-            <Button x:Name="btnRemoveMagazijn" Click="btnRemoveMagazijn_Click" IsEnabled="False">Remove Magazijn</Button>
+            <Button x:Name="btnRemoveCustomer" Click="btnRemoveCustomer_Click">Remove Customer</Button>
+            <Button x:Name="btnRemoveMagazijn" Click="btnRemoveMagazijn_Click">Remove Magazijn</Button>
 
             <Button x:Name="btnBlank" Click="btnBlank_Click">Empty</Button>
         </StackPanel>

@@ -62,5 +62,10 @@ namespace ProjectWinApp
         {
             adminDataBeheer.Content = new RemoveMagazijn();
         }
+
+        private void btnAddManagerMagazijn_Click(object sender, RoutedEventArgs e)
+        {
+            adminDataBeheer.Content = new AddOwnerMagazijn();
+        }
     }
 }

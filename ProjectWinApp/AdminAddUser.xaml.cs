@@ -25,12 +25,10 @@ namespace ProjectWinApp
 
         public AdminAddUser()
         {
-            InitializeComponent();
-            Roles = new List<ComboBoxIndexContent>();
+            InitializeComponent();         
             FillRoles();
-            cmbRole.ItemsSource = Roles;
-            cmbRole.SelectedIndex = 0;
-            
+
+                   
         }
 
         private void btnAddUser_Click(object sender, RoutedEventArgs e)
@@ -59,6 +57,8 @@ namespace ProjectWinApp
         }
         private void FillRoles()
         {
+            Roles = new List<ComboBoxIndexContent>();
+
             using (DataContext data = new DataContext())
             {
                 var collection = data.UserRole.Select(u => u);
@@ -67,6 +67,8 @@ namespace ProjectWinApp
                     Roles.Add(new ComboBoxIndexContent(item.UserRoleId, item.Description));
                 }
             }
+            cmbRole.ItemsSource = Roles;
+            cmbRole.SelectedIndex = 0;
         }
     }
 }

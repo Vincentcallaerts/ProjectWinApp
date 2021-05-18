@@ -27,11 +27,19 @@ namespace ProjectWinApp
 
         private void btnAddCustomer_Click(object sender, RoutedEventArgs e)
         {
-            using (DataContext data = new DataContext())
-            {              
-                data.Customer.Add(new Customer() {Name = tbName.Text, Email = tbEmail.Text});
-                data.SaveChanges();
+            if (!(tbName.Text != null && tbEmail.Text != null))
+            {
+                MessageBox.Show("Een van de textvelden is leeg deze moeten allemaal ingevuld worden");
             }
+            else
+            {
+                using (DataContext data = new DataContext())
+                {
+                    data.Customer.Add(new Customer() { Name = tbName.Text, Email = tbEmail.Text });
+                    data.SaveChanges();
+                }
+            }
+            
         }
     }
 }

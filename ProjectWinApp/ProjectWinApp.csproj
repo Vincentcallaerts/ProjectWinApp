@@ -71,6 +71,9 @@
     <Compile Include="AddMagazijn.xaml.cs">
       <DependentUpon>AddMagazijn.xaml</DependentUpon>
     </Compile>
+    <Compile Include="AddOwnerMagazijn.xaml.cs">
+      <DependentUpon>AddOwnerMagazijn.xaml</DependentUpon>
+    </Compile>
     <Compile Include="AdminAddUser.xaml.cs">
       <DependentUpon>AdminAddUser.xaml</DependentUpon>
     </Compile>
@@ -92,6 +95,7 @@
     <Compile Include="Overvieuw.xaml.cs">
       <DependentUpon>Overvieuw.xaml</DependentUpon>
     </Compile>
+    <Compile Include="OwnersMagazijn.cs" />
     <Compile Include="Product.cs" />
     <Compile Include="ProductsMagazijn.cs" />
     <Compile Include="RemoveCustomer.xaml.cs">
@@ -110,6 +114,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="AddMagazijn.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="AddOwnerMagazijn.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

@@ -26,5 +26,9 @@ namespace ProjectWinApp
         {
             return $"{FirstName} {LastName} {Email}";
         }
+        public string FullName()
+        {
+            return FirstName + " " + LastName;
+        }
     }
 }

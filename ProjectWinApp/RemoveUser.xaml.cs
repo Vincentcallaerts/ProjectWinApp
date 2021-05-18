@@ -26,17 +26,9 @@ namespace ProjectWinApp
 
         public RemoveUser()
         {
-
-            Roles = new List<ComboBoxIndexContent>();
-            Users = new List<ComboBoxIndexContent>();
-
-            FillRoles();
-            InitializeComponent();
             
-            cmbRole.ItemsSource = Roles;
-            cmbRole.SelectedIndex = 0;
-
-            lbUsers.ItemsSource = Users;
+            FillRoles();
+            InitializeComponent();                       
 
         }
 
@@ -53,6 +45,9 @@ namespace ProjectWinApp
 
         private void FillRoles()
         {
+            Users = new List<ComboBoxIndexContent>();
+            Roles = new List<ComboBoxIndexContent>();
+
             using (DataContext data = new DataContext())
             {
                 var collection = data.UserRole.Select(u => u);
@@ -61,6 +56,9 @@ namespace ProjectWinApp
                     Roles.Add(new ComboBoxIndexContent(item.UserRoleId, item.Description));
                 }
             }
+
+            cmbRole.ItemsSource = Roles;
+            cmbRole.SelectedIndex = 0;
         }
 
         private void cmbRole_SelectionChanged(object sender, SelectionChangedEventArgs e)

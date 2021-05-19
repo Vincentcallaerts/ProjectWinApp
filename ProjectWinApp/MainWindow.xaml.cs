@@ -73,6 +73,16 @@ namespace ProjectWinApp
                 data.User.Add(new User() { UserRoleId = 2, FirstName = "Vincent", LastName = "Callaerts", Email = "Vincent@gmail.com", Password = "42069" });
                 data.User.Add(new User() { UserRoleId = 2, FirstName = "Wincent", LastName = "Callaerts", Email = "WWincent@gmail.com", Password = "42069" });
 
+                data.Magazijn.Add(new Magazijn() { Adress = "Testla1" });
+                data.Magazijn.Add(new Magazijn() { Adress = "Testla2" });
+                data.Magazijn.Add(new Magazijn() { Adress = "Testla3" });
+
+                data.SaveChanges();
+
+                data.OwnersMagazijn.Add(new OwnersMagazijn() { MagazijnId = 1, UserId = 1 });
+                data.OwnersMagazijn.Add(new OwnersMagazijn() { MagazijnId = 2, UserId = 1 });
+                data.OwnersMagazijn.Add(new OwnersMagazijn() { MagazijnId = 3, UserId = 1 });
+
                 data.SaveChanges();
             }
         }

@@ -10,8 +10,8 @@
 
     <StackPanel HorizontalAlignment="Center" Background="White">
 
-        <Label>User Role</Label>
-        <ComboBox x:Name="cmbValidUsers" SelectedValuePath="Id">
+        <Label>Magazijns</Label>
+        <ComboBox x:Name="cmbMagazijns" SelectedValuePath="Id" SelectionChanged="cmbRole_SelectionChanged" DropDownClosed="cmbRole_DropDownClosed">
             <ComboBox.ItemTemplate>
                 <DataTemplate>
                     <StackPanel Orientation="Horizontal">
@@ -20,8 +20,8 @@
                 </DataTemplate>
             </ComboBox.ItemTemplate>
         </ComboBox>
-
-        <ListBox x:Name="lbMagazijn" MinWidth="400" MaxHeight="150" MinHeight="32" Margin="0,10,0,10" SelectedValuePath="Id">
+        <Label Margin="0,10,0,10">Komt in aanmerking als manager</Label>
+        <ListBox x:Name="lbUsers" MinWidth="400" MaxHeight="150" MinHeight="32" Margin="0,0,0,10" SelectedValuePath="Id">
             <ListBox.ItemTemplate>
                 <DataTemplate>
                     <Label Content="{Binding Content}"></Label>

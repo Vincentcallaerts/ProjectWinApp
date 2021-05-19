@@ -21,12 +21,11 @@ namespace ProjectWinApp
     public partial class AddOwnerMagazijn : Page
     {
         public List<ComboBoxIndexContent> Users { get; set; }
-        public List<ComboBoxIndexContent> Roles { get; set; }
+        public List<ComboBoxIndexContent> Magazijns { get; set; }
 
         public AddOwnerMagazijn()
         {
             
-
             InitializeComponent();
             FillRoles();
         }
@@ -37,16 +36,81 @@ namespace ProjectWinApp
         }
         private void FillRoles()
         {
-            Roles = new List<ComboBoxIndexContent>();
+            Magazijns = new List<ComboBoxIndexContent>();
             Users = new List<ComboBoxIndexContent>();
 
             using (DataContext data = new DataContext())
             {
-                var collection = data.User.Where(u => u.UserRoleId == 1 || u.UserRoleId == 2);
+                var collection = data.Magazijn.Select(m => m);
                 foreach (var item in collection)
                 {
-                    Users.Add(new ComboBoxIndexContent(item.UserId, item.FullName())); 
+                    Magazijns.Add(new ComboBoxIndexContent(item.MagazijnId, item.Adress)); 
                 }
+            }
+            cmbMagazijns.ItemsSource = Magazijns;
+            cmbMagazijns.SelectedIndex = 0;
+        }
+
+        private void cmbRole_DropDownClosed(object sender, EventArgs e)
+        {
+            Update();
+        }
+
+        private void cmbRole_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            Update();
+        }
+        private void Update()
+        {
+            lbUsers.ItemsSource = null;
+
+            Users.Clear();
+
+            List<ComboBoxIndexContent> temp = new List<ComboBoxIndexContent>();
+
+            int selectedValue = Convert.ToInt32(cmbMagazijns.SelectedValue);
+
+            using (DataContext data = new DataContext())
+            {
+                var collection = data.User.Where(u => u.UserRoleId == 1 || u.UserRoleId == 2);
+
+                foreach (var item in collection)
+                {
+                    temp.Add(new ComboBoxIndexContent(item.UserId, item.ToString()));
+                }
+
+                //remove users die daar al owner van zijn 
+                List<OwnersMagazijn> owners = data.OwnersMagazijn.Where(o => o.MagazijnId == selectedValue).ToList();
+                
+                foreach (var item in temp)
+                {
+                    if (IsNotOwner(owners, item))
+                    {
+                        
+                        Users.Add(item);
+                    }
+                                  
+                }
+            }
+            lbUsers.ItemsSource = Users;
+        }
+        private bool IsNotOwner(List<OwnersMagazijn> owners, ComboBoxIndexContent item)
+        {
+            int count = 0;
+            for (int i = 0; i < owners.Count()-1; i++)
+            {
+                if (owners[i].UserId == item.Id)
+                {
+                    count++;
+                }
+            }
+            if (count != 0)
+            {
+                return true;
+            }
+            else
+            {
+                return false;
             }
         }
     }

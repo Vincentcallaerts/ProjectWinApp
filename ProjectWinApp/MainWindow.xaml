@@ -6,6 +6,7 @@
         xmlns:local="clr-namespace:ProjectWinApp"
         mc:Ignorable="d"
         Title="Project" Height="450" Width="800">
+    
     <StackPanel HorizontalAlignment="Center" Width="400">
         <Label>Email</Label>
         <TextBox x:Name="tbEmail"></TextBox>

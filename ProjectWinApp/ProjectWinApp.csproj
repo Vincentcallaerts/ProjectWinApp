@@ -77,27 +77,27 @@
     <Compile Include="AdminAddUser.xaml.cs">
       <DependentUpon>AdminAddUser.xaml</DependentUpon>
     </Compile>
-    <Compile Include="ComboBoxIndexContent.cs" />
+    <Compile Include="Database\ComboBoxIndexContent.cs" />
     <Compile Include="DataManagement.xaml.cs">
       <DependentUpon>DataManagement.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Encryptor.cs" />
-    <Compile Include="Order.cs" />
-    <Compile Include="DataContext.cs" />
-    <Compile Include="Customer.cs" />
+    <Compile Include="Database\Encryptor.cs" />
+    <Compile Include="Database\Order.cs" />
+    <Compile Include="Database\DataContext.cs" />
+    <Compile Include="Database\Customer.cs" />
     <Compile Include="LoggedInOptions.xaml.cs">
       <DependentUpon>LoggedInOptions.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Magazijn.cs" />
+    <Compile Include="Database\Magazijn.cs" />
     <Compile Include="Orders.xaml.cs">
       <DependentUpon>Orders.xaml</DependentUpon>
     </Compile>
     <Compile Include="Overvieuw.xaml.cs">
       <DependentUpon>Overvieuw.xaml</DependentUpon>
     </Compile>
-    <Compile Include="OwnersMagazijn.cs" />
-    <Compile Include="Product.cs" />
-    <Compile Include="ProductsMagazijn.cs" />
+    <Compile Include="Database\OwnersMagazijn.cs" />
+    <Compile Include="Database\Product.cs" />
+    <Compile Include="Database\ProductsMagazijn.cs" />
     <Compile Include="RemoveCustomer.xaml.cs">
       <DependentUpon>RemoveCustomer.xaml</DependentUpon>
     </Compile>
@@ -107,8 +107,8 @@
     <Compile Include="RemoveUser.xaml.cs">
       <DependentUpon>RemoveUser.xaml</DependentUpon>
     </Compile>
-    <Compile Include="User.cs" />
-    <Compile Include="UserRole.cs" />
+    <Compile Include="Database\User.cs" />
+    <Compile Include="Database\UserRole.cs" />
     <Page Include="AddCustomer.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -192,6 +192,10 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="MainWindows\" />
+    <Folder Include="Pages\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">

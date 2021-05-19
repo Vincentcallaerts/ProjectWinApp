@@ -28,8 +28,10 @@ namespace ProjectWinApp
         {
             
             FillRoles();
-            InitializeComponent();                       
+            InitializeComponent();
 
+            cmbRole.ItemsSource = Roles;
+            cmbRole.SelectedIndex = 0;
         }
 
         private void btnRemoveUser_Click(object sender, RoutedEventArgs e)
@@ -57,8 +59,7 @@ namespace ProjectWinApp
                 }
             }
 
-            cmbRole.ItemsSource = Roles;
-            cmbRole.SelectedIndex = 0;
+            
         }
 
         private void cmbRole_SelectionChanged(object sender, SelectionChangedEventArgs e)

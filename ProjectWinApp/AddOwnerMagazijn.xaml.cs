@@ -32,7 +32,15 @@ namespace ProjectWinApp
 
         private void btnAddOwner_Click(object sender, RoutedEventArgs e)
         {
+            int selectedMagazijn = Convert.ToInt32(cmbMagazijns.SelectedValue);
+            int selectedUser = Convert.ToInt32(lbUsers.SelectedValue);
 
+            using (DataContext data = new DataContext())
+            {
+                data.OwnersMagazijn.Add(new OwnersMagazijn() { MagazijnId = selectedMagazijn, UserId = selectedUser });
+                data.SaveChanges();
+            }
+            Update();
         }
         private void FillRoles()
         {
@@ -84,20 +92,20 @@ namespace ProjectWinApp
                 
                 foreach (var item in temp)
                 {
-                    if (IsNotOwner(owners, item))
-                    {
-                        
+                    if (!IsNotOwner(owners, item))
+                    {                     
                         Users.Add(item);
                     }
                                   
                 }
             }
             lbUsers.ItemsSource = Users;
+            lbUsers.SelectedIndex = 0;
         }
         private bool IsNotOwner(List<OwnersMagazijn> owners, ComboBoxIndexContent item)
         {
             int count = 0;
-            for (int i = 0; i < owners.Count()-1; i++)
+            for (int i = 0; i < owners.Count(); i++)
             {
                 if (owners[i].UserId == item.Id)
                 {

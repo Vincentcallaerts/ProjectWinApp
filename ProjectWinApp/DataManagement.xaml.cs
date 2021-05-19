@@ -67,5 +67,15 @@ namespace ProjectWinApp
         {
             adminDataBeheer.Content = new AddOwnerMagazijn();
         }
+
+        private void btnAddProduct_Click(object sender, RoutedEventArgs e)
+        {
+            adminDataBeheer.Content = new AddProduct();
+        }
+
+        private void btnAddProductMagazin_Click(object sender, RoutedEventArgs e)
+        {
+            MessageBox.Show("Not Done yet");
+        }
     }
 }

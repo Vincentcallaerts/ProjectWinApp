@@ -39,6 +39,7 @@ namespace ProjectWinApp
             int selectedValue = Convert.ToInt32(lbUsers.SelectedValue);
             using (DataContext data = new DataContext())
             {
+                data.OwnersMagazijn.RemoveRange(data.OwnersMagazijn.Where(o => o.UserId == selectedValue));
                 data.User.RemoveRange(data.User.Where(u => u.UserId == selectedValue));
                 data.SaveChanges();
             }
@@ -88,6 +89,7 @@ namespace ProjectWinApp
                 }
             }
             lbUsers.ItemsSource = Users;
+            lbUsers.SelectedIndex = 0;
         }
     }
 }

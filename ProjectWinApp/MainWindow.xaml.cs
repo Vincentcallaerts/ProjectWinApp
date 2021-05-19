@@ -80,6 +80,10 @@ namespace ProjectWinApp
                 data.SaveChanges();
 
                 data.OwnersMagazijn.Add(new OwnersMagazijn() { MagazijnId = 1, UserId = 1 });
+                data.OwnersMagazijn.Add(new OwnersMagazijn() { MagazijnId = 1, UserId = 2 });
+                data.OwnersMagazijn.Add(new OwnersMagazijn() { MagazijnId = 1, UserId = 3 });
+                data.OwnersMagazijn.Add(new OwnersMagazijn() { MagazijnId = 1, UserId = 4 });
+                data.OwnersMagazijn.Add(new OwnersMagazijn() { MagazijnId = 1, UserId = 5 });
                 data.OwnersMagazijn.Add(new OwnersMagazijn() { MagazijnId = 2, UserId = 1 });
                 data.OwnersMagazijn.Add(new OwnersMagazijn() { MagazijnId = 3, UserId = 1 });
 

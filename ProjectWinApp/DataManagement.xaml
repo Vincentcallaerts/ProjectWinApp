@@ -15,6 +15,9 @@
             <Button x:Name="btnAddCustomer" Click="btnAddCustomer_Click">Add Customer</Button>
             <Button x:Name="btnAddMagazijn" Click="btnAddMagazijn_Click">Add Magazijn</Button>
             <Button x:Name="btnAddManagerMagazijn" Click="btnAddManagerMagazijn_Click">Add Manager Magazijn</Button>
+            <Button x:Name="btnAddProduct" Click="btnAddProduct_Click">Add Product</Button>
+            <Button x:Name="btnAddProductMagazin" Click="btnAddProductMagazin_Click">Add Product Magazin</Button>
+
             <Button x:Name="btnRemoveUser" Click="btnRemoveUser_Click">Remove User</Button>
             <Button x:Name="btnRemoveCustomer" Click="btnRemoveCustomer_Click">Remove Customer</Button>
             <Button x:Name="btnRemoveMagazijn" Click="btnRemoveMagazijn_Click">Remove Magazijn</Button>

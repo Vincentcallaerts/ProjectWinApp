@@ -27,11 +27,6 @@ namespace ProjectWinApp
 
         }
 
-        private void btnBlank_Click(object sender, RoutedEventArgs e)
-        {
-            adminDataBeheer.Content = null;
-        }
-
         private void btnAddUser_Click(object sender, RoutedEventArgs e)
         {
             adminDataBeheer.Content = new AdminAddUser();
@@ -55,7 +50,6 @@ namespace ProjectWinApp
         private void btnRemoveCustomer_Click(object sender, RoutedEventArgs e)
         {
             adminDataBeheer.Content = new RemoveCustomer();
-
         }
 
         private void btnRemoveMagazijn_Click(object sender, RoutedEventArgs e)
@@ -81,6 +75,16 @@ namespace ProjectWinApp
         private void btnRemoveProductsMagazijn_Click(object sender, RoutedEventArgs e)
         {
             adminDataBeheer.Content = new RemoveProductMagazijn();
+        }
+
+        private void btnRemoveManagerMagazijn_Click(object sender, RoutedEventArgs e)
+        {
+            adminDataBeheer.Content = new RemoveManagerMagazijn();
+        }
+
+        private void btnUpdateUserClick(object sender, RoutedEventArgs e)
+        {
+            adminDataBeheer.Content = new UpdateUser();
         }
     }
 }

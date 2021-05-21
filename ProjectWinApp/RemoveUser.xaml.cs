@@ -27,8 +27,8 @@ namespace ProjectWinApp
         public RemoveUser()
         {
             
-            FillRoles();
             InitializeComponent();
+            FillRoles();
 
             cmbRole.ItemsSource = Roles;
             cmbRole.SelectedIndex = 0;

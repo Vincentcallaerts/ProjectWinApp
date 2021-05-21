@@ -21,10 +21,10 @@
             <Button Margin="0,10,0,0" x:Name="btnRemoveUser" Click="btnRemoveUser_Click">Remove User</Button>
             <Button x:Name="btnRemoveCustomer" Click="btnRemoveCustomer_Click">Remove Customer</Button>
             <Button x:Name="btnRemoveMagazijn" Click="btnRemoveMagazijn_Click">Remove Magazijn</Button>
+            <Button x:Name="btnRemoveManagerMagazijn" Click="btnRemoveManagerMagazijn_Click">Remove Manager Magazijn</Button>
             <Button x:Name="btnRemoveProductMagazijn" Click="btnRemoveProductsMagazijn_Click">Remove Product Magazijn</Button>
-
-
-            <Button x:Name="btnBlank" Click="btnBlank_Click">Empty</Button>
+            
+            <Button x:Name="btnUpdateUser" Click="btnUpdateUserClick">Update User</Button>
         </StackPanel>
         <Frame x:Name="adminDataBeheer" DockPanel.Dock="Right" Width="650" Background="White" NavigationUIVisibility="Hidden"></Frame>
         

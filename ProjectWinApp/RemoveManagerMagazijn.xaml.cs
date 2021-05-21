@@ -16,36 +16,35 @@ using System.Windows.Shapes;
 namespace ProjectWinApp
 {
     /// <summary>
-    /// Interaction logic for RemoveProductMagazijn.xaml
+    /// Interaction logic for RemoveManagerMagazijn.xaml
     /// </summary>
-    public partial class RemoveProductMagazijn : Page
+    public partial class RemoveManagerMagazijn : Page
     {
-        public List<ComboBoxIndexContent> Products { get; set; }
+        public List<ComboBoxIndexContent> Users { get; set; }
         public List<ComboBoxIndexContent> Magazijns { get; set; }
 
-        public RemoveProductMagazijn()
+        public RemoveManagerMagazijn()
         {
             InitializeComponent();
             FillRoles();
         }
 
-        private void btnRemoveProduct_Click(object sender, RoutedEventArgs e)
+        private void btnRemoveManager_Click(object sender, RoutedEventArgs e)
         {
             int selectedMagazijn = Convert.ToInt32(cmbMagazijns.SelectedValue);
-            int selectedProduct = Convert.ToInt32(lbProducten.SelectedValue);
+            int selectedmanager = Convert.ToInt32(lbManagers.SelectedValue);
+
             using (DataContext data = new DataContext())
             {
-
-                data.ProductsMagazijn.RemoveRange(data.ProductsMagazijn.Where(pm => pm.ProductId == selectedProduct && pm.MagazijnId == selectedMagazijn));
+                data.OwnersMagazijn.RemoveRange(data.OwnersMagazijn.Where(om => om.MagazijnId == selectedMagazijn && om.UserId == selectedmanager));
                 data.SaveChanges();
-
             }
             Update();
         }
         private void FillRoles()
         {
             Magazijns = new List<ComboBoxIndexContent>();
-            Products = new List<ComboBoxIndexContent>();
+            Users = new List<ComboBoxIndexContent>();
 
             using (DataContext data = new DataContext())
             {
@@ -53,10 +52,11 @@ namespace ProjectWinApp
                 foreach (var item in collectionMagazijns)
                 {
                     Magazijns.Add(new ComboBoxIndexContent(item.MagazijnId, item.Adress));
-                }                
+                }           
             }
             cmbMagazijns.ItemsSource = Magazijns;
-            cmbMagazijns.SelectedIndex = 0;                       
+            cmbMagazijns.SelectedIndex = 0;           
+
         }
         private void cmbRole_DropDownClosed(object sender, EventArgs e)
         {
@@ -69,25 +69,23 @@ namespace ProjectWinApp
         }
         private void Update()
         {
-            lbProducten.ItemsSource = null;
-
-            Products.Clear();
-
-            List<ComboBoxIndexContent> temp = new List<ComboBoxIndexContent>();
+            lbManagers.ItemsSource = null;
+            Users.Clear();
 
             int selectedValue = Convert.ToInt32(cmbMagazijns.SelectedValue);
 
             using (DataContext data = new DataContext())
             {
-                var collection = data.ProductsMagazijn.Join(data.Product, pm => pm.ProductId, p => p.ProductId, (pm, p) => new { MagazijnId = pm.MagazijnId, ProductId = pm.ProductId, Name = p.Name }).Where(pm => pm.MagazijnId == selectedValue);
+                //ga verder hier
+                var collection = data.OwnersMagazijn.Join(data.User, om => om.UserId, u => u.UserId, (om, u) => new { MagazijnId = om.MagazijnId, UserId = om.UserId, Name = u.FirstName + " " + u.LastName }).Where(pm => pm.MagazijnId == selectedValue);
                 foreach (var item in collection)
                 {
-                    Products.Add(new ComboBoxIndexContent(item.ProductId,item.Name));
+                    Users.Add(new ComboBoxIndexContent(item.UserId, item.Name));
                 }
-               
+
             }
-            lbProducten.ItemsSource = Products;
-            lbProducten.SelectedIndex = 0;
+            lbManagers.ItemsSource = Users;
+            lbManagers.SelectedIndex = 0;
         }
     }
 }

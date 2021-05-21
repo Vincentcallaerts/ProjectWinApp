@@ -125,6 +125,9 @@
     <Compile Include="RemoveMagazijn.xaml.cs">
       <DependentUpon>RemoveMagazijn.xaml</DependentUpon>
     </Compile>
+    <Compile Include="RemoveManagerMagazijn.xaml.cs">
+      <DependentUpon>RemoveManagerMagazijn.xaml</DependentUpon>
+    </Compile>
     <Compile Include="RemoveProductMagazijn.xaml.cs">
       <DependentUpon>RemoveProductMagazijn.xaml</DependentUpon>
     </Compile>
@@ -133,6 +136,9 @@
     </Compile>
     <Compile Include="Database\User.cs" />
     <Compile Include="Database\UserRole.cs" />
+    <Compile Include="UpdateUser.xaml.cs">
+      <DependentUpon>UpdateUser.xaml</DependentUpon>
+    </Compile>
     <Page Include="AddCustomer.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -193,11 +199,19 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="RemoveManagerMagazijn.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="RemoveProductMagazijn.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="RemoveUser.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="UpdateUser.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

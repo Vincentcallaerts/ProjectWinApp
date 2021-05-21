@@ -77,6 +77,8 @@ namespace ProjectWinApp
                 data.Magazijn.Add(new Magazijn() { Adress = "Testla2" });
                 data.Magazijn.Add(new Magazijn() { Adress = "Testla3" });
 
+                data.Product.Add(new Product() { Name = "Test1", Price = 20 });
+                
                 data.SaveChanges();
 
                 data.OwnersMagazijn.Add(new OwnersMagazijn() { MagazijnId = 1, UserId = 1 });
@@ -87,6 +89,7 @@ namespace ProjectWinApp
                 data.OwnersMagazijn.Add(new OwnersMagazijn() { MagazijnId = 2, UserId = 1 });
                 data.OwnersMagazijn.Add(new OwnersMagazijn() { MagazijnId = 3, UserId = 1 });
 
+                data.ProductsMagazijn.Add(new ProductsMagazijn() { ProductId = 1, MagazijnId = 1, Aantal = 10 });
                 data.SaveChanges();
             }
         }

@@ -125,6 +125,9 @@
     <Compile Include="RemoveMagazijn.xaml.cs">
       <DependentUpon>RemoveMagazijn.xaml</DependentUpon>
     </Compile>
+    <Compile Include="RemoveProductMagazijn.xaml.cs">
+      <DependentUpon>RemoveProductMagazijn.xaml</DependentUpon>
+    </Compile>
     <Compile Include="RemoveUser.xaml.cs">
       <DependentUpon>RemoveUser.xaml</DependentUpon>
     </Compile>
@@ -187,6 +190,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="RemoveMagazijn.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="RemoveProductMagazijn.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

@@ -27,7 +27,20 @@ namespace ProjectWinApp
 
         private void btnAddProduct_Click(object sender, RoutedEventArgs e)
         {
-
+            if (dupdPrijs.Value != null && tbName.Text != null)
+            {
+                using (DataContext data = new DataContext())
+                {
+                    data.Product.Add(new Product() { Name = tbName.Text, Price = (double)dupdPrijs.Value });
+                    data.SaveChanges();
+                }
+                dupdPrijs.Value = null;
+                tbName.Text = string.Empty;
+            }
+            else
+            {
+                MessageBox.Show("Een van de velden is leeg deze moeten allemaal ingevuld worden");
+            }          
         }
     }
 }

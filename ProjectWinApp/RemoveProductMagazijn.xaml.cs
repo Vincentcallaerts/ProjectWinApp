@@ -16,47 +16,22 @@ using System.Windows.Shapes;
 namespace ProjectWinApp
 {
     /// <summary>
-    /// Interaction logic for AddProductMagazijn.xaml
+    /// Interaction logic for RemoveProductMagazijn.xaml
     /// </summary>
-    public partial class AddProductMagazijn : Page
+    public partial class RemoveProductMagazijn : Page
     {
         public List<ComboBoxIndexContent> Products { get; set; }
         public List<ComboBoxIndexContent> Magazijns { get; set; }
 
-        public AddProductMagazijn()
+        public RemoveProductMagazijn()
         {
-
             InitializeComponent();
             FillRoles();
-            
         }
 
-        private void btnAddProduct_Click(object sender, RoutedEventArgs e)
+        private void btnRemoveProduct_Click(object sender, RoutedEventArgs e)
         {
-            int selectedMagazijn = Convert.ToInt32(cmbMagazijns.SelectedValue);
-            int selectedProduct = Convert.ToInt32(lbProducten.SelectedValue);
-            int selectedAantal = Convert.ToInt32(iupdAantal.Value);
 
-            using (DataContext data = new DataContext())
-            {
-                //add maybe nog messagebox
-                var productExists = data.ProductsMagazijn.Where(pm => pm.ProductId == selectedProduct && pm.MagazijnId == selectedMagazijn).FirstOrDefault();
-                if (productExists == null)
-                {
-                    //voledig nieuw product
-                    data.ProductsMagazijn.Add(new ProductsMagazijn() { MagazijnId = selectedMagazijn, ProductId = selectedProduct, Aantal = selectedAantal });
-                    
-                }
-                else
-                {
-                    //aantal verhogen
-                    data.ProductsMagazijn.FirstOrDefault(pm => pm.MagazijnId == selectedMagazijn && pm.ProductId == selectedProduct).Aantal += selectedAantal;
-                }
-                data.SaveChanges();
-            }
-            cmbMagazijns.SelectedIndex = 0;
-            lbProducten.SelectedIndex = 0;
-            iupdAantal.Value = 0;
         }
         private void FillRoles()
         {
@@ -70,7 +45,7 @@ namespace ProjectWinApp
                 {
                     Magazijns.Add(new ComboBoxIndexContent(item.MagazijnId, item.Adress));
                 }
-                
+
                 var collectionProducts = data.Product.Select(p => p);
                 foreach (var item in collectionProducts)
                 {
@@ -81,7 +56,39 @@ namespace ProjectWinApp
             cmbMagazijns.SelectedIndex = 0;
             lbProducten.ItemsSource = Products;
             lbProducten.SelectedIndex = 0;
-            iupdAantal.Value = 0;
-        }       
+            
+        }
+        private void cmbRole_DropDownClosed(object sender, EventArgs e)
+        {
+            Update();
+        }
+
+        private void cmbRole_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            Update();
+        }
+        private void Update()
+        {
+            lbProducten.ItemsSource = null;
+
+            Products.Clear();
+
+            List<ComboBoxIndexContent> temp = new List<ComboBoxIndexContent>();
+
+            int selectedValue = Convert.ToInt32(cmbMagazijns.SelectedValue);
+
+            using (DataContext data = new DataContext())
+            {
+
+                var collection = data.ProductsMagazijn.Join(data.Product, pm => pm.ProductId, p => p.ProductId,(pm,p) => new {} )
+                foreach (var item in collection)
+                {
+                    Products.Add(new ComboBoxIndexContent(item.ProductId,item.Product.Name));
+                }
+               
+            }
+            lbProducten.ItemsSource = Products;
+            lbProducten.SelectedIndex = 0;
+        }
     }
 }

@@ -33,6 +33,7 @@ namespace ProjectWinApp
             int selectedValue = Convert.ToInt32(cmbMagazijns.SelectedValue);
             using (DataContext data = new DataContext())
             {
+                data.ProductsMagazijn.RemoveRange(data.ProductsMagazijn.Where(o => o.MagazijnId == selectedValue));
                 data.OwnersMagazijn.RemoveRange(data.OwnersMagazijn.Where(o => o.MagazijnId == selectedValue));
                 data.Magazijn.RemoveRange(data.Magazijn.Where(m => m.MagazijnId == selectedValue));
                 data.SaveChanges();

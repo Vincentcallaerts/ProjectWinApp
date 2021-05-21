@@ -75,7 +75,12 @@ namespace ProjectWinApp
 
         private void btnAddProductMagazin_Click(object sender, RoutedEventArgs e)
         {
-            MessageBox.Show("Not Done yet");
+            adminDataBeheer.Content = new AddProductMagazijn();
+        }
+
+        private void btnRemoveProductsMagazijn_Click(object sender, RoutedEventArgs e)
+        {
+            adminDataBeheer.Content = new RemoveProductMagazijn();
         }
     }
 }

@@ -24,5 +24,15 @@ namespace ProjectWinApp
         {
             InitializeComponent();
         }
+
+        private void btnSeeUsers_Click(object sender, RoutedEventArgs e)
+        {
+            fOvervieuw.Content = new SeeUsers();
+        }
+
+        private void btnSeeCustomers_Click(object sender, RoutedEventArgs e)
+        {
+            fOvervieuw.Content = new SeeCustomers();
+        }
     }
 }

@@ -89,7 +89,7 @@ namespace ProjectWinApp
                 data.OwnersMagazijn.Add(new OwnersMagazijn() { MagazijnId = 2, UserId = 1 });
                 data.OwnersMagazijn.Add(new OwnersMagazijn() { MagazijnId = 3, UserId = 1 });
 
-                data.ProductsMagazijn.Add(new ProductsMagazijn() { ProductId = 1, MagazijnId = 1, Aantal = 10 });
+                data.ProductsMagazijn.Add(new ProductsMagazijn() { ProductId = 1, MagazijnId = 1, Amount = 10 });
                 data.SaveChanges();
             }
         }

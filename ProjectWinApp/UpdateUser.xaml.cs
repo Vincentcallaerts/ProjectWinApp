@@ -23,17 +23,35 @@ namespace ProjectWinApp
         public List<ComboBoxIndexContent> Roles { get; set; }
         public List<ComboBoxIndexContent> Users { get; set; }
 
+        public Encryptor md5 = new Encryptor();
         public UpdateUser()
         {
             InitializeComponent();
-            FillRoles();
-
-            
+            FillRoles();            
         }
 
         private void btnUpdateUser_Click(object sender, RoutedEventArgs e)
         {
+            int selectedUser = Convert.ToInt32(cmbUsers.SelectedValue);
+            using (DataContext data = new DataContext())
+            {
+                data.User.Where(u => u.UserId == selectedUser).FirstOrDefault().FirstName = tbFirst.Text;
+                data.User.Where(u => u.UserId == selectedUser).FirstOrDefault().LastName = tbLast.Text;
+                data.User.Where(u => u.UserId == selectedUser).FirstOrDefault().Email = tbEmail.Text;
 
+                data.SaveChanges();
+            }
+            cmbRole.SelectedIndex = 0;
+        }
+        private void btpassword_Click(object sender, RoutedEventArgs e)
+        {
+            int selectedUser = Convert.ToInt32(cmbUsers.SelectedValue);
+            using (DataContext data = new DataContext())
+            {
+                data.User.Where(u => u.UserId == selectedUser).FirstOrDefault().Password = md5.CreateMD5("12345!");
+                data.SaveChanges();
+            }
+            MessageBox.Show("Passwoord is aangepast");
         }
         private void FillRoles()
         {
@@ -52,7 +70,7 @@ namespace ProjectWinApp
             cmbRole.SelectedIndex = 0;
             cmbRoleSelected.ItemsSource = Roles;
             cmbRoleSelected.SelectedIndex = 0;
-            cmbUsers.ItemsSource = null;
+            UpdateUsers();
         }
 
         private void cmbRole_SelectionChanged(object sender, SelectionChangedEventArgs e)
@@ -84,6 +102,7 @@ namespace ProjectWinApp
             }
             cmbUsers.ItemsSource = Users;
             cmbUsers.SelectedIndex = 0;
+            Update();
         }
 
         private void cmbUsers_DropDownClosed(object sender, EventArgs e)
@@ -98,17 +117,27 @@ namespace ProjectWinApp
         private void Update()
         {
             //Update de Role adhv de role die vanboven selected is want als ik filter op role kunnen de users toch geen andere role dan de geselecteerde hebben.
-            int selectedUser = Convert.ToInt32(cmbRole.SelectedValue);
-            using (DataContext data = new DataContext())
+            cmbRoleSelected.SelectedIndex = cmbRole.SelectedIndex;
+            if (cmbUsers.SelectedItem != null)
             {
-                var collection = data.User.FirstOrDefault(u => u.UserId == selectedUser);
-                
-                tbfirst.Text = collection.FirstName;
-                tblast.Text = collection.LastName;
-                tbemail.Text = collection.Email;
-                tbpassword.Text = collection.Password;
+                int selectedUser = Convert.ToInt32(cmbRole.SelectedValue);
+                using (DataContext data = new DataContext())
+                {
+                    var collection = data.User.FirstOrDefault(u => u.UserId == selectedUser);
 
+                    tbFirst.Text = collection.FirstName;
+                    tbLast.Text = collection.LastName;
+                    tbEmail.Text = collection.Email;
+
+                }
             }
-        }
+            else
+            {
+                tbFirst.Text = string.Empty;
+                tbLast.Text = string.Empty;
+                tbEmail.Text = string.Empty;
+            }
+            
+        }        
     }
 }

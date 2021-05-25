@@ -27,7 +27,7 @@ namespace ProjectWinApp
 
         private void btnAddCustomer_Click(object sender, RoutedEventArgs e)
         {
-            if (!(tbName.Text != null && tbEmail.Text != null))
+            if (tbName.Text == string.Empty || tbEmail.Text == string.Empty)
             {
                 MessageBox.Show("Een van de textvelden is leeg deze moeten allemaal ingevuld worden");
             }

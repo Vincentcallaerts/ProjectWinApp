@@ -44,13 +44,13 @@ namespace ProjectWinApp
                 if (productExists == null)
                 {
                     //voledig nieuw product
-                    data.ProductsMagazijn.Add(new ProductsMagazijn() { MagazijnId = selectedMagazijn, ProductId = selectedProduct, Aantal = selectedAantal });
+                    data.ProductsMagazijn.Add(new ProductsMagazijn() { MagazijnId = selectedMagazijn, ProductId = selectedProduct, Amount = selectedAantal });
                     
                 }
                 else
                 {
                     //aantal verhogen
-                    data.ProductsMagazijn.FirstOrDefault(pm => pm.MagazijnId == selectedMagazijn && pm.ProductId == selectedProduct).Aantal += selectedAantal;
+                    data.ProductsMagazijn.FirstOrDefault(pm => pm.MagazijnId == selectedMagazijn && pm.ProductId == selectedProduct).Amount += selectedAantal;
                 }
                 data.SaveChanges();
             }

@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace ProjectWinApp
 {
-    class Encryptor
+    public class Encryptor
     {
         public string CreateMD5(string input)
         {

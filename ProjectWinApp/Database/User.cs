@@ -24,7 +24,7 @@ namespace ProjectWinApp
 
         public override string ToString()
         {
-            return $"{FirstName} {LastName} {Email}";
+            return $"{UserId} | {LastName} {FirstName} | {Email}";
         }
         public string FullName()
         {

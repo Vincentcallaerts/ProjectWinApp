@@ -24,7 +24,7 @@ namespace ProjectWinApp
         public int MagazijnId { get; set; }
         public Magazijn Magazijn { get; set; }
 
-        public int Aantal { get; set; }
+        public int Amount { get; set; }
 
 
     }

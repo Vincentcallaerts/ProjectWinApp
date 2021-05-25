@@ -11,9 +11,9 @@
     <DockPanel>
         <StackPanel DockPanel.Dock="Left" Width="150" Background="AliceBlue">
             <Label BorderBrush="Black" BorderThickness="2" Margin="0,0,0,10">Overvieuw</Label>
-            <Button x:Name="btnAddUser">See Users</Button>
-            <Button x:Name="btnAddCustomer">See Customers</Button>
-            <Button x:Name="btnAddMagazijn">See Magazijns</Button>
+            <Button x:Name="btnSeeUsers" Click="btnSeeUsers_Click">See Users</Button>
+            <Button x:Name="btnSeeCustomers" Click="btnSeeCustomers_Click" >See Customers</Button>
+            <Button x:Name="btnSeeMagazijns">See Magazijns</Button>
             
 
             <Button x:Name="btnBlank">Empty</Button>

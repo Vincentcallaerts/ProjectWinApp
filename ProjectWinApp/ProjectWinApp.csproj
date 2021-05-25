@@ -136,6 +136,12 @@
     </Compile>
     <Compile Include="Database\User.cs" />
     <Compile Include="Database\UserRole.cs" />
+    <Compile Include="SeeCustomers.xaml.cs">
+      <DependentUpon>SeeCustomers.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="SeeUsers.xaml.cs">
+      <DependentUpon>SeeUsers.xaml</DependentUpon>
+    </Compile>
     <Compile Include="UpdateUser.xaml.cs">
       <DependentUpon>UpdateUser.xaml</DependentUpon>
     </Compile>
@@ -208,6 +214,14 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="RemoveUser.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="SeeCustomers.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="SeeUsers.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

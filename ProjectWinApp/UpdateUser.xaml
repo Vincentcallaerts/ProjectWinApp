@@ -45,13 +45,13 @@
             </ComboBox>
 
             <Label>User First Name</Label>
-            <TextBox x:Name="tbfirst"></TextBox>
+            <TextBox x:Name="tbFirst"></TextBox>
             <Label>User Last Name</Label>
-            <TextBox x:Name="tblast"></TextBox>
-            <Label>User Password</Label>
-            <TextBox x:Name="tbpassword"></TextBox>
+            <TextBox x:Name="tbLast"></TextBox>
+            <Label>User Password Reset</Label>
+            <Button x:Name="btPassword" Click="btpassword_Click">Reset</Button>
             <Label>User Email</Label>
-            <TextBox x:Name="tbemail"></TextBox>
+            <TextBox x:Name="tbEmail"></TextBox>
         </StackPanel>
     </DockPanel>
 </Page>

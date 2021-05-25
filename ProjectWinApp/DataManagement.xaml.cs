@@ -20,9 +20,10 @@ namespace ProjectWinApp
     /// </summary>
     public partial class DataManagement : Page
     {
-
-        public DataManagement()
+        public User User { get; set; }
+        public DataManagement(User user)
         {
+            User = user;
             InitializeComponent();
 
         }
@@ -81,7 +82,6 @@ namespace ProjectWinApp
         {
             adminDataBeheer.Content = new RemoveManagerMagazijn();
         }
-
         private void btnUpdateUserClick(object sender, RoutedEventArgs e)
         {
             adminDataBeheer.Content = new UpdateUser();
@@ -89,9 +89,22 @@ namespace ProjectWinApp
 
         private void btnUpdateCustomerClick(object sender, RoutedEventArgs e)
         {
+            adminDataBeheer.Content = new UpdateCustomer();
+        }
+
+        private void btnUpdateProductClick(object sender, RoutedEventArgs e)
+        {
             MessageBox.Show("Not done yet");
         }
 
-        
+        private void btnUpdateUserSelfClick(object sender, RoutedEventArgs e)
+        {
+            adminDataBeheer.Content = new UpdateUserSelf(User);
+        }
+
+        private void btnUpdateUserSelfPasswordClick(object sender, RoutedEventArgs e)
+        {
+            adminDataBeheer.Content = new UpdatePassword(User);
+        }
     }
 }

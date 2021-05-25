@@ -77,6 +77,19 @@ namespace ProjectWinApp
                 data.Magazijn.Add(new Magazijn() { Adress = "Testla2" });
                 data.Magazijn.Add(new Magazijn() { Adress = "Testla3" });
 
+                data.Customer.Add(new Customer() { Name = "testla1", Email = "testla@gmail.com" });
+                data.Customer.Add(new Customer() { Name = "testla2", Email = "testla@gmail.com" });
+                data.Customer.Add(new Customer() { Name = "testla3", Email = "testla@gmail.com" });
+                data.Customer.Add(new Customer() { Name = "testla4", Email = "testla@gmail.com" });
+                data.Customer.Add(new Customer() { Name = "testla5", Email = "testla@gmail.com" });
+                data.Customer.Add(new Customer() { Name = "testla6", Email = "testla@gmail.com" });
+                data.Customer.Add(new Customer() { Name = "testla7", Email = "testla@gmail.com" });
+                data.Customer.Add(new Customer() { Name = "testla8", Email = "testla@gmail.com" });
+                data.Customer.Add(new Customer() { Name = "testla9", Email = "testla@gmail.com" });
+                data.Customer.Add(new Customer() { Name = "testla10", Email = "testla@gmail.com" });
+                data.Customer.Add(new Customer() { Name = "testla11", Email = "testla@gmail.com" });
+
+
                 data.Product.Add(new Product() { Name = "Test1", Price = 20 });
                 
                 data.SaveChanges();
@@ -89,7 +102,10 @@ namespace ProjectWinApp
                 data.OwnersMagazijn.Add(new OwnersMagazijn() { MagazijnId = 2, UserId = 1 });
                 data.OwnersMagazijn.Add(new OwnersMagazijn() { MagazijnId = 3, UserId = 1 });
 
-                data.ProductsMagazijn.Add(new ProductsMagazijn() { ProductId = 1, MagazijnId = 1, Amount = 10 });
+                data.ProductsMagazijn.Add(new ProductsMagazijn() { ProductId = 1, MagazijnId = 1, Amount = 10 , LastAdded = DateTime.Now});
+                data.ProductsMagazijn.Add(new ProductsMagazijn() { ProductId = 1, MagazijnId = 2, Amount = 10, LastAdded = DateTime.Now });
+                data.ProductsMagazijn.Add(new ProductsMagazijn() { ProductId = 1, MagazijnId = 3, Amount = 10, LastAdded = DateTime.Now });
+
                 data.SaveChanges();
             }
         }

@@ -11,10 +11,8 @@
     <DockPanel>
         <StackPanel DockPanel.Dock="Left" Width="150" Background="AliceBlue">
             <Label BorderBrush="Black" BorderThickness="2" Margin="0,0,0,10">Orders</Label>
-            <Button x:Name="btnAddOrder" >Add Order</Button>
-            
-
-            <Button x:Name="btnBlank">Empty</Button>
+            <Button x:Name="btnSeeIncommingOrder" IsEnabled="False">See Incomming Orders</Button>
+            <Button x:Name="btnSeeOutgoingOrder" IsEnabled="False">See Outgoing Orders</Button>
         </StackPanel>
         <Frame x:Name="fOrders" DockPanel.Dock="Right" Width="650" Background="White" NavigationUIVisibility="Hidden"></Frame>
 

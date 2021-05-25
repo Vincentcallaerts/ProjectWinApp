@@ -139,11 +139,23 @@
     <Compile Include="SeeCustomers.xaml.cs">
       <DependentUpon>SeeCustomers.xaml</DependentUpon>
     </Compile>
+    <Compile Include="SeeMagazijns.xaml.cs">
+      <DependentUpon>SeeMagazijns.xaml</DependentUpon>
+    </Compile>
     <Compile Include="SeeUsers.xaml.cs">
       <DependentUpon>SeeUsers.xaml</DependentUpon>
     </Compile>
+    <Compile Include="UpdateCustomer.xaml.cs">
+      <DependentUpon>UpdateCustomer.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="UpdatePassword.xaml.cs">
+      <DependentUpon>UpdatePassword.xaml</DependentUpon>
+    </Compile>
     <Compile Include="UpdateUser.xaml.cs">
       <DependentUpon>UpdateUser.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="UpdateUserSelf.xaml.cs">
+      <DependentUpon>UpdateUserSelf.xaml</DependentUpon>
     </Compile>
     <Page Include="AddCustomer.xaml">
       <SubType>Designer</SubType>
@@ -221,11 +233,27 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="SeeMagazijns.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="SeeUsers.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="UpdateCustomer.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="UpdatePassword.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="UpdateUser.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="UpdateUserSelf.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

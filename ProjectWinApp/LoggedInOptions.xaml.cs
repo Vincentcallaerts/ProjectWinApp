@@ -41,11 +41,16 @@ namespace ProjectWinApp
         private void UpdateTime()
         {
             tbTime.Text = DateTime.Now.ToString("HH:mm:ss");
+            SetInfo();
+
         }
         private void SetInfo()
         {
+
             using (DataContext data = new DataContext())
             {
+                var checkChanges = data.User.Where(u => u.UserId == LoggedIn.UserId).FirstOrDefault();
+                LoggedIn = checkChanges;
                 var collection = data.UserRole.FirstOrDefault(u => u.UserRoleId == LoggedIn.UserRoleId);
 
                 tbInfo.Text = $"Logged in as {LoggedIn.FirstName} {LoggedIn.LastName} : {collection.Description}";
@@ -56,7 +61,7 @@ namespace ProjectWinApp
         private void btnDataBeheer_Click(object sender, RoutedEventArgs e)
         {
 
-            fContent.Content = new DataManagement();
+            fContent.Content = new DataManagement(LoggedIn);
             btnDataBeheer.IsEnabled = false;
             btnBestellingen.IsEnabled = true;
             btnOverzicht.IsEnabled = true;

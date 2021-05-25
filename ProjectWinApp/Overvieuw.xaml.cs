@@ -34,5 +34,10 @@ namespace ProjectWinApp
         {
             fOvervieuw.Content = new SeeCustomers();
         }
+
+        private void btnSeeMagazijns_Click(object sender, RoutedEventArgs e)
+        {
+            fOvervieuw.Content = new SeeMagazijns();
+        }
     }
 }

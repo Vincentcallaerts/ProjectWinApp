@@ -13,10 +13,8 @@
             <Label BorderBrush="Black" BorderThickness="2" Margin="0,0,0,10">Overvieuw</Label>
             <Button x:Name="btnSeeUsers" Click="btnSeeUsers_Click">See Users</Button>
             <Button x:Name="btnSeeCustomers" Click="btnSeeCustomers_Click" >See Customers</Button>
-            <Button x:Name="btnSeeMagazijns">See Magazijns</Button>
+            <Button x:Name="btnSeeMagazijns" Click="btnSeeMagazijns_Click">See Magazijns</Button>
             
-
-            <Button x:Name="btnBlank">Empty</Button>
         </StackPanel>
         <Frame x:Name="fOvervieuw" DockPanel.Dock="Right" Width="650" Background="White" NavigationUIVisibility="Hidden"></Frame>
 

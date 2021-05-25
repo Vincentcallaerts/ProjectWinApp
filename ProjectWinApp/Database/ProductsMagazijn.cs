@@ -26,6 +26,7 @@ namespace ProjectWinApp
 
         public int Amount { get; set; }
 
+        public DateTime LastAdded { get; set; }
 
     }
 }

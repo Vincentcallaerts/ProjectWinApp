@@ -17,7 +17,7 @@
             <Button x:Name="btnAddMagazijn" Click="btnAddMagazijn_Click">Add Warehouse</Button>
             <Button x:Name="btnAddManagerMagazijn" Click="btnAddManagerMagazijn_Click">Add Manager Warehouse</Button>
             <Button x:Name="btnAddProduct" Click="btnAddProduct_Click">Add Product</Button>
-            <Button x:Name="btnAddProductMagazijn" Click="btnAddProductMagazijn_Click">Add Product Warehouse</Button>
+            
 
             <Button Margin="0,10,0,0" x:Name="btnRemoveUser" Click="btnRemoveUser_Click">Remove User</Button>
             <Button x:Name="btnRemoveCustomer" Click="btnRemoveCustomer_Click">Remove Customer</Button>
@@ -26,8 +26,8 @@
             <Button x:Name="btnRemoveProductMagazijn" Click="btnRemoveProductsMagazijn_Click">Remove Product Warehouse</Button>
 
             <Button x:Name="btnUpdateUser" Margin="0,10,0,0" Click="btnUpdateUserClick">Update Users</Button>
-            <Button x:Name="btnUpdateUserSelf" Click="btnUpdateUserSelfClick" IsEnabled="False">Update Yourself</Button>
-            <Button x:Name="btnUpdateUserSelfPassword" Click="btnUpdateUserSelfPasswordClick" IsEnabled="False">Update Password</Button>
+            <Button x:Name="btnUpdateUserSelf" Click="btnUpdateUserSelfClick">Update Yourself(Wip)</Button>
+            <Button x:Name="btnUpdateUserSelfPassword" Click="btnUpdateUserSelfPasswordClick">Update Password</Button>
 
 
             <Button x:Name="btnUpdateCustomer" Click="btnUpdateCustomerClick">Update Customer</Button>

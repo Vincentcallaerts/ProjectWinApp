@@ -24,5 +24,10 @@ namespace ProjectWinApp
         {
             InitializeComponent();
         }
+
+        private void btnAddProductMagazijn_Click(object sender, RoutedEventArgs e)
+        {
+            fOrders.Content = new AddProductMagazijn();
+        }
     }
 }

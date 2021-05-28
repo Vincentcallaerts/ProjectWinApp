@@ -32,16 +32,24 @@ namespace ProjectWinApp
 
         private void btnUpdate_Click(object sender, RoutedEventArgs e)
         {
-            using (DataContext data = new DataContext())
+            if (tbFirst.Text != null && tbLast.Text != null && tbEmail.Text != null)
             {
-                data.User.Where(u => u.UserId == User.UserId).FirstOrDefault().FirstName = tbFirst.Text;
-                data.User.Where(u => u.UserId == User.UserId).FirstOrDefault().LastName = tbLast.Text;
-                data.User.Where(u => u.UserId == User.UserId).FirstOrDefault().Email = tbEmail.Text;
-                data.SaveChanges();
-                
-                //werkt nog niet helemaal kan de statusbar niet aanpassen dus dit is kinda eh
+                using (DataContext data = new DataContext())
+                {
+                    data.User.Where(u => u.UserId == User.UserId).FirstOrDefault().FirstName = tbFirst.Text;
+                    data.User.Where(u => u.UserId == User.UserId).FirstOrDefault().LastName = tbLast.Text;
+                    data.User.Where(u => u.UserId == User.UserId).FirstOrDefault().Email = tbEmail.Text;
+                    data.SaveChanges();
+
+                }
+                User.FirstName = tbFirst.Text;
+                User.LastName = tbLast.Text;
+                User.Email = tbEmail.Text;
             }
-            
+            else
+            {
+                MessageBox.Show("Een van de velden is leeg deze moeten allemaal ingevuld worden");
+            }                      
         }
     }
 }

@@ -21,9 +21,9 @@ namespace ProjectWinApp
     public partial class UpdatePassword : Page
     {
         public User User { get; set; }
+        public Encryptor md5 = new Encryptor();
         public UpdatePassword(User user)
         {
-
             InitializeComponent();
             User = user;
         }
@@ -32,7 +32,8 @@ namespace ProjectWinApp
         {
             using (DataContext data = new DataContext())
             {
-                //data.User
+                data.User.Where(u => u.UserId == User.UserId).FirstOrDefault().Password = md5.CreateMD5(tbPassword.Text);
+                data.SaveChanges();
             }
         }
     }

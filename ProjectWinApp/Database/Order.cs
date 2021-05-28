@@ -26,6 +26,6 @@ namespace ProjectWinApp
 
         public int Amount { get; set; }
 
-
+        public int Betaald { get; set; }
     }
 }

@@ -67,11 +67,7 @@ namespace ProjectWinApp
         {
             adminDataBeheer.Content = new AddProduct();
         }
-
-        private void btnAddProductMagazijn_Click(object sender, RoutedEventArgs e)
-        {
-            adminDataBeheer.Content = new AddProductMagazijn();
-        }
+       
 
         private void btnRemoveProductsMagazijn_Click(object sender, RoutedEventArgs e)
         {

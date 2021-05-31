@@ -14,6 +14,8 @@
             <Button x:Name="btnSeeIncommingOrder" IsEnabled="False">See Incomming Orders</Button>
             <Button x:Name="btnSeeOutgoingOrder" IsEnabled="False">See Outgoing Orders</Button>
             <Button x:Name="btnAddProductMagazijn" Click="btnAddProductMagazijn_Click">Add Product Warehouse</Button>
+            <Button x:Name="btnAddOrder" Click="btnAddOrder_Click">Add Order</Button>
+
         </StackPanel>
         <Frame x:Name="fOrders" DockPanel.Dock="Right" Width="650" Background="White" NavigationUIVisibility="Hidden"></Frame>
 

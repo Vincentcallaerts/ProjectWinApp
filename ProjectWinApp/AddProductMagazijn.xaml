@@ -30,7 +30,7 @@
             </ListBox.ItemTemplate>
         </ListBox>
         <Label>Aantal</Label>
-        <xctk:IntegerUpDown x:Name="iupdAantal" ToolTip="Als het product al in het magazijn steekt gaat het aantal bij het aantal van het product in het magazijn opgeteld worden"></xctk:IntegerUpDown>
-        <Button Margin="0,10,0,0" x:Name="btnAddOwner" Click="btnAddProduct_Click">Add product to magazijn</Button>
+        <xctk:IntegerUpDown x:Name="iupdAantal" ToolTip="Als het product al in het magazijn steekt gaat het aantal bij het aantal van het product in het magazijn opgeteld worden. Negatieve getallen mogen ook voor producten weg te halen"></xctk:IntegerUpDown>
+        <Button Margin="0,10,0,0" x:Name="btnAddOwner" Click="btnAddProduct_Click"> Update Product Magazijn</Button>
     </StackPanel>
 </Page>

@@ -23,6 +23,8 @@ namespace ProjectWinApp
         public DbSet<Customer> Customer { get; set; }
         public DbSet<Order> Order { get; set; }
         public DbSet<OwnersMagazijn> OwnersMagazijn { get; set; }
+        public DbSet<Supplier> Supplier { get; set; }
+        public DbSet<ProductsSupplier> ProductsSupplier { get; set; }
 
     }
 }

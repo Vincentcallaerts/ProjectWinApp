@@ -10,22 +10,11 @@ namespace ProjectWinApp
     class Order
     {
 
-        public int OrderId { get; set; }
-
-        [ForeignKey("Product")]
-        public int ProductId { get; set; }
-        public Product Product { get; set; }
+        public int OrderId { get; set; }        
 
         [ForeignKey("Customer")]
         public int CustomerId { get; set; }
         public Customer Customer { get; set; }
-
-        [ForeignKey("Magazijn")]
-        public int MagazijnId { get; set; }
-        public Magazijn Magazijn { get; set; }
-
-        public int Amount { get; set; }
-
-        public int Betaald { get; set; }
+        public bool Betaald { get; set; }
     }
 }

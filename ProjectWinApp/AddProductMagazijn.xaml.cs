@@ -39,7 +39,7 @@ namespace ProjectWinApp
 
             using (DataContext data = new DataContext())
             {
-                //add maybe nog messagebox
+                //add maybe nog messageboxes
                 var productExists = data.ProductsMagazijn.Where(pm => pm.ProductId == selectedProduct && pm.MagazijnId == selectedMagazijn).FirstOrDefault();
                 if (productExists == null)
                 {
@@ -61,6 +61,7 @@ namespace ProjectWinApp
         }
         private void FillRoles()
         {
+            //dit anders doen.
             Magazijns = new List<ComboBoxIndexContent>();
             Products = new List<ComboBoxIndexContent>();
 

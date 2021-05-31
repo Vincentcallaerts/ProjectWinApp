@@ -16,23 +16,13 @@ using System.Windows.Shapes;
 namespace ProjectWinApp
 {
     /// <summary>
-    /// Interaction logic for Orders.xaml
+    /// Interaction logic for AddOrder.xaml
     /// </summary>
-    public partial class Orders : Page
+    public partial class AddOrder : Page
     {
-        public Orders()
+        public AddOrder()
         {
             InitializeComponent();
-        }
-
-        private void btnAddProductMagazijn_Click(object sender, RoutedEventArgs e)
-        {
-            fOrders.Content = new AddProductMagazijn();
-        }
-
-        private void btnAddOrder_Click(object sender, RoutedEventArgs e)
-        {
-            fOrders.Content = new AddOrder();
         }
     }
 }

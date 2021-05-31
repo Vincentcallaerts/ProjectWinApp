@@ -6,11 +6,11 @@ using System.Threading.Tasks;
 
 namespace ProjectWinApp
 {
-    public class Product
+    class Supplier
     {
-        public int ProductId { get; set; }
+        public int SupplierId { get; set; }
         public string Name { get; set; }
-        public double Price { get; set; }
+        public string Email { get; set; }
 
     }
 }

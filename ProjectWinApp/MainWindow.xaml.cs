@@ -89,11 +89,15 @@ namespace ProjectWinApp
                 data.Customer.Add(new Customer() { Name = "testla10", Email = "testla@gmail.com" });
                 data.Customer.Add(new Customer() { Name = "testla11", Email = "testla@gmail.com" });
 
+                data.Supplier.Add(new Supplier() { Name = "Testla", Email = "testla@gmail.com" });
+                data.Supplier.Add(new Supplier() { Name = "MeerTestla", Email = "testla@gmail.com" });
+
 
                 data.Product.Add(new Product() { Name = "Test1", Price = 20 });
                 
                 data.SaveChanges();
 
+                data.ProductsSupplier.Add(new ProductsSupplier() { ProductId = 1, SupplierId = 1 });
                 data.OwnersMagazijn.Add(new OwnersMagazijn() { MagazijnId = 1, UserId = 1 });
                 data.OwnersMagazijn.Add(new OwnersMagazijn() { MagazijnId = 1, UserId = 2 });
                 data.OwnersMagazijn.Add(new OwnersMagazijn() { MagazijnId = 1, UserId = 3 });

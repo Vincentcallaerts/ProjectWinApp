@@ -16,16 +16,16 @@ using System.Windows.Shapes;
 namespace ProjectWinApp
 {
     /// <summary>
-    /// Interaction logic for AddCustomer.xaml
+    /// Interaction logic for AddSupplier.xaml
     /// </summary>
-    public partial class AddCustomer : Page
+    public partial class AddSupplier : Page
     {
-        public AddCustomer()
+        public AddSupplier()
         {
             InitializeComponent();
         }
 
-        private void btnAddCustomer_Click(object sender, RoutedEventArgs e)
+        private void btnAddSupplier_Click(object sender, RoutedEventArgs e)
         {
             if (tbName.Text == string.Empty || tbEmail.Text == string.Empty)
             {
@@ -35,13 +35,13 @@ namespace ProjectWinApp
             {
                 using (DataContext data = new DataContext())
                 {
-                    data.Customer.Add(new Customer() { Name = tbName.Text, Email = tbEmail.Text });
+                    data.Supplier.Add(new Supplier() { Name = tbName.Text, Email = tbEmail.Text });
                     data.SaveChanges();
                 }
+
                 tbName.Text = string.Empty;
                 tbEmail.Text = string.Empty;
             }
-            
         }
     }
 }

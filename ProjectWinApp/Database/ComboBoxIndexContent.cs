@@ -17,5 +17,6 @@ namespace ProjectWinApp
             Id = id;
             Content = content;
         }
+        
     }
 }

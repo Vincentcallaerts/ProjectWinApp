@@ -90,7 +90,7 @@ namespace ProjectWinApp
 
         private void btnUpdateProductClick(object sender, RoutedEventArgs e)
         {
-            MessageBox.Show("Not done yet");
+            adminDataBeheer.Content = new UpdateProduct();
         }
 
         private void btnUpdateUserSelfClick(object sender, RoutedEventArgs e)
@@ -101,6 +101,11 @@ namespace ProjectWinApp
         private void btnUpdateUserSelfPasswordClick(object sender, RoutedEventArgs e)
         {
             adminDataBeheer.Content = new UpdatePassword(User);
+        }
+
+        private void btnAddSupplier_Click(object sender, RoutedEventArgs e)
+        {
+            adminDataBeheer.Content = new AddSupplier();
         }
     }
 }

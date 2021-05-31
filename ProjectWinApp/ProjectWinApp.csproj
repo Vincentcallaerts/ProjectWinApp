@@ -86,6 +86,9 @@
     <Compile Include="AddMagazijn.xaml.cs">
       <DependentUpon>AddMagazijn.xaml</DependentUpon>
     </Compile>
+    <Compile Include="AddOrder.xaml.cs">
+      <DependentUpon>AddOrder.xaml</DependentUpon>
+    </Compile>
     <Compile Include="AddOwnerMagazijn.xaml.cs">
       <DependentUpon>AddOwnerMagazijn.xaml</DependentUpon>
     </Compile>
@@ -94,6 +97,9 @@
     </Compile>
     <Compile Include="AddProductMagazijn.xaml.cs">
       <DependentUpon>AddProductMagazijn.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="AddSupplier.xaml.cs">
+      <DependentUpon>AddSupplier.xaml</DependentUpon>
     </Compile>
     <Compile Include="AdminAddUser.xaml.cs">
       <DependentUpon>AdminAddUser.xaml</DependentUpon>
@@ -119,6 +125,7 @@
     <Compile Include="Database\OwnersMagazijn.cs" />
     <Compile Include="Database\Product.cs" />
     <Compile Include="Database\ProductsMagazijn.cs" />
+    <Compile Include="Database\ProductsSupplier.cs" />
     <Compile Include="RemoveCustomer.xaml.cs">
       <DependentUpon>RemoveCustomer.xaml</DependentUpon>
     </Compile>
@@ -145,11 +152,15 @@
     <Compile Include="SeeUsers.xaml.cs">
       <DependentUpon>SeeUsers.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Database\Supplier.cs" />
     <Compile Include="UpdateCustomer.xaml.cs">
       <DependentUpon>UpdateCustomer.xaml</DependentUpon>
     </Compile>
     <Compile Include="UpdatePassword.xaml.cs">
       <DependentUpon>UpdatePassword.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="UpdateProduct.xaml.cs">
+      <DependentUpon>UpdateProduct.xaml</DependentUpon>
     </Compile>
     <Compile Include="UpdateUser.xaml.cs">
       <DependentUpon>UpdateUser.xaml</DependentUpon>
@@ -165,6 +176,10 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="AddOrder.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="AddOwnerMagazijn.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -174,6 +189,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="AddProductMagazijn.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="AddSupplier.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -246,6 +265,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="UpdatePassword.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="UpdateProduct.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

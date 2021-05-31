@@ -20,18 +20,27 @@ namespace ProjectWinApp
     /// </summary>
     public partial class AddProduct : Page
     {
+        public List<ComboBoxIndexContent> Suppliers { get; set; }
+
         public AddProduct()
         {
             InitializeComponent();
+            FillRoles();
         }
 
         private void btnAddProduct_Click(object sender, RoutedEventArgs e)
         {
+            int selectedValue = Convert.ToInt32(cmbSuppliers.SelectedValue);
+            double price = (double)dupdPrijs.Value;
             if (dupdPrijs.Value != null && tbName.Text != null)
             {
                 using (DataContext data = new DataContext())
                 {
-                    data.Product.Add(new Product() { Name = tbName.Text, Price = (double)dupdPrijs.Value });
+                    Product insertedProduct = new Product() { Name = tbName.Text, Price = price };
+                    data.Product.Add(insertedProduct);
+                    data.SaveChanges();
+
+                    data.ProductsSupplier.Add(new ProductsSupplier() { SupplierId = selectedValue, ProductId = insertedProduct.ProductId});
                     data.SaveChanges();
                 }
                 dupdPrijs.Value = null;
@@ -41,6 +50,22 @@ namespace ProjectWinApp
             {
                 MessageBox.Show("Een van de velden is leeg deze moeten allemaal ingevuld worden");
             }          
+        }
+        private void FillRoles()
+        {
+            Suppliers = new List<ComboBoxIndexContent>();
+            
+            using (DataContext data = new DataContext())
+            {
+                var collectionMagazijns = data.Supplier.Select(m => m);
+                foreach (var item in collectionMagazijns)
+                {
+                    Suppliers.Add(new ComboBoxIndexContent(item.SupplierId, item.Name));
+                }           
+            }
+            cmbSuppliers.ItemsSource = Suppliers;
+            cmbSuppliers.SelectedIndex = 0;
+            
         }
     }
 }

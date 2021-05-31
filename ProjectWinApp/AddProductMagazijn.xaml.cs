@@ -74,6 +74,7 @@ namespace ProjectWinApp
                 }
                 
                 var collectionProducts = data.Product.Select(p => p);
+
                 foreach (var item in collectionProducts)
                 {
                     Products.Add(new ComboBoxIndexContent(item.ProductId, item.Name));

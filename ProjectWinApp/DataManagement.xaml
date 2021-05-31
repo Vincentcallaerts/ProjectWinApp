@@ -26,12 +26,14 @@
             <Button x:Name="btnRemoveProductMagazijn" Click="btnRemoveProductsMagazijn_Click">Remove Product Warehouse</Button>
 
             <Button x:Name="btnUpdateUser" Margin="0,10,0,0" Click="btnUpdateUserClick">Update Users</Button>
-            <Button x:Name="btnUpdateUserSelf" Click="btnUpdateUserSelfClick">Update Yourself(Wip)</Button>
+            <Button x:Name="btnUpdateUserSelf" Click="btnUpdateUserSelfClick">Update Yourself</Button>
             <Button x:Name="btnUpdateUserSelfPassword" Click="btnUpdateUserSelfPasswordClick">Update Password</Button>
 
 
             <Button x:Name="btnUpdateCustomer" Click="btnUpdateCustomerClick">Update Customer</Button>
             <Button x:Name="btnUpdateProduct" Click="btnUpdateProductClick">Update Product Name</Button>
+            <Button x:Name="btnTransferProductMagazijn" Click="btnTransferProductMagazijnClick">Transfer Product Magazijn</Button>
+
 
         </StackPanel>
         <Frame x:Name="adminDataBeheer"  DockPanel.Dock="Right" Width="650" Background="White" NavigationUIVisibility="Hidden"></Frame>

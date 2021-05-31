@@ -9,6 +9,16 @@
       Title="UpdateProduct">
 
     <StackPanel HorizontalAlignment="Center" Background="White">
+        <Label>Select Leverancier</Label>
+        <ComboBox x:Name="cmbLeveranciers" SelectedValuePath="Id" DropDownClosed="cmbLeveranciers_DropDownClosed" SelectionChanged="cmbLeveranciers_DropDownClosed">
+            <ComboBox.ItemTemplate>
+                <DataTemplate>
+                    <StackPanel Orientation="Horizontal">
+                        <Label Content="{Binding Content}"></Label>
+                    </StackPanel>
+                </DataTemplate>
+            </ComboBox.ItemTemplate>
+        </ComboBox>
         <Label>Select Product</Label>
         <ComboBox x:Name="cmbProduct" SelectedValuePath="Id" DropDownClosed="cmbRole_DropDownClosed">
             <ComboBox.ItemTemplate>

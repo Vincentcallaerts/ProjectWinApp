@@ -107,5 +107,10 @@ namespace ProjectWinApp
         {
             adminDataBeheer.Content = new AddSupplier();
         }
+
+        private void btnTransferProductMagazijnClick(object sender, RoutedEventArgs e)
+        {
+            adminDataBeheer.Content = new TransferProductMagazijn();
+        }
     }
 }

@@ -1,0 +1,52 @@
+﻿<Page x:Class="ProjectWinApp.TransferProductMagazijn"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:ProjectWinApp" xmlns:xctk="http://schemas.xceed.com/wpf/xaml/toolkit"
+      mc:Ignorable="d" 
+      d:DesignHeight="450" d:DesignWidth="650"
+      Title="TransferProductMagazijn">
+
+    <DockPanel>
+        <StackPanel DockPanel.Dock="Left" Background="White">
+            <Label>Warehouses</Label>
+            <ComboBox x:Name="cmbWarehouses" SelectedValuePath="Id" DropDownClosed="cmbWarehouses_DropDownClosed">
+                <ComboBox.ItemTemplate>
+                    <DataTemplate>
+                        <StackPanel Orientation="Horizontal">
+                            <Label Content="{Binding Content}"></Label>
+                        </StackPanel>
+                    </DataTemplate>
+                </ComboBox.ItemTemplate>
+            </ComboBox>
+            <Label>Products in warehouse</Label>
+            <ComboBox x:Name="cmbProducts" SelectedValuePath="Id" DropDownClosed="cmbProducts_DropDownClosed" >
+                <ComboBox.ItemTemplate>
+                    <DataTemplate>
+                        <StackPanel Orientation="Horizontal">
+                            <Label Content="{Binding Content}"></Label>
+                        </StackPanel>
+                    </DataTemplate>
+                </ComboBox.ItemTemplate>
+            </ComboBox>
+            <Label>Transfer Amount</Label>
+            <xctk:IntegerUpDown ToolTip="Het ingevulde getal is hoeveel er momenteel in het magazijn zit." x:Name="iupdAantal"></xctk:IntegerUpDown>
+            
+        </StackPanel>
+        <StackPanel DockPanel.Dock="Right" Background="White">
+            <Label>Transfer Product here</Label>
+            <ListBox x:Name="lbWarehouses" SelectedValuePath="Id" MaxHeight="200" MinHeight="32">
+                <ListBox.ItemTemplate>
+                    <DataTemplate>
+                        <StackPanel Orientation="Horizontal">
+                            <Label Content="{Binding Content}"></Label>
+                        </StackPanel>
+                    </DataTemplate>
+                </ListBox.ItemTemplate>
+            </ListBox>
+            <Button x:Name="btnTransfer" Margin="0,10,0,0" Click="btnTransfer_Click">Transfer</Button>
+        </StackPanel>
+
+    </DockPanel>
+</Page>

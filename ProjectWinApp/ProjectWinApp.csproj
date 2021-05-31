@@ -126,6 +126,7 @@
     <Compile Include="Database\Product.cs" />
     <Compile Include="Database\ProductsMagazijn.cs" />
     <Compile Include="Database\ProductsSupplier.cs" />
+    <Compile Include="Database\ProductsOrder.cs" />
     <Compile Include="RemoveCustomer.xaml.cs">
       <DependentUpon>RemoveCustomer.xaml</DependentUpon>
     </Compile>
@@ -153,6 +154,9 @@
       <DependentUpon>SeeUsers.xaml</DependentUpon>
     </Compile>
     <Compile Include="Database\Supplier.cs" />
+    <Compile Include="TransferProductMagazijn.xaml.cs">
+      <DependentUpon>TransferProductMagazijn.xaml</DependentUpon>
+    </Compile>
     <Compile Include="UpdateCustomer.xaml.cs">
       <DependentUpon>UpdateCustomer.xaml</DependentUpon>
     </Compile>
@@ -257,6 +261,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="SeeUsers.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="TransferProductMagazijn.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

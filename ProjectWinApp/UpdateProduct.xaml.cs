@@ -21,11 +21,13 @@ namespace ProjectWinApp
     public partial class UpdateProduct : Page
     {
         public List<ComboBoxIndexContent> Products { get; set; }
+        public List<ComboBoxIndexContent> Suppliers { get; set; }
+
 
         public UpdateProduct()
         {
             InitializeComponent();
-            FillProducts();
+            FillLeveranciers();
             Update();
         }
 
@@ -37,23 +39,22 @@ namespace ProjectWinApp
                 data.Product.Where(p => p.ProductId == selectedValue).FirstOrDefault().Name = tbProduct.Text;
                 data.SaveChanges();
             }
-            FillProducts();           
+            UpdateProducts();       
         }
 
-        private void FillProducts()
+        private void FillLeveranciers()
         {
-            Products = new List<ComboBoxIndexContent>();
-            cmbProduct.ItemsSource = null;
+            Suppliers = new List<ComboBoxIndexContent>();
             using (DataContext data = new DataContext())
             {
-                var collection = data.Product.Select(u => u);
+                var collection = data.Supplier.Select(u => u);
                 foreach (var item in collection)
                 {
-                    Products.Add(new ComboBoxIndexContent(item.ProductId, item.Name));
+                    Suppliers.Add(new ComboBoxIndexContent(item.SupplierId, item.Name));
                 }
             }
-            cmbProduct.ItemsSource = Products;
-            cmbProduct.SelectedIndex = 0;
+            cmbLeveranciers.ItemsSource = Suppliers;
+            cmbLeveranciers.SelectedIndex = 0;
         }
 
         private void cmbRole_DropDownClosed(object sender, EventArgs e)
@@ -64,7 +65,39 @@ namespace ProjectWinApp
         private void Update()
         {
             ComboBoxIndexContent selected = cmbProduct.SelectedItem as ComboBoxIndexContent;
-            tbProduct.Text = selected.Content;
+            if (selected != null)
+            {
+                tbProduct.Text = selected.Content;
+            }
+            else
+            {
+                tbProduct.Text = string.Empty;
+            }
         }
+
+        private void cmbLeveranciers_DropDownClosed(object sender, EventArgs e)
+        {
+            UpdateProducts();
+        }
+
+        private void UpdateProducts()
+        {
+            cmbProduct.ItemsSource = null;
+            Products = new List<ComboBoxIndexContent>();
+
+            int selectedSupplier = Convert.ToInt32(cmbLeveranciers.SelectedValue);
+
+            using (DataContext data = new DataContext())
+            {
+                var collection = data.Product.Join(data.ProductsSupplier, p => p.ProductId, ps => ps.ProductId, (p, ps) => new {ProductId = p.ProductId, ProductName = p.Name , SupplierId = ps.SupplierId }).Where(s => s.SupplierId == selectedSupplier);
+                foreach (var item in collection)
+                {
+                    Products.Add(new ComboBoxIndexContent(item.SupplierId, item.ProductName));
+                }
+            }
+            cmbProduct.ItemsSource = Products;
+            cmbProduct.SelectedIndex = 0;
+            Update();
+        }     
     }
 }

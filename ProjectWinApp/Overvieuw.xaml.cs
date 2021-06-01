@@ -20,9 +20,11 @@ namespace ProjectWinApp
     /// </summary>
     public partial class Overvieuw : Page
     {
-        public Overvieuw()
+        public User LoggedIn { get; set; }
+        public Overvieuw(User user)
         {
             InitializeComponent();
+            LoggedIn = user;
         }
 
         private void btnSeeUsers_Click(object sender, RoutedEventArgs e)
@@ -37,7 +39,7 @@ namespace ProjectWinApp
 
         private void btnSeeMagazijns_Click(object sender, RoutedEventArgs e)
         {
-            fOvervieuw.Content = new SeeMagazijns();
+            fOvervieuw.Content = new SeeMagazijns(LoggedIn);
         }
     }
 }

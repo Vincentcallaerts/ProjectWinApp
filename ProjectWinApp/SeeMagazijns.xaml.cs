@@ -21,9 +21,12 @@ namespace ProjectWinApp
     public partial class SeeMagazijns : Page
     {
         public List<ComboBoxIndexContent> WareHouses { get; set; }
-       
-        public SeeMagazijns()
+        public User LoggedIn { get; set; }
+
+        public SeeMagazijns(User user)
         {
+            LoggedIn = user;
+
             InitializeComponent();
             FillWarehouses();
         }
@@ -34,7 +37,7 @@ namespace ProjectWinApp
 
             using(DataContext data = new DataContext())
             {
-                var collection = data.Magazijn.Select(m => m);
+                var collection = data.Magazijn.Join(data.OwnersMagazijn, m => m.MagazijnId, om => om.MagazijnId, (m,om) => new {MagazijnId = m.MagazijnId, Userid = om.UserId,Adress = m.Adress }).Where(m => m.Userid == LoggedIn.UserId);
                 foreach (var item in collection)
                 {
                     WareHouses.Add(new ComboBoxIndexContent(item.MagazijnId, item.Adress));

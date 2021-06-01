@@ -34,5 +34,15 @@ namespace ProjectWinApp
         {
             fOrders.Content = new AddOrder();
         }
+
+        private void btnSeeIncommingOrder_Click(object sender, RoutedEventArgs e)
+        {
+            fOrders.Content = new SeeIncommingOrder();
+        }
+
+        private void btnSeeOutgoingOrder_Click(object sender, RoutedEventArgs e)
+        {
+            fOrders.Content = new SeeOutgoingOrders();
+        }
     }
 }

@@ -116,6 +116,7 @@
       <DependentUpon>LoggedInOptions.xaml</DependentUpon>
     </Compile>
     <Compile Include="Database\Magazijn.cs" />
+    <Compile Include="Database\OrderMagazijn.cs" />
     <Compile Include="Orders.xaml.cs">
       <DependentUpon>Orders.xaml</DependentUpon>
     </Compile>
@@ -147,8 +148,14 @@
     <Compile Include="SeeCustomers.xaml.cs">
       <DependentUpon>SeeCustomers.xaml</DependentUpon>
     </Compile>
+    <Compile Include="SeeIncommingOrder.xaml.cs">
+      <DependentUpon>SeeIncommingOrder.xaml</DependentUpon>
+    </Compile>
     <Compile Include="SeeMagazijns.xaml.cs">
       <DependentUpon>SeeMagazijns.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="SeeOutgoingOrders.xaml.cs">
+      <DependentUpon>SeeOutgoingOrders.xaml</DependentUpon>
     </Compile>
     <Compile Include="SeeUsers.xaml.cs">
       <DependentUpon>SeeUsers.xaml</DependentUpon>
@@ -256,7 +263,15 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="SeeIncommingOrder.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="SeeMagazijns.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="SeeOutgoingOrders.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

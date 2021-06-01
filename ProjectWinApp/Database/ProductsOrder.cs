@@ -16,15 +16,8 @@ namespace ProjectWinApp
         [ForeignKey("Order")]
         public int OrderId { get; set; }
         public Order Order { get; set; }
-
-        [ForeignKey("Product")]
         public int ProductId { get; set; }
-        public Product Product { get; set; }
-
-        [ForeignKey("Magazijn")]
         public int MagazijnId { get; set; }
-        public Magazijn Magazijn { get; set; }
-
         public int CustomerId { get; set; }
         public int Amount { get; set; }
         public double OrderUnitPrice { get; set; }
@@ -36,6 +29,7 @@ namespace ProjectWinApp
             Amount = amount;
             OrderUnitPrice = orderUnitPrice;
         }
+        public ProductsOrder() { }
 
     }
 }

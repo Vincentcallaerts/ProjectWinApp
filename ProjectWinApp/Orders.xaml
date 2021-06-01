@@ -11,8 +11,8 @@
     <DockPanel>
         <StackPanel DockPanel.Dock="Left" Width="150" Background="AliceBlue">
             <Label BorderBrush="Black" BorderThickness="2" Margin="0,0,0,10">Orders</Label>
-            <Button x:Name="btnSeeIncommingOrder" IsEnabled="False">See Incomming Orders</Button>
-            <Button x:Name="btnSeeOutgoingOrder" IsEnabled="False">See Outgoing Orders</Button>
+            <Button x:Name="btnSeeIncommingOrder" Click="btnSeeIncommingOrder_Click">See Incomming Orders</Button>
+            <Button x:Name="btnSeeOutgoingOrder" Click="btnSeeOutgoingOrder_Click">See Outgoing Orders</Button>
             <Button x:Name="btnAddProductMagazijn" Click="btnAddProductMagazijn_Click">Update Product Warehouse</Button>
             <Button x:Name="btnAddOrder" Click="btnAddOrder_Click">Add Order</Button>
 

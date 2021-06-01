@@ -44,14 +44,19 @@ namespace ProjectWinApp
                 if (productExists == null)
                 {
                     //voledig nieuw product
+                    double price = data.Product.Where(p => p.ProductId == selectedProduct).FirstOrDefault().Price;
                     data.ProductsMagazijn.Add(new ProductsMagazijn() { MagazijnId = selectedMagazijn, ProductId = selectedProduct, Amount = selectedAantal, LastAdded = DateTime.Now});
-                    
+                    data.OrderMagazijn.Add(new OrderMagazijn() { MagazijnId = selectedMagazijn, ProductId = selectedProduct, Amount = selectedAantal, UnitPrice = price, OrderDate = DateTime.Now});
                 }
                 else
                 {
                     //aantal verhogen
+                    double price = data.Product.Where(p => p.ProductId == selectedProduct).FirstOrDefault().Price;
+
                     data.ProductsMagazijn.FirstOrDefault(pm => pm.MagazijnId == selectedMagazijn && pm.ProductId == selectedProduct).Amount += selectedAantal;
                     data.ProductsMagazijn.FirstOrDefault(pm => pm.MagazijnId == selectedMagazijn && pm.ProductId == selectedProduct).LastAdded = DateTime.Now;
+                    data.OrderMagazijn.Add(new OrderMagazijn() { MagazijnId = selectedMagazijn, ProductId = selectedProduct, Amount = selectedAantal, UnitPrice = price, OrderDate = DateTime.Now });
+
                 }
                 data.SaveChanges();
             }

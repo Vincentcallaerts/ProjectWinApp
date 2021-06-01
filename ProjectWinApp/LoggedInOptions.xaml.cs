@@ -69,7 +69,7 @@ namespace ProjectWinApp
 
         private void btnOverzicht_Click(object sender, RoutedEventArgs e)
         {
-            fContent.Content = new Overvieuw();
+            fContent.Content = new Overvieuw(LoggedIn);
             btnDataBeheer.IsEnabled = true;
             btnBestellingen.IsEnabled = true;
             btnOverzicht.IsEnabled = false;

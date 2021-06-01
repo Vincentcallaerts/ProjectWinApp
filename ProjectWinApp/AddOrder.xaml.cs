@@ -122,7 +122,7 @@ namespace ProjectWinApp
                 productsOrders.Add(new ProductsOrder((int)cmbProducts.SelectedValue, (int)cmbWarehouses.SelectedValue, (int)iupdAantal.Value, product.Price));
 
                 ProductsOrders.Add(new ComboBoxIndexContent(productsOrders.Count - 1, $"Product: {product.Name} van {suplier.Name}  {amount}X voor {product.Price}€"));
-
+                
             }
 
             lbProductOrders.ItemsSource = ProductsOrders;
@@ -132,23 +132,18 @@ namespace ProjectWinApp
         private void btnCreateFullOrder_Click(object sender, RoutedEventArgs e)
         {
             int selectedCustomer = Convert.ToInt32(cmbCustomers.SelectedValue);
-            MessageBox.Show(selectedCustomer.ToString()); ;
             using (DataContext data = new DataContext())
             {
                 Order temp = new Order() { CustomerId = selectedCustomer, Betaald = false };
                 data.Order.Add(temp);
                 data.SaveChanges();
-
-                //for (int i = 0; i < productsOrders.Count-1; i++)
-                //{
-                //    productsOrders[i].CustomerId = temp.CustomerId;
-                //    productsOrders[i].OrderId = temp.OrderId;
-
-                //}
-                //data.ProductsOrder.AddRange(productsOrders.ToArray());
-                //data.SaveChanges();
+                
+                for (int i = 0; i <= productsOrders.Count - 1; i++)
+                {
+                    data.ProductsOrder.Add(new ProductsOrder() { OrderId = temp.OrderId, MagazijnId = productsOrders[i].MagazijnId, ProductId = productsOrders[i].ProductId, CustomerId = temp.CustomerId, Amount = productsOrders[i].Amount, OrderUnitPrice = productsOrders[i].OrderUnitPrice });
+                }
+                data.SaveChanges();
             }
-
         }
 
         private void btnRemove_Click(object sender, RoutedEventArgs e)

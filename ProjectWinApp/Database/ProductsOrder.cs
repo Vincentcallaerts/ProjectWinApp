@@ -8,13 +8,13 @@ using System.Threading.Tasks;
 
 namespace ProjectWinApp
 {
-    class ProductsOrder
+    public class ProductsOrder
     {
         [Key]
         public int ProductsOrderId { get; set; }
 
         [ForeignKey("Order")]
-        public int? OrderId { get; set; }
+        public int OrderId { get; set; }
         public Order Order { get; set; }
 
         [ForeignKey("Product")]
@@ -25,12 +25,17 @@ namespace ProjectWinApp
         public int MagazijnId { get; set; }
         public Magazijn Magazijn { get; set; }
 
-        [ForeignKey("Customer")]
         public int CustomerId { get; set; }
-        public Customer Customer { get; set; }
-
         public int Amount { get; set; }
-        public int OrderUnitPrice { get; set; }
+        public double OrderUnitPrice { get; set; }
+
+        public ProductsOrder(int productId, int magazijnId, int amount, double orderUnitPrice)
+        {
+            ProductId = productId;
+            MagazijnId = magazijnId;
+            Amount = amount;
+            OrderUnitPrice = orderUnitPrice;
+        }
 
     }
 }

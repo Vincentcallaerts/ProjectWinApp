@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace ProjectWinApp
 {
-    class Customer
+    public class Customer
     {
 
         public int CustomerId { get; set; }

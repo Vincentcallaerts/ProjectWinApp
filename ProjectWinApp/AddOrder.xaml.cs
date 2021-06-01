@@ -20,14 +20,19 @@ namespace ProjectWinApp
     /// </summary>
     public partial class AddOrder : Page
     {
+
         public List<ComboBoxIndexContent> Customers { get; set; }
         public List<ComboBoxIndexContent> Suppliers { get; set; }
         public List<ComboBoxIndexContent> Warehouses { get; set; }       
         public List<ComboBoxIndexContent> Products { get; set; }
+        public List<ComboBoxIndexContent> ProductsOrders { get; set; }
+
+        public List<ProductsOrder> productsOrders = new List<ProductsOrder>();
         public AddOrder()
         {
             InitializeComponent();
             Fill();
+            ProductsOrders = new List<ComboBoxIndexContent>();
         }
 
         private void Fill()
@@ -56,11 +61,6 @@ namespace ProjectWinApp
             cmbSuppliers.SelectedIndex = 0;
             UpdateProducts();
         }
-
-        private void UpdatecmbSuppliers()
-        {
-            //throw new NotImplementedException();
-        }
         private void UpdateProducts()
         {
             cmbProducts.ItemsSource = null;
@@ -80,27 +80,85 @@ namespace ProjectWinApp
             }
             cmbProducts.ItemsSource = Products;
             cmbProducts.SelectedIndex = 0;
-            //UpdateWarehouses();
+            UpdateWarehouses();
 
         }
         private void UpdateWarehouses()
         {
-            //throw new NotImplementedException();
+            cmbWarehouses.ItemsSource = null;
+            Warehouses = new List<ComboBoxIndexContent>();
+
+            int selectedProduct = Convert.ToInt32(cmbProducts.SelectedValue);
+
+            using (DataContext data = new DataContext())
+            {
+                var collection = data.Magazijn.Join(data.ProductsMagazijn, p => p.MagazijnId, ps => ps.MagazijnId, (p, ps) => new { ProductId = ps.ProductId, MagazijnId = ps.MagazijnId, MagazijnAdress = p.Adress }).Where(p => p.ProductId == selectedProduct);
+
+                foreach (var item in collection)
+                {
+                    Warehouses.Add(new ComboBoxIndexContent(item.ProductId, item.MagazijnAdress));
+                }
+
+            }
+            cmbWarehouses.ItemsSource = Warehouses;
+            cmbWarehouses.SelectedIndex = 0;
         }
         private void btnAddToList_Click(object sender, RoutedEventArgs e)
         {
+            
+            lbProductOrders.ItemsSource = null;
+
+            int selectedProduct = Convert.ToInt32(cmbProducts.SelectedValue);
+            int selectedSupplier = Convert.ToInt32(cmbSuppliers.SelectedValue);
+            int selectedWarehouse = Convert.ToInt32(cmbWarehouses.SelectedValue);
+            int amount = (int)iupdAantal.Value;
+
+            using (DataContext data = new DataContext())
+            {
+                Product product = data.Product.Where(p => p.ProductId == selectedProduct).FirstOrDefault();
+                Supplier suplier = data.Supplier.Where(p => p.SupplierId == selectedSupplier).FirstOrDefault();
+                Magazijn warehouse = data.Magazijn.Where(p => p.MagazijnId == selectedWarehouse).FirstOrDefault();
+
+                productsOrders.Add(new ProductsOrder((int)cmbProducts.SelectedValue, (int)cmbWarehouses.SelectedValue, (int)iupdAantal.Value, product.Price));
+
+                ProductsOrders.Add(new ComboBoxIndexContent(productsOrders.Count - 1, $"Product: {product.Name} van {suplier.Name}  {amount}X voor {product.Price}€"));
+
+            }
+
+            lbProductOrders.ItemsSource = ProductsOrders;
 
         }
 
         private void btnCreateFullOrder_Click(object sender, RoutedEventArgs e)
         {
+            int selectedCustomer = Convert.ToInt32(cmbCustomers.SelectedValue);
+            MessageBox.Show(selectedCustomer.ToString()); ;
+            using (DataContext data = new DataContext())
+            {
+                Order temp = new Order() { CustomerId = selectedCustomer, Betaald = false };
+                data.Order.Add(temp);
+                data.SaveChanges();
+
+                //for (int i = 0; i < productsOrders.Count-1; i++)
+                //{
+                //    productsOrders[i].CustomerId = temp.CustomerId;
+                //    productsOrders[i].OrderId = temp.OrderId;
+
+                //}
+                //data.ProductsOrder.AddRange(productsOrders.ToArray());
+                //data.SaveChanges();
+            }
 
         }
 
-        private void btnRemoveSelected_Click(object sender, RoutedEventArgs e)
+        private void btnRemove_Click(object sender, RoutedEventArgs e)
         {
-            
-        }
+            lbProductOrders.ItemsSource = null;
+            productsOrders.Clear();
+            ProductsOrders.Clear();
+            lbProductOrders.ItemsSource = ProductsOrders;
+
+        }       
 
         private void cmbSuppliers_DropDownClosed(object sender, EventArgs e)
         {
@@ -111,14 +169,7 @@ namespace ProjectWinApp
 
         private void cmbProducts_DropDownClosed(object sender, EventArgs e)
         {
-
-        }
-
-        private void cmbWarehouses_DropDownClosed(object sender, EventArgs e)
-        {
             UpdateWarehouses();
-        }
-
-        
+        }           
     }
 }

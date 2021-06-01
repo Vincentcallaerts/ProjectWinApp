@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace ProjectWinApp
 {
-    class Magazijn
+    public class Magazijn
     {
         public int MagazijnId { get; set; }
         public string Adress { get; set; }

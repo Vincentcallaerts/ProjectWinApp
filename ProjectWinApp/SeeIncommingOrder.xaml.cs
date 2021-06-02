@@ -98,8 +98,10 @@ namespace ProjectWinApp
 
         private void btnCreatePdf_Click(object sender, RoutedEventArgs e)
         {
+            int selectedOrderId = Convert.ToInt32(cmbOrders.SelectedValue);
+
             PdfCreator pdf = new PdfCreator();
-            pdf.CreatePdf(2);
+            pdf.CreatePdf(selectedOrderId);
         }
     }
 }

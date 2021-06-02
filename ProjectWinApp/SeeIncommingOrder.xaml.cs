@@ -13,6 +13,7 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 
+
 namespace ProjectWinApp
 {
     /// <summary>
@@ -22,6 +23,7 @@ namespace ProjectWinApp
     {
         public List<ComboBoxIndexContent> Customers { get; set; }
         public List<ComboBoxIndexContent> Orders { get; set; }
+        public List<ComboBoxIndexContent> ProductsOrder { get; set; }
 
         public SeeIncommingOrder()
         {
@@ -31,16 +33,73 @@ namespace ProjectWinApp
 
         private void FillCustomers()
         {
-            throw new NotImplementedException();
-        }
-
-        private void cmbLeveranciers_DropDownClosed(object sender, EventArgs e)
-        {
+            
+            Customers = new List<ComboBoxIndexContent>();
+            using (DataContext data = new DataContext())
+            {
+                var collection = data.Customer.Select(c => c);
+                foreach (var item in collection)
+                {
+                    Customers.Add(new ComboBoxIndexContent(item.CustomerId,item.Email));
+                }
+            }
+            cmbCustomers.ItemsSource = Customers;
+            cmbCustomers.SelectedIndex = 0;
             Update();
         }
         private void Update()
         {
+            cmbOrders.ItemsSource = null;
+            Orders = new List<ComboBoxIndexContent>();
 
+            int selectedCustomerId = Convert.ToInt32(cmbCustomers.SelectedValue);
+
+            using (DataContext data = new DataContext())
+            {
+                var collection = data.Order.Where(c => c.CustomerId == selectedCustomerId).OrderBy(c => c.OrderDate);
+                foreach (var item in collection)
+                {
+                    Orders.Add(new ComboBoxIndexContent(item.CustomerId, item.OrderDate.ToString("dd,MM,yyyy")));
+                }
+            }
+            cmbOrders.ItemsSource = Orders;
+            cmbOrders.SelectedIndex = 0;
+            UpdateProductsOrder();
+        }
+
+        private void cmbCustomers_DropDownClosed(object sender, EventArgs e)
+        {
+            Update();
+        }
+
+        private void lbOrders_DropDownClosed(object sender, EventArgs e)
+        {
+            UpdateProductsOrder();
+        }
+
+        private void UpdateProductsOrder()
+        {
+            lbProductOrders.ItemsSource = null;
+            ProductsOrder = new List<ComboBoxIndexContent>();
+
+            int selectedOrderId = Convert.ToInt32(cmbOrders.SelectedValue);
+
+            using (DataContext data = new DataContext())
+            {
+                var collection = data.ProductsOrder.Where(c => c.CustomerId == selectedOrderId).OrderBy(c => c.Amount);
+                foreach (var item in collection)
+                {
+                    ProductsOrder.Add(new ComboBoxIndexContent(item.CustomerId, item.ToString()));
+                }
+            }
+            lbProductOrders.ItemsSource = ProductsOrder;
+            lbProductOrders.SelectedIndex = 0;
+        }
+
+        private void btnCreatePdf_Click(object sender, RoutedEventArgs e)
+        {
+            PdfCreator pdf = new PdfCreator();
+            pdf.CreatePdf(2);
         }
     }
 }

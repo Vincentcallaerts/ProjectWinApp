@@ -17,5 +17,7 @@ namespace ProjectWinApp
         public int CustomerId { get; set; }
         public Customer Customer { get; set; }  
         public bool Betaald { get; set; }
+        public DateTime OrderDate { get; set; }
+
     }
 }

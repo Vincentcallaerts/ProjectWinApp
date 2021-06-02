@@ -16,20 +16,24 @@ namespace ProjectWinApp
         [ForeignKey("Order")]
         public int OrderId { get; set; }
         public Order Order { get; set; }
-        public int ProductId { get; set; }
         public int MagazijnId { get; set; }
         public int CustomerId { get; set; }
         public int Amount { get; set; }
         public double OrderUnitPrice { get; set; }
+        public string CurrentProductName { get; set; }
 
-        public ProductsOrder(int productId, int magazijnId, int amount, double orderUnitPrice)
+        public ProductsOrder(int productId, int magazijnId, int amount, double orderUnitPrice,string currentProductName)
         {
-            ProductId = productId;
             MagazijnId = magazijnId;
             Amount = amount;
             OrderUnitPrice = orderUnitPrice;
+            CurrentProductName = currentProductName;
         }
         public ProductsOrder() { }
+        public override string ToString()
+        {
+            return $"{CurrentProductName} {Amount} x aan {OrderUnitPrice}€ pre stuk | Totaal: {Amount*OrderUnitPrice}€";
+        }
 
     }
 }

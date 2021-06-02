@@ -10,7 +10,7 @@
 
     <StackPanel Background="White">
         <Label Margin="10,0,0,0">Customers</Label>
-        <ComboBox x:Name="cmbLeveranciers" Margin="10,0,0,0" Width="400" HorizontalAlignment="Left" SelectedValuePath="Id" DropDownClosed="cmbLeveranciers_DropDownClosed" SelectionChanged="cmbLeveranciers_DropDownClosed">
+        <ComboBox x:Name="cmbCustomers" Margin="10,0,0,0" Width="400" HorizontalAlignment="Left" SelectedValuePath="Id" DropDownClosed="cmbCustomers_DropDownClosed" SelectionChanged="cmbCustomers_DropDownClosed">
             <ComboBox.ItemTemplate>
                 <DataTemplate>
                     <StackPanel Orientation="Horizontal">
@@ -19,8 +19,23 @@
                 </DataTemplate>
             </ComboBox.ItemTemplate>
         </ComboBox>
+
         <Label Margin="10,0,0,0">List orders form Customers</Label>
-        <ListBox x:Name="lbProductOrders" SelectedValuePath="Id" MaxHeight="200" MinHeight="32" Margin="10,0,30,0">
+        <StackPanel Orientation="Horizontal">
+            <ComboBox x:Name="cmbOrders" SelectedValuePath="Id" HorizontalAlignment="Left" Width="400" Margin="10,0,30,0" DropDownClosed="lbOrders_DropDownClosed">
+                <ComboBox.ItemTemplate>
+                    <DataTemplate>
+                        <StackPanel Orientation="Horizontal">
+                            <Label Content="{Binding Content}"></Label>
+                        </StackPanel>
+                    </DataTemplate>
+                </ComboBox.ItemTemplate>
+            </ComboBox>
+            <Button x:Name="btnCreatePdf" Click="btnCreatePdf_Click">Create Bill from order</Button>
+        </StackPanel>
+        
+        <Label Margin="10,0,0,0">List products form selected order</Label>
+        <ListBox x:Name="lbProductOrders" SelectedValuePath="Id" Margin="10,0,30,0" MaxHeight="250">
             <ListBox.ItemTemplate>
                 <DataTemplate>
                     <StackPanel Orientation="Horizontal">

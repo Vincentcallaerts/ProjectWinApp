@@ -119,7 +119,7 @@ namespace ProjectWinApp
                 Supplier suplier = data.Supplier.Where(p => p.SupplierId == selectedSupplier).FirstOrDefault();
                 Magazijn warehouse = data.Magazijn.Where(p => p.MagazijnId == selectedWarehouse).FirstOrDefault();
 
-                productsOrders.Add(new ProductsOrder((int)cmbProducts.SelectedValue, (int)cmbWarehouses.SelectedValue, (int)iupdAantal.Value, product.Price));
+                productsOrders.Add(new ProductsOrder((int)cmbProducts.SelectedValue, (int)cmbWarehouses.SelectedValue, (int)iupdAantal.Value, product.Price, product.Name));
 
                 ProductsOrders.Add(new ComboBoxIndexContent(productsOrders.Count - 1, $"Product: {product.Name} van {suplier.Name}  {amount}X voor {product.Price}€"));
                 
@@ -134,13 +134,13 @@ namespace ProjectWinApp
             int selectedCustomer = Convert.ToInt32(cmbCustomers.SelectedValue);
             using (DataContext data = new DataContext())
             {
-                Order temp = new Order() { CustomerId = selectedCustomer, Betaald = false };
+                Order temp = new Order() { CustomerId = selectedCustomer, Betaald = false , OrderDate = DateTime.Now};
                 data.Order.Add(temp);
                 data.SaveChanges();
                 
                 for (int i = 0; i <= productsOrders.Count - 1; i++)
                 {
-                    data.ProductsOrder.Add(new ProductsOrder() { OrderId = temp.OrderId, MagazijnId = productsOrders[i].MagazijnId, ProductId = productsOrders[i].ProductId, CustomerId = temp.CustomerId, Amount = productsOrders[i].Amount, OrderUnitPrice = productsOrders[i].OrderUnitPrice });
+                    data.ProductsOrder.Add(new ProductsOrder() { OrderId = temp.OrderId, MagazijnId = productsOrders[i].MagazijnId, CustomerId = temp.CustomerId, Amount = productsOrders[i].Amount, OrderUnitPrice = productsOrders[i].OrderUnitPrice, CurrentProductName = productsOrders[i].CurrentProductName });
                 }
                 data.SaveChanges();
             }

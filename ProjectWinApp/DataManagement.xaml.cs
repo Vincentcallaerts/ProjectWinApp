@@ -112,5 +112,12 @@ namespace ProjectWinApp
         {
             adminDataBeheer.Content = new TransferProductMagazijn();
         }
+
+        private void btnUpdateProductPriceClick(object sender, RoutedEventArgs e)
+        {
+            adminDataBeheer.Content = new UpdateProductPrice();
+
+           
+        }
     }
 }

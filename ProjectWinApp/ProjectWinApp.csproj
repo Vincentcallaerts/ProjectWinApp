@@ -181,6 +181,9 @@
     <Compile Include="UpdateProduct.xaml.cs">
       <DependentUpon>UpdateProduct.xaml</DependentUpon>
     </Compile>
+    <Compile Include="UpdateProductPrice.xaml.cs">
+      <DependentUpon>UpdateProductPrice.xaml</DependentUpon>
+    </Compile>
     <Compile Include="UpdateUser.xaml.cs">
       <DependentUpon>UpdateUser.xaml</DependentUpon>
     </Compile>
@@ -300,6 +303,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="UpdateProduct.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="UpdateProductPrice.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

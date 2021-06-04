@@ -41,23 +41,30 @@ namespace ProjectWinApp
             {
                 //add maybe nog messageboxes
                 var productExists = data.ProductsMagazijn.Where(pm => pm.ProductId == selectedProduct && pm.MagazijnId == selectedMagazijn).FirstOrDefault();
+                Product product;
+
                 if (productExists == null)
                 {
                     //voledig nieuw product
-                    double price = data.Product.Where(p => p.ProductId == selectedProduct).FirstOrDefault().Price;
+                    product = data.Product.Where(p => p.ProductId == selectedProduct).FirstOrDefault();
+
                     data.ProductsMagazijn.Add(new ProductsMagazijn() { MagazijnId = selectedMagazijn, ProductId = selectedProduct, Amount = selectedAantal, LastAdded = DateTime.Now});
-                    data.OrderMagazijn.Add(new OrderMagazijn() { MagazijnId = selectedMagazijn, ProductId = selectedProduct, Amount = selectedAantal, UnitPrice = price, OrderDate = DateTime.Now});
+                    data.OrderMagazijn.Add(new OrderMagazijn() { MagazijnId = selectedMagazijn, ProductName = product.Name, Amount = selectedAantal, UnitPrice = product.Price, OrderDate = DateTime.Now});
                 }
                 else
                 {
                     //aantal verhogen
-                    double price = data.Product.Where(p => p.ProductId == selectedProduct).FirstOrDefault().Price;
-
+                    product = data.Product.Where(p => p.ProductId == selectedProduct).FirstOrDefault();
                     data.ProductsMagazijn.FirstOrDefault(pm => pm.MagazijnId == selectedMagazijn && pm.ProductId == selectedProduct).Amount += selectedAantal;
                     data.ProductsMagazijn.FirstOrDefault(pm => pm.MagazijnId == selectedMagazijn && pm.ProductId == selectedProduct).LastAdded = DateTime.Now;
-                    data.OrderMagazijn.Add(new OrderMagazijn() { MagazijnId = selectedMagazijn, ProductId = selectedProduct, Amount = selectedAantal, UnitPrice = price, OrderDate = DateTime.Now });
 
                 }
+
+                if (!(selectedAantal <= 0))
+                {
+                    data.OrderMagazijn.Add(new OrderMagazijn() { MagazijnId = selectedMagazijn, ProductName = product.Name, Amount = selectedAantal, UnitPrice = product.Price, OrderDate = DateTime.Now });
+                }
+
                 data.SaveChanges();
             }
             cmbMagazijns.SelectedIndex = 0;

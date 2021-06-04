@@ -119,5 +119,40 @@ namespace ProjectWinApp
 
            
         }
+
+        private void btnUpdate(object sender, RoutedEventArgs e)
+        {
+            spAdd.Visibility = Visibility.Collapsed;
+            spRemove.Visibility = Visibility.Collapsed;
+            spUpdate.Visibility = Visibility.Visible;
+
+            btnAddContent.IsEnabled = true;
+            btnRemoveContent.IsEnabled = true;
+            btnUpdateContent.IsEnabled = false;
+        }
+
+        private void btnRemove(object sender, RoutedEventArgs e)
+        {
+            spAdd.Visibility = Visibility.Collapsed;
+            spRemove.Visibility = Visibility.Visible;
+            spUpdate.Visibility = Visibility.Collapsed;
+
+            btnAddContent.IsEnabled = true;
+            btnRemoveContent.IsEnabled = false;
+            btnUpdateContent.IsEnabled = true;
+        }
+
+        private void btnAdd(object sender, RoutedEventArgs e)
+        {
+
+            spAdd.Visibility = Visibility.Visible;
+            spRemove.Visibility = Visibility.Collapsed;
+            spUpdate.Visibility = Visibility.Collapsed;
+
+            btnAddContent.IsEnabled = false;
+            btnRemoveContent.IsEnabled = true;
+            btnUpdateContent.IsEnabled = true;
+           
+        }
     }
 }

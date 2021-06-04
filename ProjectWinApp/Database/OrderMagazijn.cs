@@ -12,13 +12,11 @@ namespace ProjectWinApp
     {
         [Key]
         public int OrderMagazijnId { get; set; }
-        
-        public int ProductId { get; set; }
-       
+             
         [ForeignKey("Magazijn")]
         public int MagazijnId { get; set; }
         public Magazijn Magazijn { get; set; }
-
+        public string ProductName { get; set; }
         public int Amount { get; set; }
         public double UnitPrice { get; set; }
         public DateTime OrderDate { get; set; }

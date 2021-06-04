@@ -36,10 +36,9 @@ namespace ProjectWinApp
                 var collection = data.OrderMagazijn.Select(om => om).ToList(); ;
                 foreach (var item in collection)
                 {
-                    var productOrder = data.Product.Where(p => p.ProductId == item.ProductId).FirstOrDefault();
                     var magazijnOrder = data.Magazijn.Where(p => p.MagazijnId == item.MagazijnId).FirstOrDefault();
 
-                    Orders.Add(new ComboBoxIndexContent(item.OrderMagazijnId, $"Product {productOrder.Name} in Magazijn {magazijnOrder.Adress} werd {item.Amount} aan {productOrder.Price}€ per stuk aangekocht om {item.OrderDate.ToString("dd,MM,yyyy")}"));
+                    Orders.Add(new ComboBoxIndexContent(item.OrderMagazijnId, $"Product {item.ProductName} in Magazijn {magazijnOrder.Adress} werd {item.Amount} aan {item.UnitPrice}€ per stuk aangekocht om {item.OrderDate.ToString("dd,MM,yyyy")}"));
                 }
             }
             lbProductOrders.ItemsSource = Orders;

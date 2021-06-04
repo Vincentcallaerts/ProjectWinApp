@@ -110,9 +110,9 @@ namespace ProjectWinApp
                 data.ProductsMagazijn.Add(new ProductsMagazijn() { ProductId = 1, MagazijnId = 2, Amount = 10, LastAdded = DateTime.Now });
                 data.ProductsMagazijn.Add(new ProductsMagazijn() { ProductId = 1, MagazijnId = 3, Amount = 10, LastAdded = DateTime.Now });
 
-                data.OrderMagazijn.Add(new OrderMagazijn() { MagazijnId = 1, ProductId = 1, Amount = 200, UnitPrice = 55.9, OrderDate = DateTime.Now });
-                data.OrderMagazijn.Add(new OrderMagazijn() { MagazijnId = 1, ProductId = 1, Amount = 200, UnitPrice = 55.9, OrderDate = DateTime.Now });
-                data.OrderMagazijn.Add(new OrderMagazijn() { MagazijnId = 1, ProductId = 1, Amount = 200, UnitPrice = 55.9, OrderDate = DateTime.Now });
+                data.OrderMagazijn.Add(new OrderMagazijn() { MagazijnId = 1, ProductName = "Test1", Amount = 200, UnitPrice = 55.9, OrderDate = DateTime.Now });
+                data.OrderMagazijn.Add(new OrderMagazijn() { MagazijnId = 1, ProductName = "Test1", Amount = 200, UnitPrice = 55.9, OrderDate = DateTime.Now });
+                data.OrderMagazijn.Add(new OrderMagazijn() { MagazijnId = 1, ProductName = "Test1", Amount = 200, UnitPrice = 55.9, OrderDate = DateTime.Now });
 
                 data.SaveChanges();
             }

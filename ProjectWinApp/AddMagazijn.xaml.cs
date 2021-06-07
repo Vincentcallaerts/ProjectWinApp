@@ -30,32 +30,35 @@ namespace ProjectWinApp
 
         private void btnAddMagazijn_Click(object sender, RoutedEventArgs e)
         {
-            if (tbAdress.Text == null)
+            if (tbAdress.Text == string.Empty)
             {
                 MessageBox.Show("Het textveld is leeg deze moet ingevuld worden");
             }
-            int selectedValue = Convert.ToInt32(cmbEigenaar.SelectedValue);
-            using (DataContext data = new DataContext())
+            else
             {
-                //check of adress al in database staat
-                var adressAlIngevoert = data.Magazijn.Where(m => m.Adress == tbAdress.Text).FirstOrDefault();
-                if (adressAlIngevoert == null)
+                int selectedValue = Convert.ToInt32(cmbEigenaar.SelectedValue);
+                using (DataContext data = new DataContext())
                 {
-                    //add magazijn en save
-                    data.Magazijn.Add(new Magazijn() { Adress = tbAdress.Text });
-                    data.SaveChanges();
-                    //haal magazijn op en add de eerste eigenaar
-                    var collection = data.Magazijn.Where(m => m.Adress == tbAdress.Text).FirstOrDefault();
-                    data.OwnersMagazijn.Add(new OwnersMagazijn() { UserId = selectedValue, MagazijnId = collection.MagazijnId });
-                    data.SaveChanges();
+                    //check of adress al in database staat
+                    var adressAlIngevoert = data.Magazijn.Where(m => m.Adress == tbAdress.Text).FirstOrDefault();
+                    if (adressAlIngevoert == null)
+                    {
+                        //add magazijn en save
+                        data.Magazijn.Add(new Magazijn() { Adress = tbAdress.Text });
+                        data.SaveChanges();
+                        //haal magazijn op en add de eerste eigenaar
+                        var collection = data.Magazijn.Where(m => m.Adress == tbAdress.Text).FirstOrDefault();
+                        data.OwnersMagazijn.Add(new OwnersMagazijn() { UserId = selectedValue, MagazijnId = collection.MagazijnId });
+                        data.SaveChanges();
+
+                    }
+                    else
+                    {
+                        MessageBox.Show("Dit adress staat al in onze database.");
+                    }
                 }
-                else
-                {
-                    MessageBox.Show("Dit adress staat al in onze database.");
-                }
-                
-            }
-            tbAdress.Text = string.Empty;
+                tbAdress.Text = string.Empty;
+            }       
         }
         private void FillRoles()
         {

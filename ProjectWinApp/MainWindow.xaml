@@ -11,7 +11,7 @@
         <Label>Email</Label>
         <TextBox x:Name="tbEmail"></TextBox>
         <Label>Password</Label>
-        <TextBox x:Name="tbPassword"></TextBox>
+        <PasswordBox x:Name="pbPassword"></PasswordBox>
         <Button x:Name="btnLogIn" Margin="0,20,0,0" Click="LogIn">Log in</Button>
         <Button x:Name="btnLogInQuick" Margin="0,20,0,0" Click="LogInQuick">Auto log in als admin</Button>
     </StackPanel>

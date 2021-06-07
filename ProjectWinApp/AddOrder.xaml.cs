@@ -105,45 +105,68 @@ namespace ProjectWinApp
         }
         private void btnAddToList_Click(object sender, RoutedEventArgs e)
         {
-            
-            lbProductOrders.ItemsSource = null;
 
-            int selectedProduct = Convert.ToInt32(cmbProducts.SelectedValue);
-            int selectedSupplier = Convert.ToInt32(cmbSuppliers.SelectedValue);
-            int selectedWarehouse = Convert.ToInt32(cmbWarehouses.SelectedValue);
-            int amount = (int)iupdAantal.Value;
-
-            using (DataContext data = new DataContext())
+            if (iupdAantal.Value.HasValue)
             {
-                Product product = data.Product.Where(p => p.ProductId == selectedProduct).FirstOrDefault();
-                Supplier suplier = data.Supplier.Where(p => p.SupplierId == selectedSupplier).FirstOrDefault();
-                Magazijn warehouse = data.Magazijn.Where(p => p.MagazijnId == selectedWarehouse).FirstOrDefault();
+                lbProductOrders.ItemsSource = null;
 
-                productsOrders.Add(new ProductsOrder((int)cmbProducts.SelectedValue, (int)cmbWarehouses.SelectedValue, (int)iupdAantal.Value, product.Price, product.Name));
+                int selectedProduct = Convert.ToInt32(cmbProducts.SelectedValue);
+                int selectedSupplier = Convert.ToInt32(cmbSuppliers.SelectedValue);
+                int selectedWarehouse = Convert.ToInt32(cmbWarehouses.SelectedValue);
+                int amount = (int)iupdAantal.Value;
+                if (amount != 0)
+                {
+                    using (DataContext data = new DataContext())
+                    {
+                        Product product = data.Product.Where(p => p.ProductId == selectedProduct).FirstOrDefault();
+                        Supplier suplier = data.Supplier.Where(p => p.SupplierId == selectedSupplier).FirstOrDefault();
+                        Magazijn warehouse = data.Magazijn.Where(p => p.MagazijnId == selectedWarehouse).FirstOrDefault();
 
-                ProductsOrders.Add(new ComboBoxIndexContent(productsOrders.Count - 1, $"Product: {product.Name} van {suplier.Name}  {amount}X voor {product.Price}€"));
-                
+                        productsOrders.Add(new ProductsOrder((int)cmbProducts.SelectedValue, (int)cmbWarehouses.SelectedValue, (int)iupdAantal.Value, product.Price, product.Name));
+
+                        ProductsOrders.Add(new ComboBoxIndexContent(productsOrders.Count - 1, $"Product: {product.Name} van {suplier.Name}  {amount}X voor {product.Price}€"));
+
+                    }
+
+                    lbProductOrders.ItemsSource = ProductsOrders;
+                }
+                else
+                {
+                    MessageBox.Show("De hoeveelheid mag niet 0 zijn of iets dat geen getal is.");
+                }
             }
-
-            lbProductOrders.ItemsSource = ProductsOrders;
-
+            else
+            {
+                MessageBox.Show("De hoeveelheid mag niet 0 zijn of iets dat geen getal is.");
+            }
         }
 
         private void btnCreateFullOrder_Click(object sender, RoutedEventArgs e)
         {
-            int selectedCustomer = Convert.ToInt32(cmbCustomers.SelectedValue);
-            using (DataContext data = new DataContext())
+            if (productsOrders.Count != 0)
             {
-                Order temp = new Order() { CustomerId = selectedCustomer, Betaald = false , OrderDate = DateTime.Now};
-                data.Order.Add(temp);
-                data.SaveChanges();
-                
-                for (int i = 0; i <= productsOrders.Count - 1; i++)
+                int selectedCustomer = Convert.ToInt32(cmbCustomers.SelectedValue);
+                using (DataContext data = new DataContext())
                 {
-                    data.ProductsOrder.Add(new ProductsOrder() { OrderId = temp.OrderId, MagazijnId = productsOrders[i].MagazijnId, CustomerId = temp.CustomerId, Amount = productsOrders[i].Amount, OrderUnitPrice = productsOrders[i].OrderUnitPrice, CurrentProductName = productsOrders[i].CurrentProductName });
+                    Order temp = new Order() { CustomerId = selectedCustomer, Betaald = false, OrderDate = DateTime.Now };
+                    data.Order.Add(temp);
+                    data.SaveChanges();
+
+                    for (int i = 0; i <= productsOrders.Count - 1; i++)
+                    {
+                        data.ProductsOrder.Add(new ProductsOrder() { OrderId = temp.OrderId, MagazijnId = productsOrders[i].MagazijnId, CustomerId = temp.CustomerId, Amount = productsOrders[i].Amount, OrderUnitPrice = productsOrders[i].OrderUnitPrice, CurrentProductName = productsOrders[i].CurrentProductName });
+                    }
+                    data.SaveChanges();
                 }
-                data.SaveChanges();
+                lbProductOrders.ItemsSource = null;
+                ProductsOrders.Clear();
+                productsOrders.Clear();
+                lbProductOrders.ItemsSource = ProductsOrders;
             }
+            else
+            {
+                MessageBox.Show("Er zitten geen items in de lijst");
+            }         
         }
 
         private void btnRemove_Click(object sender, RoutedEventArgs e)

@@ -31,7 +31,8 @@ namespace ProjectWinApp
 
         private void LogIn(object sender, RoutedEventArgs e)
         {
-            string encryptedPassword = md5.CreateMD5(tbPassword.Text);
+            string encryptedPassword = md5.CreateMD5(pbPassword.Password);
+
             using (DataContext data = new DataContext())
             {
                 LoginAtempt = data.User.Where(u => u.Email == tbEmail.Text && u.Password == encryptedPassword).FirstOrDefault();

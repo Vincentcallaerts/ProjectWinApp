@@ -33,13 +33,13 @@ namespace ProjectWinApp
 
         private void btnAddUser_Click(object sender, RoutedEventArgs e)
         {
-            if (!(tbfirst.Text != null && tblast.Text != null && tbpassword.Text != null && tbemail.Text != null))
+            if (tbfirst.Text == string.Empty || tblast.Text == string.Empty || pbpassword.Password == string.Empty || tbemail.Text == string.Empty)
             {
                 MessageBox.Show("Een van de textvelden is leeg deze moeten allemaal ingevuld worden");
             }
             else
             {
-                string encryptedPassword = md5.CreateMD5(tbpassword.Text);
+                string encryptedPassword = md5.CreateMD5(pbpassword.Password);
                 using (DataContext data = new DataContext())
                 {                   
                     //vergeet encritption niet te added later
@@ -50,7 +50,7 @@ namespace ProjectWinApp
                 tbemail.Text = string.Empty;
                 tbfirst.Text = string.Empty;
                 tblast.Text = string.Empty;
-                tbpassword.Text = string.Empty;
+                pbpassword.Password = string.Empty;
 
                 MessageBox.Show("De user is succesvol aangemaakt.");
             }

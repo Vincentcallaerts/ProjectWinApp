@@ -31,24 +31,34 @@ namespace ProjectWinApp
         private void btnAddProduct_Click(object sender, RoutedEventArgs e)
         {
             int selectedValue = Convert.ToInt32(cmbSuppliers.SelectedValue);
-            double price = (double)dupdPrijs.Value;
-            if (dupdPrijs.Value != null && tbName.Text != null)
-            {
-                using (DataContext data = new DataContext())
-                {
-                    Product insertedProduct = new Product() { Name = tbName.Text, Price = price };
-                    data.Product.Add(insertedProduct);
-                    data.SaveChanges();
 
-                    data.ProductsSupplier.Add(new ProductsSupplier() { SupplierId = selectedValue, ProductId = insertedProduct.ProductId});
-                    data.SaveChanges();
+
+            if (dupdPrijs.Value.HasValue && tbName.Text != null)
+            {
+
+                double price = (double)dupdPrijs.Value;
+                if (price != 0)
+                {
+                    using (DataContext data = new DataContext())
+                    {
+                        Product insertedProduct = new Product() { Name = tbName.Text, Price = price };
+                        data.Product.Add(insertedProduct);
+                        data.SaveChanges();
+
+                        data.ProductsSupplier.Add(new ProductsSupplier() { SupplierId = selectedValue, ProductId = insertedProduct.ProductId });
+                        data.SaveChanges();
+                    }
+                    dupdPrijs.Value = null;
+                    tbName.Text = string.Empty;
                 }
-                dupdPrijs.Value = null;
-                tbName.Text = string.Empty;
+                else
+                {
+                    MessageBox.Show("De prijs mag niet 0 zijn");
+                }             
             }
             else
             {
-                MessageBox.Show("Een van de velden is leeg deze moeten allemaal ingevuld worden");
+                MessageBox.Show("Een van de velden is leeg of heeft een foute waarde");
             }          
         }
         private void FillRoles()

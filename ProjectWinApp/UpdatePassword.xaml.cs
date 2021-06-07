@@ -30,11 +30,20 @@ namespace ProjectWinApp
 
         private void btnChangePassword_Click(object sender, RoutedEventArgs e)
         {
-            using (DataContext data = new DataContext())
+            if (tbPassword.Password == tbPasswordCheck.Password)
             {
-                data.User.Where(u => u.UserId == User.UserId).FirstOrDefault().Password = md5.CreateMD5(tbPassword.Text);
-                data.SaveChanges();
+                using (DataContext data = new DataContext())
+                {
+                    data.User.Where(u => u.UserId == User.UserId).FirstOrDefault().Password = md5.CreateMD5(tbPassword.Password);
+                    data.SaveChanges();
+                }
+                MessageBox.Show("Wachtwoord is aangepast");
             }
+            else
+            {
+                MessageBox.Show("De opgegeven wachtwoorden kwamen niet overeen");
+            }
+            
         }
     }
 }

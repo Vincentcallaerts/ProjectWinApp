@@ -61,8 +61,8 @@ namespace ProjectWinApp
 
                 data.User.Add(new User() { UserRoleId = 1, FirstName = "Vincent", LastName = "Callaerts", Email = "Enail@gmail.com", Password = md5.CreateMD5("42069") });
 
-                data.User.Add(new User() { UserRoleId = 2, FirstName = "Vincent", LastName = "Callaerts", Email = "Vincent@gmail.com", Password = "42069" });
-                data.User.Add(new User() { UserRoleId = 2, FirstName = "Wincent", LastName = "Callaerts", Email = "WWincent@gmail.com", Password = "42069" });
+                data.User.Add(new User() { UserRoleId = 2, FirstName = "Vincent", LastName = "Callaerts", Email = "Vincent@gmail.com", Password = md5.CreateMD5("42069") });
+                data.User.Add(new User() { UserRoleId = 3, FirstName = "Wincent", LastName = "Callaerts", Email = "WWincent@gmail.com", Password = md5.CreateMD5("42069") });
                 data.User.Add(new User() { UserRoleId = 2, FirstName = "Vincent", LastName = "Callaerts", Email = "Vincent@gmail.com", Password = "42069" });
                 data.User.Add(new User() { UserRoleId = 2, FirstName = "Wincent", LastName = "Callaerts", Email = "WWincent@gmail.com", Password = "42069" });
                 data.User.Add(new User() { UserRoleId = 2, FirstName = "Vincent", LastName = "Callaerts", Email = "Vincent@gmail.com", Password = "42069" });

@@ -20,9 +20,12 @@ namespace ProjectWinApp
     /// </summary>
     public partial class Orders : Page
     {
-        public Orders()
+        public User User { get; set; }
+        public Orders(User user)
         {
+            User = user;
             InitializeComponent();
+            EnableCorrectButtons();
         }
 
         private void btnAddProductMagazijn_Click(object sender, RoutedEventArgs e)
@@ -43,6 +46,24 @@ namespace ProjectWinApp
         private void btnSeeOutgoingOrder_Click(object sender, RoutedEventArgs e)
         {
             fOrders.Content = new SeeOutgoingOrders();
+        }
+        private void EnableCorrectButtons()
+        {
+            switch (User.UserRoleId)
+            {
+                case 2:
+
+                    btnAddOrder.Visibility = Visibility.Collapsed;
+                    btnSeeIncommingOrder.Visibility = Visibility.Collapsed;
+
+
+                    break;
+                case 3:
+                    btnAddProductMagazijn.Visibility = Visibility.Collapsed;
+                    btnSeeOutgoingOrder.Visibility = Visibility.Collapsed;
+
+                    break;
+            }
         }
     }
 }

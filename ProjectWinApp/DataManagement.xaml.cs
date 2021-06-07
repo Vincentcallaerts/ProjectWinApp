@@ -25,6 +25,7 @@ namespace ProjectWinApp
         {
             User = user;
             InitializeComponent();
+            EnableCorrectButtons();
 
         }
 
@@ -129,7 +130,7 @@ namespace ProjectWinApp
             btnAddContent.IsEnabled = true;
             btnRemoveContent.IsEnabled = true;
             btnUpdateContent.IsEnabled = false;
-        }
+        }     
 
         private void btnRemove(object sender, RoutedEventArgs e)
         {
@@ -153,6 +154,37 @@ namespace ProjectWinApp
             btnRemoveContent.IsEnabled = true;
             btnUpdateContent.IsEnabled = true;
            
+        }
+        private void EnableCorrectButtons()
+        {
+            switch (User.UserRoleId)
+            {
+                case 2:
+
+                    btnRemoveUser.Visibility = Visibility.Collapsed;
+                    btnRemoveCustomer.Visibility = Visibility.Collapsed;
+                    btnUpdateUser.Visibility = Visibility.Collapsed;
+                    btnRemoveMagazijn.Visibility = Visibility.Collapsed;
+                    btnAddCustomer.Visibility = Visibility.Collapsed;
+                    btnAddMagazijn.Visibility = Visibility.Collapsed;
+                    btnAddUser.Visibility = Visibility.Collapsed;
+                    btnUpdateCustomer.Visibility = Visibility.Collapsed;
+
+                    break;
+                case 3:
+
+                    btnRemoveUser.Visibility = Visibility.Collapsed;
+                    btnUpdateUser.Visibility = Visibility.Collapsed;
+                    btnRemoveMagazijn.Visibility = Visibility.Collapsed;
+                    btnAddCustomer.Visibility = Visibility.Collapsed;
+                    btnAddMagazijn.Visibility = Visibility.Collapsed;
+                    btnAddUser.Visibility = Visibility.Collapsed;
+                    btnAddManagerMagazijn.Visibility = Visibility.Collapsed;
+                    btnRemoveManagerMagazijn.Visibility = Visibility.Collapsed;
+                    btnRemoveProductMagazijn.Visibility = Visibility.Collapsed;
+                    btnTransferProductMagazijn.Visibility = Visibility.Collapsed;
+                    break;
+            }
         }
     }
 }

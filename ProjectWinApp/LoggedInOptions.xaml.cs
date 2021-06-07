@@ -64,7 +64,7 @@ namespace ProjectWinApp
             fContent.Content = new DataManagement(LoggedIn);
             btnDataBeheer.IsEnabled = false;
             btnBestellingen.IsEnabled = true;
-            btnOverzicht.IsEnabled = true;
+            btnOverzicht.IsEnabled = true;                   
         }
 
         private void btnOverzicht_Click(object sender, RoutedEventArgs e)
@@ -77,7 +77,7 @@ namespace ProjectWinApp
 
         private void btnBestellingen_Click(object sender, RoutedEventArgs e)
         {
-            fContent.Content = new Orders();
+            fContent.Content = new Orders(LoggedIn);
             btnDataBeheer.IsEnabled = true;
             btnBestellingen.IsEnabled = false;
             btnOverzicht.IsEnabled = true;

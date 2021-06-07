@@ -23,8 +23,11 @@ namespace ProjectWinApp
         public User LoggedIn { get; set; }
         public Overvieuw(User user)
         {
-            InitializeComponent();
             LoggedIn = user;
+
+            InitializeComponent();
+            EnableCorrectButtons();
+
         }
 
         private void btnSeeUsers_Click(object sender, RoutedEventArgs e)
@@ -40,6 +43,23 @@ namespace ProjectWinApp
         private void btnSeeMagazijns_Click(object sender, RoutedEventArgs e)
         {
             fOvervieuw.Content = new SeeMagazijns(LoggedIn);
+        }
+        private void EnableCorrectButtons()
+        {
+            switch (LoggedIn.UserRoleId)
+            {
+                case 2:
+                    btnSeeUsers.Visibility = Visibility.Collapsed;
+                    btnSeeCustomers.Visibility = Visibility.Collapsed;
+                    
+
+                    break;
+                case 3:
+                    btnSeeUsers.Visibility = Visibility.Collapsed;
+                    btnSeeMagazijns.Visibility = Visibility.Collapsed;
+
+                    break;
+            }
         }
     }
 }

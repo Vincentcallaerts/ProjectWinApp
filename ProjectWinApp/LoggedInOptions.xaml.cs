@@ -35,7 +35,7 @@ namespace ProjectWinApp
 
         void CompositionTarget_Rendering(object sender, System.EventArgs e)
         {
-            fContent.Height = this.ActualHeight - wpButtons.ActualHeight - lbtitle.ActualHeight - sbInfo.ActualHeight;
+            fContent.Height = this.Height - wpButtons.ActualHeight - sbInfo.ActualHeight;
             UpdateTime();
         }
         private void UpdateTime()

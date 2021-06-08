@@ -48,7 +48,7 @@
             </StackPanel>
 
         </StackPanel>
-        <Frame x:Name="adminDataBeheer"  DockPanel.Dock="Right" Width="650" Background="White" NavigationUIVisibility="Hidden"></Frame>
+        <Frame x:Name="adminDataBeheer"  DockPanel.Dock="Right" Width="660" Background="White" NavigationUIVisibility="Hidden"></Frame>
         
     </DockPanel>
 </Page>

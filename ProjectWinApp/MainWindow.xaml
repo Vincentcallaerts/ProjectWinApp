@@ -12,7 +12,10 @@
         <TextBox x:Name="tbEmail"></TextBox>
         <Label>Password</Label>
         <PasswordBox x:Name="pbPassword"></PasswordBox>
-        <Button x:Name="btnLogIn" Margin="0,20,0,0" Click="LogIn">Log in</Button>
+        <Button x:Name="btnLogIn" Margin="0,20,0,0" Click="LogIn">Log In</Button>
         <Button x:Name="btnLogInQuick" Margin="0,20,0,0" Click="LogInQuick">Auto log in als admin</Button>
+        <Button x:Name="btnLogInQuickM" Margin="0,20,0,0" Click="LogInQuickM">Auto log in als Magazijnier</Button>
+        <Button x:Name="btnLogInQuickV" Margin="0,20,0,0" Click="LogInQuickV">Auto log in als Verkoper</Button>
+
     </StackPanel>
 </Window>

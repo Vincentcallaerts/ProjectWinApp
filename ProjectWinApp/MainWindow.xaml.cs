@@ -132,7 +132,29 @@ namespace ProjectWinApp
         {
             using (DataContext data = new DataContext())
             {
-                LoginAtempt = data.User.Where(u => u.UserId == 1).FirstOrDefault();
+                LoginAtempt = data.User.Where(u => u.UserRoleId == 1).FirstOrDefault();
+                LoggedInOptions loginSucces = new LoggedInOptions(LoginAtempt);
+                loginSucces.Show();
+                this.Close();
+            }
+        }
+
+        private void LogInQuickV(object sender, RoutedEventArgs e)
+        {
+            using (DataContext data = new DataContext())
+            {
+                LoginAtempt = data.User.Where(u => u.UserRoleId == 3).FirstOrDefault();
+                LoggedInOptions loginSucces = new LoggedInOptions(LoginAtempt);
+                loginSucces.Show();
+                this.Close();
+            }
+        }
+
+        private void LogInQuickM(object sender, RoutedEventArgs e)
+        {
+            using (DataContext data = new DataContext())
+            {
+                LoginAtempt = data.User.Where(u => u.UserRoleId == 2).FirstOrDefault();
                 LoggedInOptions loginSucces = new LoggedInOptions(LoginAtempt);
                 loginSucces.Show();
                 this.Close();

@@ -104,10 +104,11 @@ namespace ProjectWinApp
             new XRect(10, 420 + (products.Count * 20) + 120, 100, 0));
             //"footer voor tegen waneer dit te betalen is"
             //geeft de file een naam slaagt deze op en opent dit vervolgens
-            string filename = "C:/Users/Gebruiker/source/repos/ProjectWinApp/ProjectWinApp/Pages/HelloWorld.pdf";
-            document.Save(filename);
+            string filename = $"Order{orderId}.pdf";
+            string filepath = "C:/Users/Public/Desktop/"+filename;
+            document.Save(filepath);
            
-            Process.Start(filename);
+            Process.Start(filepath);
             
         }
         private double TotaalProducts(List<ProductsOrder> products)

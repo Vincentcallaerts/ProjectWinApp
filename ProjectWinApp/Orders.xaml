@@ -9,7 +9,7 @@
       Title="Orders">
 
     <DockPanel>
-        <StackPanel DockPanel.Dock="Left" Width="150" Background="AliceBlue">
+        <StackPanel DockPanel.Dock="Left" Width="160" Background="AliceBlue">
             <Label BorderBrush="Black" BorderThickness="2" Margin="0,0,0,10">Orders</Label>
             <Button x:Name="btnSeeIncommingOrder" Click="btnSeeIncommingOrder_Click">See Incomming Orders</Button>
             <Button x:Name="btnSeeOutgoingOrder" Click="btnSeeOutgoingOrder_Click">See Outgoing Orders</Button>

@@ -82,5 +82,12 @@ namespace ProjectWinApp
             btnBestellingen.IsEnabled = false;
             btnOverzicht.IsEnabled = true;
         }
+
+        private void btnLogout_Click(object sender, RoutedEventArgs e)
+        {
+            MainWindow LoggedOut = new MainWindow(false);
+            LoggedOut.Show();
+            this.Close();
+        }
     }
 }

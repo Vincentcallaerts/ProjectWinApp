@@ -59,7 +59,7 @@ namespace ProjectWinApp
                 var collection = data.Order.Where(c => c.CustomerId == selectedCustomerId).OrderBy(c => c.OrderDate);
                 foreach (var item in collection)
                 {
-                    Orders.Add(new ComboBoxIndexContent(item.CustomerId, item.OrderDate.ToString("dd,MM,yyyy")));
+                    Orders.Add(new ComboBoxIndexContent(item.OrderId, item.OrderDate.ToString("dd,MM,yyyy") + $"| {item.OrderId}"));
                 }
             }
             cmbOrders.ItemsSource = Orders;
@@ -86,14 +86,14 @@ namespace ProjectWinApp
 
             using (DataContext data = new DataContext())
             {
-                var collection = data.ProductsOrder.Where(c => c.CustomerId == selectedOrderId).OrderBy(c => c.Amount);
+                var collection = data.ProductsOrder.Where(c => c.OrderId == selectedOrderId).OrderBy(c => c.Amount);
                 foreach (var item in collection)
                 {
-                    ProductsOrder.Add(new ComboBoxIndexContent(item.CustomerId, item.ToString()));
+                    ProductsOrder.Add(new ComboBoxIndexContent(item.OrderId, item.ToString()));
                 }
             }
             lbProductOrders.ItemsSource = ProductsOrder;
-            lbProductOrders.SelectedIndex = 0;
+            
         }
 
         private void btnCreatePdf_Click(object sender, RoutedEventArgs e)

@@ -25,12 +25,17 @@
         </StatusBar>
         
         <StackPanel DockPanel.Dock="Top" >
-            <Label x:Name="lbtitle" HorizontalAlignment="Center" Margin="0,10,0,10" BorderBrush="Black" BorderThickness="1">Welkom</Label>
-            <WrapPanel HorizontalAlignment="Center" x:Name="wpButtons" Margin="0,0,0,10">
-                <Button x:Name="btnDataBeheer" Click="btnDataBeheer_Click">DataBeheer</Button>
-                <Button x:Name="btnOverzicht" Click="btnOverzicht_Click">Overzicht</Button>
-                <Button x:Name="btnBestellingen" Click="btnBestellingen_Click">Bestellingen</Button>
-            </WrapPanel>
+            <StackPanel Orientation="Horizontal" x:Name="wpButtons" Background="AliceBlue" Height="64">
+                <Label x:Name="lbtitle" BorderBrush="Black" BorderThickness="2" Width="160" FontSize="32">Welcome</Label>
+                <WrapPanel Orientation="Horizontal">
+                    <Button x:Name="btnDataBeheer" Margin="0,0,0,0"  Click="btnDataBeheer_Click">DataBeheer</Button>
+                    <Button x:Name="btnOverzicht" Margin="0,0,0,0" Click="btnOverzicht_Click">Overzicht</Button>
+                    <Button x:Name="btnBestellingen" Margin="0,0,0,0" Click="btnBestellingen_Click">Bestellingen</Button>
+                    <Button x:Name="btnLogout" Margin="0,0,0,0" Click="btnLogout_Click">Log Out</Button>
+                </WrapPanel>
+                
+
+            </StackPanel>
             <Frame x:Name="fContent" NavigationUIVisibility="Hidden"></Frame>
         </StackPanel>
         

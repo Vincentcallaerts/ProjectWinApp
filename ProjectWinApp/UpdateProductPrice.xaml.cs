@@ -74,8 +74,9 @@ namespace ProjectWinApp
 
         private void btnCreateEmptyFile_Click(object sender, RoutedEventArgs e)
         {
-            string bestandsnaam = "EmptyUpdatePrice.txt";
-            using (StreamWriter writer = new StreamWriter(bestandsnaam))
+            string filename = "EmptyUpdatePrice.txt";
+            string path = $"C:/Users/Public/Desktop/{filename}";
+            using (StreamWriter writer = new StreamWriter(path))
             {
                 writer.WriteLine("Fill in the following form and send it to us by mail.");
                 writer.WriteLine("-----------------------------------------------------------");

@@ -81,7 +81,7 @@ namespace ProjectWinApp
         }
         private void btnUpdateUserClick(object sender, RoutedEventArgs e)
         {
-            adminDataBeheer.Content = new UpdateUser();
+            adminDataBeheer.Content = new UpdateUser(User);
         }
 
         private void btnUpdateCustomerClick(object sender, RoutedEventArgs e)

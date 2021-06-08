@@ -35,10 +35,10 @@ namespace ProjectWinApp
 
             int selectedMagazijn = Convert.ToInt32(cmbWarehouses.SelectedValue);
             int selectedProduct = Convert.ToInt32(cmbProducts.SelectedValue);
-            int selectedAantal = Convert.ToInt32(iupdAantal.Text);
+            int selectedAantal = Convert.ToInt32(iupdAantal.Value);
             int selectedMagazijnForTransfer = Convert.ToInt32(lbWarehouses.SelectedValue);
-
-            if (selectedAantal != 0)
+           
+            if (selectedAantal <= 0)
             {
                 using (DataContext data = new DataContext())
                 {

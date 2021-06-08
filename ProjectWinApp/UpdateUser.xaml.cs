@@ -22,10 +22,12 @@ namespace ProjectWinApp
     {
         public List<ComboBoxIndexContent> Roles { get; set; }
         public List<ComboBoxIndexContent> Users { get; set; }
+        public User User { get; set; }
 
         public Encryptor md5 = new Encryptor();
-        public UpdateUser()
+        public UpdateUser(User user)
         {
+            User = user;
             InitializeComponent();
             FillRoles();            
         }
@@ -68,6 +70,7 @@ namespace ProjectWinApp
             }
             cmbRole.ItemsSource = Roles;
             cmbRole.SelectedIndex = 0;
+            //de 2de box met rolles maar aangezien deze altijd hetzelfde is doe ik dit met dezelfde data
             cmbRoleSelected.ItemsSource = Roles;
             cmbRoleSelected.SelectedIndex = 0;
             UpdateUsers();
@@ -93,7 +96,7 @@ namespace ProjectWinApp
 
             using (DataContext data = new DataContext())
             {
-                var collection = data.User.Where(u => u.UserRoleId == selectedValueUserRole);
+                var collection = data.User.Where(u => u.UserRoleId == selectedValueUserRole && u.UserId != User.UserId);
 
                 foreach (var item in collection)
                 {
@@ -120,7 +123,7 @@ namespace ProjectWinApp
             cmbRoleSelected.SelectedIndex = cmbRole.SelectedIndex;
             if (cmbUsers.SelectedItem != null)
             {
-                int selectedUser = Convert.ToInt32(cmbRole.SelectedValue);
+                int selectedUser = Convert.ToInt32(cmbUsers.SelectedValue);
                 using (DataContext data = new DataContext())
                 {
                     var collection = data.User.FirstOrDefault(u => u.UserId == selectedUser);

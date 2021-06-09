@@ -22,25 +22,31 @@ namespace ProjectWinApp
     {
         public List<ComboBoxIndexContent> Users { get; set; }
         public List<ComboBoxIndexContent> Magazijns { get; set; }
+        public User User { get; set; }
 
-        public AddOwnerMagazijn()
+        public AddOwnerMagazijn(User user)
         {
-            
+            User = user;
+
             InitializeComponent();
             FillRoles();
         }
 
         private void btnAddOwner_Click(object sender, RoutedEventArgs e)
         {
-            int selectedMagazijn = Convert.ToInt32(cmbMagazijns.SelectedValue);
-            int selectedUser = Convert.ToInt32(lbUsers.SelectedValue);
-
-            using (DataContext data = new DataContext())
+            if (Users.Count != 0)
             {
-                data.OwnersMagazijn.Add(new OwnersMagazijn() { MagazijnId = selectedMagazijn, UserId = selectedUser });
-                data.SaveChanges();
+                int selectedMagazijn = Convert.ToInt32(cmbMagazijns.SelectedValue);
+                int selectedUser = Convert.ToInt32(lbUsers.SelectedValue);
+
+                using (DataContext data = new DataContext())
+                {
+                    data.OwnersMagazijn.Add(new OwnersMagazijn() { MagazijnId = selectedMagazijn, UserId = selectedUser });
+                    data.SaveChanges();
+                }
+                Update();
             }
-            Update();
+         
         }
         private void FillRoles()
         {
@@ -49,7 +55,7 @@ namespace ProjectWinApp
 
             using (DataContext data = new DataContext())
             {
-                var collection = data.Magazijn.Select(m => m);
+                var collection = data.Magazijn.Join(data.OwnersMagazijn, m => m.MagazijnId, om => om.MagazijnId, (m, om) => new { MagazijnId = m.MagazijnId, Userid = om.UserId, Adress = m.Adress }).Where(m => m.Userid == User.UserId);
                 foreach (var item in collection)
                 {
                     Magazijns.Add(new ComboBoxIndexContent(item.MagazijnId, item.Adress)); 

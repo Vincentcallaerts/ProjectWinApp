@@ -12,7 +12,7 @@
     <StackPanel HorizontalAlignment="Center" Background="White">
 
         <Label>Magazijns</Label>
-        <ComboBox x:Name="cmbMagazijns" SelectedValuePath="Id">
+        <ComboBox x:Name="cmbMagazijns" SelectedValuePath="Id" DropDownClosed="cmbMagazijns_DropDownClosed">
             <ComboBox.ItemTemplate>
                 <DataTemplate>
                     <StackPanel Orientation="Horizontal">

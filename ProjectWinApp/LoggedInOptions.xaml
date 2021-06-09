@@ -5,16 +5,17 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:ProjectWinApp"
         mc:Ignorable="d"
-        Title="" Height="550" Width="800" Foreground="Black" >
+        Title="Project" Height="550" Width="800" Foreground="Black"  Icon="Images\favicon.ico">
     <Window.Resources>
-        <!--A Style that affects all TextBlocks-->
         <Style TargetType="Button">
             <Setter Property="Margin" Value="0,0,0,0" />
+            <Setter Property="Height" Value="64" />
+
         </Style>
     </Window.Resources>
 
     <DockPanel>
-        <StatusBar x:Name="sbInfo" DockPanel.Dock="Bottom">
+        <StatusBar x:Name="sbInfo" DockPanel.Dock="Bottom" Background="AliceBlue">
             <StatusBarItem HorizontalAlignment="Left">
                 <TextBlock x:Name="tbInfo"></TextBlock>
             </StatusBarItem>
@@ -26,10 +27,10 @@
         <StackPanel DockPanel.Dock="Top" >
             <StackPanel Orientation="Horizontal" x:Name="wpButtons" Background="AliceBlue" Height="64">
                 <Label x:Name="lbtitle" BorderBrush="Black" BorderThickness="2" Width="160" FontSize="32">Welcome</Label>
-                <WrapPanel Orientation="Horizontal">
-                    <Button x:Name="btnDataBeheer" Click="btnDataBeheer_Click">DataBeheer</Button>
-                    <Button x:Name="btnOverzicht" Click="btnOverzicht_Click">Overzicht</Button>
-                    <Button x:Name="btnBestellingen" Click="btnBestellingen_Click">Bestellingen</Button>
+                <WrapPanel x:Name="navigation" Orientation="Horizontal">
+                    <Button x:Name="btnDataBeheer" Click="btnDataBeheer_Click">DataManagment</Button>
+                    <Button x:Name="btnOverzicht" Click="btnOverzicht_Click">Overvieuw</Button>
+                    <Button x:Name="btnBestellingen" Click="btnBestellingen_Click">Orders</Button>
                     <Button x:Name="btnLogout" Click="btnLogout_Click">Log Out</Button>
                 </WrapPanel>
             </StackPanel>

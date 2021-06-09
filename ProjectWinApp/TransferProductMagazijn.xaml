@@ -8,8 +8,8 @@
       d:DesignHeight="450" d:DesignWidth="650"
       Title="TransferProductMagazijn">
 
-    <DockPanel>
-        <StackPanel DockPanel.Dock="Left" Background="White">
+    <DockPanel Margin="10,10,10,10" Background="White">
+        <StackPanel DockPanel.Dock="Left" Background="White" Margin="10,0,10,0">
             <Label>Warehouses</Label>
             <ComboBox x:Name="cmbWarehouses" SelectedValuePath="Id" DropDownClosed="cmbWarehouses_DropDownClosed">
                 <ComboBox.ItemTemplate>
@@ -36,7 +36,7 @@
         </StackPanel>
         <StackPanel DockPanel.Dock="Right" Background="White">
             <Label>Transfer Product here</Label>
-            <ListBox x:Name="lbWarehouses" SelectedValuePath="Id" MaxHeight="200" MinHeight="32">
+            <ListBox x:Name="lbWarehouses" SelectedValuePath="Id" MaxHeight="200" MinHeight="32" MinWidth="400" HorizontalAlignment="Left">
                 <ListBox.ItemTemplate>
                     <DataTemplate>
                         <StackPanel Orientation="Horizontal">
@@ -45,7 +45,7 @@
                     </DataTemplate>
                 </ListBox.ItemTemplate>
             </ListBox>
-            <Button x:Name="btnTransfer" Margin="0,10,0,0" Click="btnTransfer_Click">Transfer</Button>
+            <Button x:Name="btnTransfer" Margin="0,10,0,0" Click="btnTransfer_Click" MinWidth="400" MaxWidth="400" HorizontalAlignment="Left">Transfer</Button>
         </StackPanel>
 
     </DockPanel>

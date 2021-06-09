@@ -36,6 +36,12 @@ namespace ProjectWinApp
         void CompositionTarget_Rendering(object sender, System.EventArgs e)
         {
             fContent.Height = this.Height - wpButtons.ActualHeight - sbInfo.ActualHeight;
+            navigation.Width = this.Width - 160;
+            btnDataBeheer.Width = navigation.Width / 4;
+            btnBestellingen.Width = navigation.Width / 4;
+            btnOverzicht.Width = navigation.Width / 4;
+            btnLogout.Width = navigation.Width / 4;
+
             UpdateTime();
         }
         private void UpdateTime()
@@ -64,7 +70,8 @@ namespace ProjectWinApp
             fContent.Content = new DataManagement(LoggedIn);
             btnDataBeheer.IsEnabled = false;
             btnBestellingen.IsEnabled = true;
-            btnOverzicht.IsEnabled = true;                   
+            btnOverzicht.IsEnabled = true;
+            this.Title = "Project: DataManagment";
         }
 
         private void btnOverzicht_Click(object sender, RoutedEventArgs e)
@@ -73,6 +80,8 @@ namespace ProjectWinApp
             btnDataBeheer.IsEnabled = true;
             btnBestellingen.IsEnabled = true;
             btnOverzicht.IsEnabled = false;
+            this.Title = "Project: Overvieuw";
+
         }
 
         private void btnBestellingen_Click(object sender, RoutedEventArgs e)
@@ -81,6 +90,8 @@ namespace ProjectWinApp
             btnDataBeheer.IsEnabled = true;
             btnBestellingen.IsEnabled = false;
             btnOverzicht.IsEnabled = true;
+            this.Title = "Project: Orders";
+
         }
 
         private void btnLogout_Click(object sender, RoutedEventArgs e)

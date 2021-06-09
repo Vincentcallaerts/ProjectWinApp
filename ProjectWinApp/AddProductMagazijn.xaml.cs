@@ -22,13 +22,14 @@ namespace ProjectWinApp
     {
         public List<ComboBoxIndexContent> Products { get; set; }
         public List<ComboBoxIndexContent> Magazijns { get; set; }
-
-        public AddProductMagazijn()
+        public User User { get; set; }
+        public AddProductMagazijn(User user)
         {
+            User = user;
 
             InitializeComponent();
             FillRoles();
-            
+            Update();
         }
 
         private void btnAddProduct_Click(object sender, RoutedEventArgs e)
@@ -49,7 +50,6 @@ namespace ProjectWinApp
                     product = data.Product.Where(p => p.ProductId == selectedProduct).FirstOrDefault();
 
                     data.ProductsMagazijn.Add(new ProductsMagazijn() { MagazijnId = selectedMagazijn, ProductId = selectedProduct, Amount = selectedAantal, LastAdded = DateTime.Now});
-                    data.OrderMagazijn.Add(new OrderMagazijn() { MagazijnId = selectedMagazijn, ProductName = product.Name, Amount = selectedAantal, UnitPrice = product.Price, OrderDate = DateTime.Now});
                 }
                 else
                 {
@@ -79,24 +79,39 @@ namespace ProjectWinApp
 
             using (DataContext data = new DataContext())
             {
-                var collectionMagazijns = data.Magazijn.Select(m => m);
+                var collectionMagazijns = data.Magazijn.Join(data.OwnersMagazijn, m => m.MagazijnId, om => om.MagazijnId, (m, om) => new { MagazijnId = m.MagazijnId, Userid = om.UserId, Adress = m.Adress }).Where(m => m.Userid == User.UserId);
                 foreach (var item in collectionMagazijns)
                 {
                     Magazijns.Add(new ComboBoxIndexContent(item.MagazijnId, item.Adress));
                 }
                 
-                var collectionProducts = data.Product.Select(p => p);
-
-                foreach (var item in collectionProducts)
-                {
-                    Products.Add(new ComboBoxIndexContent(item.ProductId, item.Name));
-                }
             }
             cmbMagazijns.ItemsSource = Magazijns;
             cmbMagazijns.SelectedIndex = 0;
+            iupdAantal.Value = 0;
+        }
+
+        private void cmbMagazijns_DropDownClosed(object sender, EventArgs e)
+        {
+            Update();
+        }
+
+        private void Update()
+        {
+            lbProducten.ItemsSource = null;
+            Products = new List<ComboBoxIndexContent>();
+            int selectedMagazijn = Convert.ToInt32(cmbMagazijns.SelectedValue);
+            using (DataContext data = new DataContext())
+            {
+                var collectionPMagazijns = data.Product.Join(data.ProductsMagazijn, m => m.ProductId, om => om.ProductId, (m, om) => new { MagazijnId = om.MagazijnId, ProductId = om.ProductId, Name = m.Name }).Where(m => m.MagazijnId == selectedMagazijn);
+                foreach (var item in collectionPMagazijns)
+                {
+                    Products.Add(new ComboBoxIndexContent(item.ProductId, item.Name));
+                }
+
+            }
             lbProducten.ItemsSource = Products;
             lbProducten.SelectedIndex = 0;
-            iupdAantal.Value = 0;
-        }       
+        }
     }
 }

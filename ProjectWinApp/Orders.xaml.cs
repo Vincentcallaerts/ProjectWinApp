@@ -30,7 +30,7 @@ namespace ProjectWinApp
 
         private void btnAddProductMagazijn_Click(object sender, RoutedEventArgs e)
         {
-            fOrders.Content = new AddProductMagazijn();
+            fOrders.Content = new AddProductMagazijn(User);
         }
 
         private void btnAddOrder_Click(object sender, RoutedEventArgs e)

@@ -67,62 +67,96 @@ namespace ProjectWinApp
                 data.UserRole.Add(new UserRole() { UserRoleId = 2, Description = "Magazijnier" });
                 data.UserRole.Add(new UserRole() { UserRoleId = 3, Description = "Verkoper" });
 
-                data.User.Add(new User() { UserRoleId = 1, FirstName = "Vincent", LastName = "Callaerts", Email = "Enail@gmail.com", Password = md5.CreateMD5("42069") });
-                data.User.Add(new User() { UserRoleId = 1, FirstName = "Wincent", LastName = "Callaerts", Email = "WWincent@gmail.com", Password = "42069" });
+                data.User.Add(new User() { UserRoleId = 1, FirstName = "Vincent", LastName = "Callaerts", Email = "VincentCallaerts@gmail.com", Password = md5.CreateMD5("42069") });
+                data.User.Add(new User() { UserRoleId = 1, FirstName = "Kamiel", LastName = "K", Email = "KamielK@gmail.com", Password = md5.CreateMD5("42069") });
 
-                data.User.Add(new User() { UserRoleId = 2, FirstName = "Vincent", LastName = "Callaerts", Email = "Vincent@gmail.com", Password = md5.CreateMD5("42069") });
-                data.User.Add(new User() { UserRoleId = 3, FirstName = "Wincent", LastName = "Callaerts", Email = "WWincent@gmail.com", Password = md5.CreateMD5("42069") });
-                data.User.Add(new User() { UserRoleId = 2, FirstName = "Vincent", LastName = "Callaerts", Email = "Vincent@gmail.com", Password = "42069" });
-                data.User.Add(new User() { UserRoleId = 2, FirstName = "Wincent", LastName = "Callaerts", Email = "WWincent@gmail.com", Password = "42069" });
-                data.User.Add(new User() { UserRoleId = 2, FirstName = "Vincent", LastName = "Callaerts", Email = "Vincent@gmail.com", Password = "42069" });
-                data.User.Add(new User() { UserRoleId = 2, FirstName = "Wincent", LastName = "Callaerts", Email = "WWincent@gmail.com", Password = "42069" });
-                data.User.Add(new User() { UserRoleId = 2, FirstName = "Vincent", LastName = "Callaerts", Email = "Vincent@gmail.com", Password = "42069" });
-                data.User.Add(new User() { UserRoleId = 2, FirstName = "Wincent", LastName = "Callaerts", Email = "WWincent@gmail.com", Password = "42069" }); 
-                data.User.Add(new User() { UserRoleId = 2, FirstName = "Vincent", LastName = "Callaerts", Email = "Vincent@gmail.com", Password = "42069" });
-                data.User.Add(new User() { UserRoleId = 2, FirstName = "Wincent", LastName = "Callaerts", Email = "WWincent@gmail.com", Password = "42069" }); 
-                data.User.Add(new User() { UserRoleId = 2, FirstName = "Vincent", LastName = "Callaerts", Email = "Vincent@gmail.com", Password = "42069" });
-                data.User.Add(new User() { UserRoleId = 2, FirstName = "Wincent", LastName = "Callaerts", Email = "WWincent@gmail.com", Password = "42069" });
+                data.User.Add(new User() { UserRoleId = 2, FirstName = "Quinten", LastName = "D", Email = "QuintenD@gmail.com", Password = md5.CreateMD5("42069") });
+                data.User.Add(new User() { UserRoleId = 2, FirstName = "Ben", LastName = "Vhv", Email = "BenVhv@gmail.com", Password = md5.CreateMD5("42069") });
 
-                data.Magazijn.Add(new Magazijn() { Adress = "Testla1" });
-                data.Magazijn.Add(new Magazijn() { Adress = "Testla2" });
-                data.Magazijn.Add(new Magazijn() { Adress = "Testla3" });
+                data.User.Add(new User() { UserRoleId = 3, FirstName = "Michelle", LastName = "V", Email = "MichelleV@gmail.com", Password = md5.CreateMD5("42069") });
 
-                data.Customer.Add(new Customer() { Name = "testla1", Email = "testla@gmail.com" });
-                data.Customer.Add(new Customer() { Name = "testla2", Email = "testla@gmail.com" });
-                data.Customer.Add(new Customer() { Name = "testla3", Email = "testla@gmail.com" });
-                data.Customer.Add(new Customer() { Name = "testla4", Email = "testla@gmail.com" });
-                data.Customer.Add(new Customer() { Name = "testla5", Email = "testla@gmail.com" });
-                data.Customer.Add(new Customer() { Name = "testla6", Email = "testla@gmail.com" });
-                data.Customer.Add(new Customer() { Name = "testla7", Email = "testla@gmail.com" });
-                data.Customer.Add(new Customer() { Name = "testla8", Email = "testla@gmail.com" });
-                data.Customer.Add(new Customer() { Name = "testla9", Email = "testla@gmail.com" });
-                data.Customer.Add(new Customer() { Name = "testla10", Email = "testla@gmail.com" });
-                data.Customer.Add(new Customer() { Name = "testla11", Email = "testla@gmail.com" });
+                data.Magazijn.Add(new Magazijn() { Adress = "Stuivenberg 120" });
+                data.Magazijn.Add(new Magazijn() { Adress = "Nekkerspoel 43" });
+                data.Magazijn.Add(new Magazijn() { Adress = "AstridLaan 120" });
 
-                data.Supplier.Add(new Supplier() { Name = "Testla", Email = "testla@gmail.com" });
-                data.Supplier.Add(new Supplier() { Name = "MeerTestla", Email = "testla@gmail.com" });
-
-
-                data.Product.Add(new Product() { Name = "Test1", Price = 20 });
+                data.Customer.Add(new Customer() { Name = "Game mania", Email = "Gamemania@gmail.com" });
+                data.Customer.Add(new Customer() { Name = "Delheize", Email = "Delheize@gmail.com" });
+                data.Customer.Add(new Customer() { Name = "Inno", Email = "Inno@gmail.com" });
+                data.Customer.Add(new Customer() { Name = "MediaMarkt", Email = "MediaMarkt@gmail.com" });
                 
+                data.Supplier.Add(new Supplier() { Name = "Nintendo", Email = "Nintendo@gmail.com" });
+                data.Supplier.Add(new Supplier() { Name = "Heinze", Email = "Heinze@gmail.com" });
+                data.Supplier.Add(new Supplier() { Name = "Amazon", Email = "Amazon@gmail.com" });
+                data.Supplier.Add(new Supplier() { Name = "Sony", Email = "Sony@gmail.com" });
+
+                data.Product.Add(new Product() { Name = "Gamecube", Price = 99.99 });
+                data.Product.Add(new Product() { Name = "Switch", Price = 220.99 });
+                data.Product.Add(new Product() { Name = "Mario", Price = 50 });
+
+                data.Product.Add(new Product() { Name = "Mayonaise", Price = 2.5 });
+                data.Product.Add(new Product() { Name = "Ketchup", Price = 1.5 });
+                data.Product.Add(new Product() { Name = "Andaloes", Price = 0.99 });
+                data.Product.Add(new Product() { Name = "Looksaus", Price = 3 });
+
+                data.Product.Add(new Product() { Name = "Yogamat", Price = 32.99 });
+                data.Product.Add(new Product() { Name = "Usb", Price = 10 });
+                data.Product.Add(new Product() { Name = "Headset", Price = 60.99 });
+                data.Product.Add(new Product() { Name = "Phonecase", Price = 5 });
+
+                data.Product.Add(new Product() { Name = "Psp", Price = 199.99 });
+                data.Product.Add(new Product() { Name = "Playstation 5", Price = 500 });
+                data.Product.Add(new Product() { Name = "Camera", Price = 1999.50 });
+
+
+
                 data.SaveChanges();
 
                 data.ProductsSupplier.Add(new ProductsSupplier() { ProductId = 1, SupplierId = 1 });
+                data.ProductsSupplier.Add(new ProductsSupplier() { ProductId = 2, SupplierId = 1 });
+                data.ProductsSupplier.Add(new ProductsSupplier() { ProductId = 3, SupplierId = 1 });
+                data.ProductsSupplier.Add(new ProductsSupplier() { ProductId = 4, SupplierId = 2 });
+                data.ProductsSupplier.Add(new ProductsSupplier() { ProductId = 5, SupplierId = 2 });
+                data.ProductsSupplier.Add(new ProductsSupplier() { ProductId = 6, SupplierId = 2 });
+                data.ProductsSupplier.Add(new ProductsSupplier() { ProductId = 7, SupplierId = 2 });
+                data.ProductsSupplier.Add(new ProductsSupplier() { ProductId = 8, SupplierId = 3 });
+                data.ProductsSupplier.Add(new ProductsSupplier() { ProductId = 9, SupplierId = 3 });
+                data.ProductsSupplier.Add(new ProductsSupplier() { ProductId = 10, SupplierId = 3 });
+                data.ProductsSupplier.Add(new ProductsSupplier() { ProductId = 11, SupplierId = 3 });
+                data.ProductsSupplier.Add(new ProductsSupplier() { ProductId = 12, SupplierId = 4 });
+                data.ProductsSupplier.Add(new ProductsSupplier() { ProductId = 13, SupplierId = 4 });
+                data.ProductsSupplier.Add(new ProductsSupplier() { ProductId = 14, SupplierId = 4 });
+                
+
                 data.OwnersMagazijn.Add(new OwnersMagazijn() { MagazijnId = 1, UserId = 1 });
-                data.OwnersMagazijn.Add(new OwnersMagazijn() { MagazijnId = 1, UserId = 2 });
-                data.OwnersMagazijn.Add(new OwnersMagazijn() { MagazijnId = 1, UserId = 3 });
-                data.OwnersMagazijn.Add(new OwnersMagazijn() { MagazijnId = 1, UserId = 4 });
-                data.OwnersMagazijn.Add(new OwnersMagazijn() { MagazijnId = 1, UserId = 5 });
                 data.OwnersMagazijn.Add(new OwnersMagazijn() { MagazijnId = 2, UserId = 1 });
                 data.OwnersMagazijn.Add(new OwnersMagazijn() { MagazijnId = 3, UserId = 1 });
 
-                data.ProductsMagazijn.Add(new ProductsMagazijn() { ProductId = 1, MagazijnId = 1, Amount = 10 , LastAdded = DateTime.Now});
-                data.ProductsMagazijn.Add(new ProductsMagazijn() { ProductId = 1, MagazijnId = 2, Amount = 10, LastAdded = DateTime.Now });
-                data.ProductsMagazijn.Add(new ProductsMagazijn() { ProductId = 1, MagazijnId = 3, Amount = 10, LastAdded = DateTime.Now });
+                data.OwnersMagazijn.Add(new OwnersMagazijn() { MagazijnId = 1, UserId = 2 });
+                data.OwnersMagazijn.Add(new OwnersMagazijn() { MagazijnId = 2, UserId = 2 });
+                data.OwnersMagazijn.Add(new OwnersMagazijn() { MagazijnId = 3, UserId = 2 });
 
-                data.OrderMagazijn.Add(new OrderMagazijn() { MagazijnId = 1, ProductName = "Test1", Amount = 200, UnitPrice = 55.9, OrderDate = DateTime.Now });
-                data.OrderMagazijn.Add(new OrderMagazijn() { MagazijnId = 1, ProductName = "Test1", Amount = 200, UnitPrice = 55.9, OrderDate = DateTime.Now });
-                data.OrderMagazijn.Add(new OrderMagazijn() { MagazijnId = 1, ProductName = "Test1", Amount = 200, UnitPrice = 55.9, OrderDate = DateTime.Now });
+                data.OwnersMagazijn.Add(new OwnersMagazijn() { MagazijnId = 1, UserId = 3 });
+                data.OwnersMagazijn.Add(new OwnersMagazijn() { MagazijnId = 2, UserId = 3 });
+
+                data.OwnersMagazijn.Add(new OwnersMagazijn() { MagazijnId = 2, UserId = 4 });
+                data.OwnersMagazijn.Add(new OwnersMagazijn() { MagazijnId = 3, UserId = 4 });
+
+
+                data.ProductsMagazijn.Add(new ProductsMagazijn() { ProductId = 1, MagazijnId = 1, Amount = 10 , LastAdded = DateTime.Now});
+                data.ProductsMagazijn.Add(new ProductsMagazijn() { ProductId = 2, MagazijnId = 1, Amount = 20, LastAdded = DateTime.Now });
+                data.ProductsMagazijn.Add(new ProductsMagazijn() { ProductId = 3, MagazijnId = 1, Amount = 30, LastAdded = DateTime.Now });
+                data.ProductsMagazijn.Add(new ProductsMagazijn() { ProductId = 4, MagazijnId = 2, Amount = 40, LastAdded = DateTime.Now });
+                data.ProductsMagazijn.Add(new ProductsMagazijn() { ProductId = 5, MagazijnId = 2, Amount = 50, LastAdded = DateTime.Now });
+                data.ProductsMagazijn.Add(new ProductsMagazijn() { ProductId = 6, MagazijnId = 2, Amount = 60, LastAdded = DateTime.Now });
+                data.ProductsMagazijn.Add(new ProductsMagazijn() { ProductId = 7, MagazijnId = 2, Amount = 70, LastAdded = DateTime.Now });
+                data.ProductsMagazijn.Add(new ProductsMagazijn() { ProductId = 8, MagazijnId = 2, Amount = 80, LastAdded = DateTime.Now });
+                data.ProductsMagazijn.Add(new ProductsMagazijn() { ProductId = 9, MagazijnId = 3, Amount = 90, LastAdded = DateTime.Now });
+                data.ProductsMagazijn.Add(new ProductsMagazijn() { ProductId = 10, MagazijnId = 3, Amount = 24, LastAdded = DateTime.Now });
+                data.ProductsMagazijn.Add(new ProductsMagazijn() { ProductId = 11, MagazijnId = 3, Amount = 102, LastAdded = DateTime.Now });
+                data.ProductsMagazijn.Add(new ProductsMagazijn() { ProductId = 12, MagazijnId = 1, Amount = 99, LastAdded = DateTime.Now });
+                data.ProductsMagazijn.Add(new ProductsMagazijn() { ProductId = 13, MagazijnId = 1, Amount = 200, LastAdded = DateTime.Now });
+                data.ProductsMagazijn.Add(new ProductsMagazijn() { ProductId = 14, MagazijnId = 3, Amount = 96, LastAdded = DateTime.Now });
+
 
                 data.SaveChanges();
             }

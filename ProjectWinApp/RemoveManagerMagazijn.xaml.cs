@@ -22,9 +22,10 @@ namespace ProjectWinApp
     {
         public List<ComboBoxIndexContent> Users { get; set; }
         public List<ComboBoxIndexContent> Magazijns { get; set; }
-
-        public RemoveManagerMagazijn()
+        public User User { get; set; }
+        public RemoveManagerMagazijn(User user)
         {
+            User = user;
             InitializeComponent();
             FillRoles();
         }
@@ -48,7 +49,7 @@ namespace ProjectWinApp
 
             using (DataContext data = new DataContext())
             {
-                var collectionMagazijns = data.Magazijn.Select(m => m);
+                var collectionMagazijns = data.Magazijn.Join(data.OwnersMagazijn, m => m.MagazijnId, om => om.MagazijnId, (m, om) => new { MagazijnId = m.MagazijnId, Userid = om.UserId, Adress = m.Adress }).Where(m => m.Userid == User.UserId);
                 foreach (var item in collectionMagazijns)
                 {
                     Magazijns.Add(new ComboBoxIndexContent(item.MagazijnId, item.Adress));

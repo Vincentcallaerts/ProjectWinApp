@@ -61,7 +61,7 @@ namespace ProjectWinApp
 
         private void btnAddManagerMagazijn_Click(object sender, RoutedEventArgs e)
         {
-            adminDataBeheer.Content = new AddOwnerMagazijn();
+            adminDataBeheer.Content = new AddOwnerMagazijn(User);
         }
 
         private void btnAddProduct_Click(object sender, RoutedEventArgs e)
@@ -72,12 +72,12 @@ namespace ProjectWinApp
 
         private void btnRemoveProductsMagazijn_Click(object sender, RoutedEventArgs e)
         {
-            adminDataBeheer.Content = new RemoveProductMagazijn();
+            adminDataBeheer.Content = new RemoveProductMagazijn(User);
         }
 
         private void btnRemoveManagerMagazijn_Click(object sender, RoutedEventArgs e)
         {
-            adminDataBeheer.Content = new RemoveManagerMagazijn();
+            adminDataBeheer.Content = new RemoveManagerMagazijn(User);
         }
         private void btnUpdateUserClick(object sender, RoutedEventArgs e)
         {

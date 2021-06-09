@@ -70,45 +70,48 @@ namespace ProjectWinApp
             //405 is page height dus y 500 is de x tweede punt 10 x eerste punt
             gfx.DrawLine(lineRed, 10, 405, 580, 405);
 
-            
+
 
             //teken table content
-            for (int i = 0; i <= products.Count-1; i++)
+            if (products.Count <= 15)
             {
-                gfx.DrawString($"{products[i].Amount}", font, XBrushes.Black,
-                new XRect(10, 420 + (i*20), 100, 0));
-                gfx.DrawString($"{products[i].CurrentProductName}", font, XBrushes.Black,
-                new XRect(50, 420 + (i * 20), 100, 0));
-                gfx.DrawString($"{products[i].OrderUnitPrice * products[i].Amount}€", font, XBrushes.Black,
-                new XRect(380, 420 + (i * 20), 100, 0));
-                gfx.DrawString($"{products[i].OrderUnitPrice * products[i].Amount * 1.21}€", font, XBrushes.Black,
-                new XRect(480, 420 + (i * 20), 100, 0));
-                gfx.DrawLine(lineRed, 10, 425 + (i * 20), 580, 425 + (i * 20));
-            }
+                for (int i = 0; i <= products.Count - 1; i++)
+                {
+                    gfx.DrawString($"{products[i].Amount}", font, XBrushes.Black,
+                    new XRect(10, 420 + (i * 20), 100, 0));
+                    gfx.DrawString($"{products[i].CurrentProductName}", font, XBrushes.Black,
+                    new XRect(50, 420 + (i * 20), 100, 0));
+                    gfx.DrawString($"{products[i].OrderUnitPrice * products[i].Amount}€", font, XBrushes.Black,
+                    new XRect(380, 420 + (i * 20), 100, 0));
+                    gfx.DrawString($"{products[i].OrderUnitPrice * products[i].Amount * 1.21}€", font, XBrushes.Black,
+                    new XRect(480, 420 + (i * 20), 100, 0));
+                    gfx.DrawLine(lineRed, 10, 425 + (i * 20), 580, 425 + (i * 20));
+                }
 
-            gfx.DrawString($"Totaalbedrag excl BTW", font, XBrushes.Black,
-            new XRect(280, 420 + (products.Count * 20), 100, 0));
-            gfx.DrawString($"{TotaalProducts(products)}€", font, XBrushes.Black,
-            new XRect(480, 420 + (products.Count * 20), 100, 0));
+                gfx.DrawString($"Totaalbedrag excl BTW", font, XBrushes.Black,
+                new XRect(280, 420 + (products.Count * 20), 100, 0));
+                gfx.DrawString($"{TotaalProducts(products)}€", font, XBrushes.Black,
+                new XRect(480, 420 + (products.Count * 20), 100, 0));
 
-            gfx.DrawString($"21% BTW", font, XBrushes.Black,
-            new XRect(355, 420 + (products.Count * 20) + 20, 100, 0));
-            gfx.DrawString($"{TotaalProducts(products) * 0.21}€", font, XBrushes.Black,
-            new XRect(480, 420 + (products.Count * 20)+20, 100, 0));
+                gfx.DrawString($"21% BTW", font, XBrushes.Black,
+                new XRect(355, 420 + (products.Count * 20) + 20, 100, 0));
+                gfx.DrawString($"{TotaalProducts(products) * 0.21}€", font, XBrushes.Black,
+                new XRect(480, 420 + (products.Count * 20) + 20, 100, 0));
 
-            gfx.DrawLine(lineRed, 10, 425 + (products.Count * 20) + 20, 580, 425 + (products.Count * 20) + 20);
+                gfx.DrawLine(lineRed, 10, 425 + (products.Count * 20) + 20, 580, 425 + (products.Count * 20) + 20);
 
-            gfx.DrawString($"Gelieven het bedrag van {TotaalProducts(products)*1.21}€ over te maken voor: {orderBy.ToString("dd,MM,yyyy")}", font, XBrushes.Black,
-            new XRect(10, 420 + (products.Count * 20) + 100, 100, 0));
-            gfx.DrawString($"Rekeningnummer: BE39 7330 5924 5193", font, XBrushes.Black,
-            new XRect(10, 420 + (products.Count * 20) + 120, 100, 0));
-            //"footer voor tegen waneer dit te betalen is"
-            //geeft de file een naam slaagt deze op en opent dit vervolgens
-            string filename = $"Order{orderId}.pdf";
-            string filepath = "C:/Users/Public/Desktop/"+filename;
-            document.Save(filepath);
-           
-            Process.Start(filepath);
+                gfx.DrawString($"Gelieven het bedrag van {TotaalProducts(products) * 1.21}€ over te maken voor: {orderBy.ToString("dd,MM,yyyy")}", font, XBrushes.Black,
+                new XRect(10, 420 + (products.Count * 20) + 100, 100, 0));
+                gfx.DrawString($"Rekeningnummer: BE39 7330 5924 5193", font, XBrushes.Black,
+                new XRect(10, 420 + (products.Count * 20) + 120, 100, 0));
+                //"footer voor tegen waneer dit te betalen is"
+                //geeft de file een naam slaagt deze op en opent dit vervolgens
+                string filename = $"Order{orderId}.pdf";
+                string filepath = "C:/Users/Public/Desktop/" + filename;
+                document.Save(filepath);
+
+                Process.Start(filepath);
+            }                                   
             
         }
         private double TotaalProducts(List<ProductsOrder> products)

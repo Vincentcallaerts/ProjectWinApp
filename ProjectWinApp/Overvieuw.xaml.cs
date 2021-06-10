@@ -51,7 +51,9 @@ namespace ProjectWinApp
                 case 2:
                     btnSeeUsers.Visibility = Visibility.Collapsed;
                     btnSeeCustomers.Visibility = Visibility.Collapsed;
-                    
+                    btnSeeMProducts.Visibility = Visibility.Collapsed;
+                    btnSeeTProducts.Visibility = Visibility.Collapsed;
+
 
                     break;
                 case 3:
@@ -60,6 +62,16 @@ namespace ProjectWinApp
 
                     break;
             }
+        }
+
+        private void btnSeeProducts_Click(object sender, RoutedEventArgs e)
+        {
+            fOvervieuw.Content = new SeeProducts();
+        }
+
+        private void btnSeeTProducts_Click(object sender, RoutedEventArgs e)
+        {
+            fOvervieuw.Content = new SeeTopProducts();
         }
     }
 }

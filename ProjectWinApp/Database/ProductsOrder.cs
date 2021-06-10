@@ -22,7 +22,7 @@ namespace ProjectWinApp
         public double OrderUnitPrice { get; set; }
         public string CurrentProductName { get; set; }
 
-        public ProductsOrder(int productId, int magazijnId, int amount, double orderUnitPrice,string currentProductName)
+        public ProductsOrder(int magazijnId, int amount, double orderUnitPrice,string currentProductName)
         {
             MagazijnId = magazijnId;
             Amount = amount;

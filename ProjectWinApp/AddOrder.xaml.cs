@@ -122,7 +122,7 @@ namespace ProjectWinApp
                         Supplier suplier = data.Supplier.Where(p => p.SupplierId == selectedSupplier).FirstOrDefault();
                         Magazijn warehouse = data.Magazijn.Where(p => p.MagazijnId == selectedWarehouse).FirstOrDefault();
 
-                        productsOrders.Add(new ProductsOrder((int)cmbProducts.SelectedValue, (int)cmbWarehouses.SelectedValue, (int)iupdAantal.Value, product.Price, product.Name));
+                        productsOrders.Add(new ProductsOrder((int)cmbWarehouses.SelectedValue, (int)iupdAantal.Value, product.Price, product.Name));
 
                         ProductsOrders.Add(new ComboBoxIndexContent(productsOrders.Count - 1, $"Product: {product.Name} van {suplier.Name}  {amount}X voor {product.Price}€"));
 

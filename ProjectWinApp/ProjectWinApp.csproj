@@ -165,6 +165,12 @@
     <Compile Include="SeeOutgoingOrders.xaml.cs">
       <DependentUpon>SeeOutgoingOrders.xaml</DependentUpon>
     </Compile>
+    <Compile Include="SeeProducts.xaml.cs">
+      <DependentUpon>SeeProducts.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="SeeTopProducts.xaml.cs">
+      <DependentUpon>SeeTopProducts.xaml</DependentUpon>
+    </Compile>
     <Compile Include="SeeUsers.xaml.cs">
       <DependentUpon>SeeUsers.xaml</DependentUpon>
     </Compile>
@@ -283,6 +289,14 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="SeeOutgoingOrders.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="SeeProducts.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="SeeTopProducts.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

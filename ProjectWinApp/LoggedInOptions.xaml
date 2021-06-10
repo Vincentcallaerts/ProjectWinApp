@@ -27,7 +27,7 @@
         
         <StackPanel DockPanel.Dock="Top" >
             <StackPanel Orientation="Horizontal" x:Name="wpButtons" Background="AliceBlue" Height="64">
-                <Label x:Name="lbtitle" BorderBrush="Black" BorderThickness="2" Width="160" FontSize="32">Welcome</Label>
+                <Label x:Name="lbtitle" FontWeight="Bold" BorderBrush="Black" BorderThickness="2" Width="160" FontSize="32">Welcome</Label>
                 <WrapPanel x:Name="navigation" Orientation="Horizontal">
                     <Button x:Name="btnDataBeheer" Click="btnDataBeheer_Click">DataManagment</Button>
                     <Button x:Name="btnOverzicht" Click="btnOverzicht_Click">Overvieuw</Button>

@@ -35,12 +35,13 @@ namespace ProjectWinApp
         private void btnUpdateUser_Click(object sender, RoutedEventArgs e)
         {
             int selectedUser = Convert.ToInt32(cmbUsers.SelectedValue);
+            int selectedRole = Convert.ToInt32(cmbRoleSelected);
             using (DataContext data = new DataContext())
             {
                 data.User.Where(u => u.UserId == selectedUser).FirstOrDefault().FirstName = tbFirst.Text;
                 data.User.Where(u => u.UserId == selectedUser).FirstOrDefault().LastName = tbLast.Text;
                 data.User.Where(u => u.UserId == selectedUser).FirstOrDefault().Email = tbEmail.Text;
-
+                data.User.Where(u => u.UserId == selectedUser).FirstOrDefault().UserRoleId = selectedRole;
                 data.SaveChanges();
             }
             cmbRole.SelectedIndex = 0;

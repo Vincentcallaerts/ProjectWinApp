@@ -103,7 +103,7 @@ namespace ProjectWinApp
             int selectedMagazijn = Convert.ToInt32(cmbMagazijns.SelectedValue);
             using (DataContext data = new DataContext())
             {
-                var collectionPMagazijns = data.Product.Join(data.ProductsMagazijn, m => m.ProductId, om => om.ProductId, (m, om) => new { MagazijnId = om.MagazijnId, ProductId = om.ProductId, Name = m.Name }).Where(m => m.MagazijnId == selectedMagazijn);
+                var collectionPMagazijns = data.Product.Select(p =>p);
                 foreach (var item in collectionPMagazijns)
                 {
                     Products.Add(new ComboBoxIndexContent(item.ProductId, item.Name));

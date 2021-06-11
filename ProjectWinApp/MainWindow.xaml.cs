@@ -80,12 +80,12 @@ namespace ProjectWinApp
                 data.Magazijn.Add(new Magazijn() { Adress = "AstridLaan 120" });
 
                 data.Customer.Add(new Customer() { Name = "Game mania", Email = "Gamemania@gmail.com" });
-                data.Customer.Add(new Customer() { Name = "Delheize", Email = "Delheize@gmail.com" });
-                data.Customer.Add(new Customer() { Name = "Inno", Email = "Inno@gmail.com" });
+                data.Customer.Add(new Customer() { Name = "Easy-M", Email = "Delheize@gmail.com" });
+                data.Customer.Add(new Customer() { Name = "Bart smith", Email = "Inno@gmail.com" });
                 data.Customer.Add(new Customer() { Name = "MediaMarkt", Email = "MediaMarkt@gmail.com" });
                 
                 data.Supplier.Add(new Supplier() { Name = "Nintendo", Email = "Nintendo@gmail.com" });
-                data.Supplier.Add(new Supplier() { Name = "Heinze", Email = "Heinze@gmail.com" });
+                data.Supplier.Add(new Supplier() { Name = "NVIDIA", Email = "NVIDIA@gmail.com" });
                 data.Supplier.Add(new Supplier() { Name = "Amazon", Email = "Amazon@gmail.com" });
                 data.Supplier.Add(new Supplier() { Name = "Sony", Email = "Sony@gmail.com" });
 
@@ -93,10 +93,10 @@ namespace ProjectWinApp
                 data.Product.Add(new Product() { Name = "Switch", Price = 220.99 });
                 data.Product.Add(new Product() { Name = "Mario", Price = 50 });
 
-                data.Product.Add(new Product() { Name = "Mayonaise", Price = 2.5 });
-                data.Product.Add(new Product() { Name = "Ketchup", Price = 1.5 });
-                data.Product.Add(new Product() { Name = "Andaloes", Price = 0.99 });
-                data.Product.Add(new Product() { Name = "Looksaus", Price = 3 });
+                data.Product.Add(new Product() { Name = "NVIDIA GEFORCE RTX 3070", Price = 2.5 });
+                data.Product.Add(new Product() { Name = "NVIDIA GEFORCE RTX 3060 Ti", Price = 1.5 });
+                data.Product.Add(new Product() { Name = "NVIDIA GEFORCE RTX 3080", Price = 0.99 });
+                data.Product.Add(new Product() { Name = "NVIDIA GEFORCE RTX 3090", Price = 3 });
 
                 data.Product.Add(new Product() { Name = "Yogamat", Price = 32.99 });
                 data.Product.Add(new Product() { Name = "Usb", Price = 10 });
